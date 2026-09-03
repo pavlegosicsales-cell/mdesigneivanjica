@@ -4,6 +4,7 @@
 # skrejpovan stari sajt (scrape/, scrape-live/, extracted/) i radni fajlovi.
 /*
 !/.gitignore
+!/vercel.json
 !/site/
 
 # tudji Framer sajt, nije deo naseg koda i ne koristi ga nijedna strana
