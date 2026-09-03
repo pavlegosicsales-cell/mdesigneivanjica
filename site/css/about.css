@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Komponente sa About strane referentnog sajta, prenete 1:1
+   ========================================================================== */
+
+/* Sekcija: krem, max 1600, padding 80px 64px */
+.asec {
+  background: var(--cream);
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 80px var(--pad-x);
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+.asec--dark { background: var(--ink); }
+.asec--dark h2, .asec--dark h4 { color: var(--peach); }
+.asec--dark p { color: rgba(250,246,237,.62); }
+
+/* Header_Block: max 1200, kolona, gap 24 */
+.hblock { max-width: 1200px; width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.hblock p { max-width: 78ch; }
+
+/* Grid_Container: 3 kolone, gap 0 */
+.cgrid { display: grid; grid-template-columns: repeat(3, minmax(50px, 1fr)); gap: 0; width: 100%; }
+.cgrid--4 { grid-template-columns: repeat(4, minmax(50px, 1fr)); }
+@media (max-width: 1199.98px) { .cgrid, .cgrid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 809.98px) { .cgrid, .cgrid--4 { grid-template-columns: 1fr; padding-top: 40px; } }
+
+/* Cell: padding 40px 24px, gap 24, single linija desno (ne kutija) */
+.cell {
+  height: 100%;
+  padding: 40px 24px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 24px;
+  border-right: 1px solid rgba(110,106,101,.2);
+  overflow: hidden;
+}
+.cell:last-child { border-right: none; }
+.asec--dark .cell { border-color: rgba(250,246,237,.14); }
+.cell__img { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+.cell__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-hover); }
+.cell:hover .cell__img img { transform: scale(1.04); }
+.cell__n {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -.02em;
+  color: var(--accent);
+}
+/* Spec_Grid_Section (inspo Engineered_for_performance): veliki broj je muted sivo, Space Grotesk, ne accent */
+.cgrid--spec .cell__n {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+.cell p { margin: 0; }
+@media (max-width: 1199.98px) {
+  .cell { border-right: none; border-bottom: 1px solid rgba(110,106,101,.2); }
+  .cell:last-child { border-bottom: none; }
+}
+@media (max-width: 809.98px) { .cell { padding: 40px 20px; } }
+
+/* Sparkline: labela + traka 1px */
+.spark { width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.spark__l {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 16px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.4em;
+  color: var(--accent);
+}
+.spark__t { width: 100%; height: 1px; border-radius: 3px; background: rgba(110,106,101,.2); position: relative; }
+.asec--dark .spark__t { background: rgba(250,246,237,.2); }
+.spark__t span { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 3px; }
+
+/* Split_Container: 2 kolone, gap 48 */
+.split2 { display: grid; grid-template-columns: repeat(2, minmax(100px, 1fr)); gap: 48px; width: 100%; }
+@media (max-width: 1199.98px) { .split2 { grid-template-columns: 1fr; gap: 48px 0; } }
+
+/* Checklist u levom panelu */
+.checks { display: flex; flex-direction: column; gap: 20px; }
+.checks p { position: relative; padding-left: 26px; }
+.checks p::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--accent); }
+
+/* Milestones: 3 kolone, gap 16 */
+.miles3 { display: grid; grid-template-columns: repeat(3, minmax(50px, 1fr)); gap: 16px; width: 100%; }
+.miles3 .n {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 56px); font-weight: 700; line-height: 1.2em; letter-spacing: -.01em;
+  color: var(--ink);
+}
+.asec--dark .miles3 .n { color: var(--peach); }
+.miles3 .l {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 16px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.4em;
+  color: var(--accent); margin-top: 6px;
+}
+
+/* Kartica citata / napomene */
+.tcardq {
+  background: rgba(110,106,101,.15);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: 16px;
+  width: 100%;
+}
+.asec--dark .tcardq { background: rgba(250,246,237,.07); }
+.tcardq p { text-align: right; }
+.tcardq .src {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 16px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Traka oznaka koja klizi (Partner Logos Row) */
+.logorow { width: 100%; overflow: hidden; display: flex; flex-direction: column; gap: 16px; }
+.logorow__t {
+  display: flex; gap: 62px; width: max-content;
+  animation: marq 32s linear infinite;
+}
+.logorow__t p {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 16px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.4em;
+  color: var(--muted); white-space: nowrap;
+}
+.asec--dark .logorow__t p { color: rgba(250,246,237,.45); }
+@keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .logorow__t { animation: none; } }
+
+/* CLOSING CTA: tamna, padding 140px 64px, centrirano */
+.closing {
+  background: var(--ink);
+  padding: 140px var(--pad-x);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+.closing .hblock { align-items: center; }
+.closing h2 { color: var(--peach); max-width: 16ch; }
+.closing p { color: rgba(250,246,237,.62); max-width: 56ch; }
+@media (max-width: 809.98px) { .closing { padding: 80px var(--pad-x); } }

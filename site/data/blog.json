@@ -1,0 +1,130 @@
+{
+  "_uputstvo": "Clanci za sekciju Saveti. Dodaj objekat u niz i pokreni: node build.js",
+
+  "kategorije": ["Gradnja", "Cene i budžet", "Dozvole", "Održavanje", "Turizam"],
+
+  "clanci": [
+    {
+      "slug": "koliko-kosta-a-frame-kuca-u-srbiji",
+      "naslov": "Koliko zaista košta A-frame kuća u Srbiji",
+      "kategorija": "Cene i budžet",
+      "datum": "2026-08-28",
+      "istaknut": true,
+      "slika": "images/objekti/aframe-dizajn.png",
+      "sazetak": "Kataloška cena je samo početna tačka. Evo šta se sve dodaje na nju i zašto se dve iste kuće mogu razlikovati za deset hiljada evra.",
+      "sadrzaj": [
+        {"h": "Kataloška cena nije konačna cena", "p": "Kada vidite da A-frame model od 48 m² počinje od 20.200 € u sivoj fazi, to je cena za tipski objekat, u standardnoj specifikaciji, na pripremljenom terenu, u okviru ugovorenog transportnog radijusa. Sve što odstupa od toga menja iznos. To nije trik, to je priroda posla: kuća se gradi na konkretnoj parceli, a parcele nisu iste."},
+        {"h": "Temelj je prva stavka koja se dodaje", "p": "Temelj se ne uračunava u cenu kuće jer zavisi od tla. Orijentaciono, tipska armiranobetonska ploča košta 90 do 120 € po kvadratu osnove. Za kuću 6 × 7 m to je oko 3.800 €. Ako je teren u nagibu, ako ima stenske mase, ako treba potporni zid ili šipovi, iznos raste i računa se posebno."},
+        {"h": "Paket opreme pravi najveću razliku", "p": "Razlika između sive faze i ključa u ruke je često 50 % ukupne cene. Siva faza znači zatvoren objekat spolja. Standard dodaje instalacije, podove, keramiku, kupatilo i unutrašnju stolariju. Premium podiže izolaciju, obloge i stolariju na viši nivo. Vredi znati da se limiti završnih materijala ugovaraju unapred, na primer laminat do 20 € po kvadratu u standardu."},
+        {"h": "Šta ljudi najčešće zaborave da uračunaju", "p": "Priključci struje i vode do objekta, septička jama ili prečistač, projekat i dozvole, geodetski snimak, uređenje prilaza, kuhinja i nameštaj, grejna tela. Nijedna od tih stavki nije deo cene kuće ni kod jednog ozbiljnog izvođača, ali sve moraju negde da stanu u budžet."},
+        {"h": "Kako da dobijete tačan broj", "p": "Pošaljite lokaciju i link mape, fotografije parcele i prilaznog puta, željenu kvadraturu i broj korisnika, izabrani paket i okvirni budžet. Na osnovu toga se pravi ponuda koja ima stvarne brojeve, a ne raspon."}
+      ]
+    },
+    {
+      "slug": "a-frame-ili-montazna-kuca-sta-izabrati",
+      "naslov": "A-frame ili montažna kuća, šta izabrati",
+      "kategorija": "Gradnja",
+      "datum": "2026-08-20",
+      "istaknut": false,
+      "slika": "images/objekti/montazna-moderna.png",
+      "sazetak": "Nije stvar ukusa koliko načina života. Poređenje po korisnoj površini, ceni po kvadratu, održavanju i nameni.",
+      "sadrzaj": [
+        {"h": "Korisna površina se razlikuje više nego što izgleda", "p": "A-frame kuća ima kosi krov koji ide skoro do poda, pa je deo kvadrature niži od dva metra i teže se koristi za nameštaj. Montažna prizemna kuća ima pune zidove i celu kvadraturu upotrebljivu. Kod A-frame modela galerija to delimično nadoknađuje, ali galerija nije isto što i soba."},
+        {"h": "Cena po kvadratu", "p": "A-frame je efikasniji po kvadratu kod manjih objekata, jer je konstrukcija jednostavnija i krov i zid su isti element. Kod većih kvadratura prednost prelazi na montažnu kuću, jer se A-frame krov mora ojačavati i staklena fasada postaje skupa stavka."},
+        {"h": "Namena presuđuje", "p": "Za izdavanje i vikendicu A-frame skoro uvek pobeđuje, jer izgled prodaje noćenje i gost ga pamti. Za celogodišnje stanovanje porodice, montažna prizemna kuća je praktičnija: lakše grejanje, više soba u nivou, jednostavnije održavanje."},
+        {"h": "Održavanje", "p": "Kod A-frame kuće veća je površina krova u odnosu na osnovu, pa su oluci, opšivke i sneg tema kojoj se posvećuje više pažnje. Drvena fasada se kod oba tipa obnavlja po izloženosti, otprilike na dve do tri godine."}
+      ]
+    },
+    {
+      "slug": "temelj-za-montaznu-kucu-kako-se-bira",
+      "naslov": "Temelj za montažnu kuću, kako se bira",
+      "kategorija": "Gradnja",
+      "datum": "2026-08-12",
+      "istaknut": false,
+      "slika": "images/objekti/montazna-trem.png",
+      "sazetak": "Armiranobetonska ploča, trakasti temelj ili sistem greda i stubova. Šta odlučuje i koliko koja varijanta košta.",
+      "sadrzaj": [
+        {"h": "Temelj se ne bira napamet", "p": "Konačno rešenje zavisi od geomehaničkih uslova, nagiba terena, dubine smrzavanja, podzemnih voda, pristupa mehanizaciji i statičkog proračuna. Isti model kuće može imati tri različita temelja na tri parcele."},
+        {"h": "Armiranobetonska ploča", "p": "Ima smisla na ravnom ili pripremljenom terenu sa ravnomernim oslanjanjem. Daje brzu i čistu podnu zonu. Traži iskop, tampon, drenažu i debljinu prema projektu."},
+        {"h": "Trakasti temelji", "p": "Klasično temeljenje na nosivom tlu. Fleksibilno je za različite osnove, ali zahteva precizno izvođenje zidova i serklaža."},
+        {"h": "Grede i stubovi", "p": "Koristi se na nagibu ili kada treba smanjiti obim iskopa. Manje zemljanih radova, ali obavezna statika, ukrućenje i kontrola oslonaca."},
+        {"h": "Šta treba dostaviti za ponudu temelja", "p": "Lokaciju i katastarsku parcelu, geodetski snimak sa visinskim kotama, geomehanički elaborat kada je potreban, fotografije prilaza i radne zone, podatke o priključcima i odvođenju vode, i željenu kotu poda."}
+      ]
+    },
+    {
+      "slug": "da-li-je-a-frame-kuca-za-celogodisnji-boravak",
+      "naslov": "Da li je A-frame kuća za celogodišnji boravak",
+      "kategorija": "Gradnja",
+      "datum": "2026-08-04",
+      "istaknut": false,
+      "slika": "images/objekti/aframe-minimal.png",
+      "sazetak": "Jeste, ali pod uslovima. Izolacija, stolarija, grejanje i ventilacija moraju biti projektovani za konkretnu lokaciju.",
+      "sadrzaj": [
+        {"h": "Kratak odgovor", "p": "Da, kada su konstrukcija, izolacija, stolarija, grejanje i ventilacija projektovani za konkretnu lokaciju i režim korišćenja. A-frame nije po prirodi letnja kuća, ali jeste kuća sa velikom staklenom površinom i velikom površinom krova, pa te dve stavke traže pažnju."},
+        {"h": "Izolacija", "p": "Standard je 20 cm staklene vune u krovu i 10 cm u zidovima. Za planinske lokacije i celogodišnji boravak ide se na 25 i 15 cm, ili na kamenu vunu prema projektu."},
+        {"h": "Staklena fasada", "p": "Osnovna varijanta je kvalitetna PVC stolarija sa termoizolacionim staklom. Za veće visine i hladnije lokacije biraju se troslojno staklo, low-e premazi i solarna kontrola. Kod velikih površina to prestaje da bude detalj i postaje stavka budžeta."},
+        {"h": "Grejanje i vazduh", "p": "Standardno rešenje je inverter klima odgovarajuće snage. Za stalno stanovanje razmatra se podno grejanje, toplotna pumpa ili kamin sa dimnjačkim sistemom. Provetravanje je bitno zbog velike staklene površine i kondenzacije, pa se planira rekuperacija gde ima smisla."}
+      ]
+    },
+    {
+      "slug": "dozvole-za-montazne-objekte",
+      "naslov": "Dozvole za montažne objekte, šta treba znati",
+      "kategorija": "Dozvole",
+      "datum": "2026-07-25",
+      "istaknut": false,
+      "slika": "images/objekti/vikendica.png",
+      "sazetak": "Vrsta dokumentacije zavisi od lokacije, namene i propisa. Evo kako se postavlja pitanje i koga se pita.",
+      "sadrzaj": [
+        {"h": "Ko odgovara na ovo pitanje", "p": "Vrstu dokumentacije određuju važeći propisi, lokacijski uslovi i namena objekta. To se proverava sa odgovornim projektantom i nadležnim organom u opštini gde se gradi, pre početka radova. Izvođač nije taj koji izdaje ili tumači dozvole."},
+        {"h": "Zašto je odgovor različit od opštine do opštine", "p": "Planska dokumentacija se razlikuje po lokalnim samoupravama. Ista kvadratura može biti različito tretirana u zavisnosti od zone, namene zemljišta i toga da li je objekat privremenog ili trajnog karaktera."},
+        {"h": "Šta možete da uradite unapred", "p": "Pribavite kopiju plana i list nepokretnosti, proverite namenu parcele i uslove gradnje u opštini, i angažujte projektanta koji radi dokumentaciju za vaš slučaj. Tek kada to znate, ima smisla zaključavati model i rok."},
+        {"h": "Naša uloga", "p": "Mi izvodimo objekat prema ugovorenoj specifikaciji i projektu. Po potrebi preporučujemo saradnike za projektovanje. Investitor obezbeđuje projekat i dozvole, osim kada je izričito drugačije ugovoreno."}
+      ]
+    },
+    {
+      "slug": "odrzavanje-drvenih-objekata",
+      "naslov": "Održavanje drvenih objekata kroz godinu",
+      "kategorija": "Održavanje",
+      "datum": "2026-07-14",
+      "istaknut": false,
+      "slika": "images/objekti/letnjikovac.png",
+      "sazetak": "Šta se proverava na tri meseca, šta jednom godišnje, i kada se obnavlja spoljna zaštita drveta.",
+      "sadrzaj": [
+        {"h": "Na tri do šest meseci", "p": "Vizuelna kontrola oluka, odvoda, zaptivki, ventilacionih otvora i prodora. Ovo je posao od petnaest minuta koji sprečava najskuplje kvarove."},
+        {"h": "Jednom godišnje", "p": "Pregled krova, opšivki, fasade, spojeva stolarije, terasa i premaza drveta. Ako negde voda ne otiče kako treba, vidi se upravo tada."},
+        {"h": "Pre zime", "p": "Čišćenje oluka, korekcija silikona i zaptivki, podešavanje okova. Provera grejanja, zaštite instalacija od smrzavanja, dimnjaka i odvođenja atmosferske vode."},
+        {"h": "Periodično", "p": "Obnova spoljne zaštite drveta prema izloženosti, tonu, proizvodu i uputstvu proizvođača. Južna i zapadna strana troše premaz brže od severne. Ovo je uslov trajnosti i uslov garancije."}
+      ]
+    },
+    {
+      "slug": "bungalov-za-izdavanje-racunica",
+      "naslov": "Bungalov za izdavanje, kratka računica",
+      "kategorija": "Turizam",
+      "datum": "2026-07-02",
+      "istaknut": false,
+      "slika": "images/objekti/dome.png",
+      "sazetak": "Šta se planira pre nego što se kupi jedinica za turističko izdavanje: kapacitet, sadržaj i trošak održavanja.",
+      "sadrzaj": [
+        {"h": "Broj ležajeva nije jedini parametar", "p": "Popunjenost zavisi od lokacije, sadržaja i fotografija koliko i od kapaciteta. Jedinica od 24 m² sa lepim frontом i terasom često se izdaje bolje od veće jedinice bez karaktera."},
+        {"h": "Šta gost primeti prvo", "p": "Kupatilo, grejanje i hlađenje, i spoljni prostor. To su tri stavke gde se ne isplati štedeti ako je namena izdavanje."},
+        {"h": "Održavanje je stalni trošak", "p": "Čišćenje, posteljina, potrošni materijal i sezonske intervencije. Kod više jedinica u istoj liniji dizajna, taj trošak po jedinici pada jer se nabavka standardizuje."},
+        {"h": "Ako planirate više jedinica", "p": "Radi se master plan sa miksom modela, fazna realizacija koja prati prodaju i finansiranje, i standardizacija slojeva, boja i opreme. Zajednička nabavka i ponavljajuća proizvodnja mogu smanjiti jedinične troškove."}
+      ]
+    },
+    {
+      "slug": "kako-se-bira-model-po-broju-korisnika",
+      "naslov": "Kako se bira model prema broju korisnika",
+      "kategorija": "Gradnja",
+      "datum": "2026-06-18",
+      "istaknut": false,
+      "slika": "images/objekti/aframe-terasa.png",
+      "sazetak": "Kvadratura sama po sebi nije dovoljan kriterijum. Evo šta je važnije i kako se to prevodi u izbor modela.",
+      "sadrzaj": [
+        {"h": "Prvo pitanje je režim korišćenja", "p": "Da li je objekat za stalno stanovanje, vikend boravak ili izdavanje. To menja sve dalje: broj kupatila, tip grejanja, potrebu za ostavom i tehničkom prostorijom."},
+        {"h": "Drugo pitanje je broj stalnih korisnika", "p": "Par ili mala porodica staje u 48 do 54 m². Porodica sa dvoje dece traži bar 69 do 85 m² sa odvojenim spavanjem. Preko šest korisnika ide se na 110 m² i više, sa dve mokre zone."},
+        {"h": "Treće je parcela", "p": "Nagib, pristup za kamion i mehanizaciju, orijentacija pogleda i položaj prema suncu. Isti model se na dve parcele postavlja različito i to menja i temelj i cenu."},
+        {"h": "Tek onda kvadratura", "p": "Kada znate režim, broj korisnika i parcelu, izbor modela je skoro automatski. Zato prvi razgovor uvek počinje tim pitanjima, a ne katalogom."}
+      ]
+    }
+  ]
+}

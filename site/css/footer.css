@@ -1,0 +1,193 @@
+/* ==========================================================================
+   FOOTER  -  preuzet 1:1 sa referentnog sajta
+   Telemetry_Strip (gore) -> Link_grid -> wordmark + kabina -> Telemetry (dole)
+   ========================================================================== */
+
+.site-footer {
+  --fpad: 28px;
+  --cab-inset: 60px;         /* bocni razmak kuce */
+  --cab-ratio: 1.4798728814;  /* odnos stranica nove slike (1397x944) */
+  --cab-cap: 1040px;          /* max sirina kuce */
+  /* footer mora biti visok bar koliko i kuca; mali bafer da vrh kuce dodirne gornju traku */
+  min-height: calc(min(calc(100vw - var(--cab-inset) * 2), var(--cab-cap)) / var(--cab-ratio) + 50px);
+  display: flex;
+  flex-direction: column;              /* uze margine nego ostatak sajta, da linkovi izadju ka ivicama */
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Telemetry_Strip: visina 60, bordure 1px rgba(250,246,237,.1) -------- */
+.telemetry {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  height: 60px;
+  padding: 0 var(--fpad);
+  display: flex; flex-flow: row; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(250,246,237,.1);
+  border-bottom: 1px solid rgba(250,246,237,.1);
+  overflow: hidden;
+  position: relative;
+  z-index: 6;
+}
+.telemetry p, .telemetry span {
+  font-size: 12px; font-weight: 500; letter-spacing: .02em; line-height: 1em;
+  text-transform: uppercase;
+  color: rgba(250,246,237,.4);
+  white-space: nowrap;
+}
+.telemetry .on { color: var(--accent); }
+.telemetry a { color: rgba(250,246,237,.4); transition: color .4s var(--ease-hover); }
+.telemetry a:hover { color: var(--accent); }
+@media (max-width: 1199.98px) { .telemetry { height: auto; justify-content: center; gap: 20px; padding: 16px var(--fpad); } }
+@media (max-width: 809.98px) { .telemetry { flex-direction: column; gap: 12px; padding: 16px 20px; } .telemetry p, .telemetry span { white-space: normal; text-align: center; } }
+
+/* Donja traka stoji PREKO slike, pa njena linija preseca kucu. */
+.telemetry--bottom { z-index: 6; background: transparent; }
+.telemetry .pato { color: var(--accent); font-weight: 700; }
+.telemetry .pato:hover { color: var(--peach); }
+
+/* --- Link_grid: pretplata levo, tri kolone gurnute desno ----------------- */
+.lgrid {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 24px var(--fpad);
+  z-index: 6;
+  display: flex; flex-flow: row; align-items: flex-start; justify-content: space-between;
+  gap: 40px;
+  position: relative;
+}
+.lcols { display: flex; flex-flow: row; align-items: flex-start; gap: 24px; }
+@media (max-width: 1199.98px) { .lcols { gap: 12px; } }
+@media (max-width: 809.98px) {
+  .lgrid { flex-direction: column; gap: 48px; padding: 24px var(--fpad); }
+  .lcols { flex-direction: column; gap: 40px; width: 100%; }
+}
+
+/* pretplata */
+.lnews { max-width: 320px; display: flex; flex-direction: column; gap: 16px; }
+.lnews p { font-size: 18px; line-height: 1.6em; color: rgba(250,246,237,.62); }
+.lnews__form { display: flex; align-items: center; gap: 0; border-bottom: 1px solid rgba(250,246,237,.2); }
+.lnews__form input {
+  flex: 1; min-width: 0;
+  background: transparent; border: 0; outline: none;
+  padding: 10px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase;
+  color: var(--cream);
+}
+.lnews__form input::placeholder { color: rgba(250,246,237,.4); }
+.lnews__form button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 0 10px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase;
+  color: var(--cream);
+  transition: color .4s var(--ease-hover);
+}
+.lnews__form button:hover { color: var(--accent); }
+.lnews__form button svg { width: 14px; height: 14px; }
+
+/* kolone linkova: sirina 139px, gap 10, centrirano */
+.lcol { width: 139px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.lcol a {
+  font-size: 14px; font-weight: 400; line-height: 1.5em;
+  color: var(--cream); text-align: center;
+  transition: color .4s var(--ease-hover);
+}
+.lcol a:hover { color: var(--accent); }
+@media (max-width: 809.98px) { .lcol { width: 100%; align-items: flex-start; } .lcol a { text-align: left; } }
+
+/* --- Wordmark: preko cele sirine, popunjava visinu footera ------------- */
+.fmark {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  flex: 1;
+  min-height: 167px;                /* njihova vrednost, raste da kuca stane */
+  padding: 0;                       /* njihova vrednost */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+  pointer-events: none;
+}
+.fmark__t {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Big Shoulders', sans-serif;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: .78em;
+  font-size: 100px;                /* JS doteruje na punu sirinu */
+  opacity: .22;
+  user-select: none;
+  background-image: linear-gradient(0deg, var(--accent-dark) 0%, rgba(0,0,0,0) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* --- Kabina --------------------------------------------------------------
+   Slika je isecena do ivica, pa donja ivica kuce sedi na samom dnu strane.
+   Poslednja telemetrijska linija je iznad nje i preseca je.
+   Vrh kuce je usko, pa linkovi levo i desno ostaju citljivi.
+   -------------------------------------------------------------------------- */
+.fcabin {
+  position: absolute;
+  bottom: 0;                        /* njihova vrednost */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - var(--cab-inset) * 2), var(--cab-cap));
+  aspect-ratio: var(--cab-ratio);
+  height: auto;
+  z-index: 1;                       /* njihova vrednost */
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+}
+.fcabin img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+/* Tamni sloj je stalno prisutan i bez boje. */
+.fcabin--dim { filter: brightness(.26) saturate(0); -webkit-filter: brightness(.26) saturate(0); }
+
+/* Svetli sloj ulazi iz sive u punu boju kad footer udje u kadar. */
+.fcabin--bright {
+  opacity: 0;
+  filter: brightness(1) saturate(0);
+  -webkit-filter: brightness(1) saturate(0);
+  transition: opacity 1.2s var(--ease-appear), filter 1.4s var(--ease-appear);
+}
+.site-footer.on .fcabin--bright {
+  opacity: 1;
+  filter: brightness(1) saturate(.98);
+  -webkit-filter: brightness(1) saturate(.98);
+}
+
+/* Wordmark isto: iz sive u terakotu. */
+.fmark__t {
+  filter: saturate(0);
+  -webkit-filter: saturate(0);
+  transition: filter 1.4s var(--ease-appear);
+}
+.site-footer.on .fmark__t { filter: saturate(1); -webkit-filter: saturate(1); }
+
+@media (max-width: 1199.98px) { .site-footer { --cab-inset: 28px; } }
+@media (max-width: 809.98px)  { .site-footer { --cab-inset: 0px; } }
+@media (max-width: 1199.98px) { .site-footer { --fpad: 24px; } }
+@media (max-width: 809.98px)  { .site-footer { --fpad: 16px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fcabin--bright { opacity: 1; filter: brightness(1) saturate(.98); transition: none; }
+  .fmark__t { filter: saturate(1); transition: none; }
+}

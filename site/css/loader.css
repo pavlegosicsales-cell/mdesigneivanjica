@@ -1,0 +1,84 @@
+/* ==========================================================================
+   LOADER: cetiri 3D kocke koje kruze
+   Preneto iz React komponente u cist CSS. Keyframe vrednosti su iste,
+   3D transformacije stranica su dopisane jer ih isecak nije sadrzao.
+   Prikazuje se na crnom sloju pri promeni stranice.
+   ========================================================================== */
+
+.pcover__load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity .35s var(--ease-appear);
+}
+/* nestaje kad se sloj podigne i otkrije stranu */
+.pcover.is-lifting .pcover__load { opacity: 0; }
+/* dok sloj ceka ispod ekrana, kocke se ne vide */
+.pcover.is-below .pcover__load { opacity: 0; transition: none; }
+
+.boxes {
+  --size: 26px;
+  --duration: 800ms;
+  height: calc(var(--size) * 2);
+  width: calc(var(--size) * 3);
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0);
+}
+
+.boxes .box {
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.boxes .box-1 { transform: translate(100%, 0);    animation: box1 var(--duration) linear infinite; }
+.boxes .box-2 { transform: translate(0, 100%);    animation: box2 var(--duration) linear infinite; }
+.boxes .box-3 { transform: translate(100%, 100%); animation: box3 var(--duration) linear infinite; }
+.boxes .box-4 { transform: translate(200%, 0);    animation: box4 var(--duration) linear infinite; }
+
+.boxes .box .face {
+  --tz: calc(var(--size) / 2);
+  --ry: 0deg;
+  --rx: 0deg;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(var(--ry)) rotateX(var(--rx)) translateZ(var(--tz));
+}
+
+/* stranice kocke u bojama brenda */
+.boxes .box .face-front { top: 0; left: 0; background: var(--accent); }
+.boxes .box .face-right { --ry: 90deg;  background: var(--accent-dark); }
+.boxes .box .face-top   { --rx: -90deg; background: var(--peach); }
+.boxes .box .face-back  { --tz: calc(var(--size) * -3); background: rgba(232, 210, 196, .12); }
+
+@keyframes box1 {
+  0%, 50% { transform: translate(100%, 0); }
+  100%    { transform: translate(200%, 0); }
+}
+@keyframes box2 {
+  0%   { transform: translate(0, 100%); }
+  50%  { transform: translate(0, 0); }
+  100% { transform: translate(100%, 0); }
+}
+@keyframes box3 {
+  0%, 50% { transform: translate(100%, 100%); }
+  100%    { transform: translate(0, 100%); }
+}
+@keyframes box4 {
+  0%   { transform: translate(200%, 0); }
+  50%  { transform: translate(200%, 100%); }
+  100% { transform: translate(100%, 100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boxes .box { animation: none; }
+  .pcover__load { display: none; }
+}

@@ -1,0 +1,10 @@
+# U javni repo ide samo sam sajt.
+# Van njega ostaju: skrejpovana kopija inspo sajta (inspo/), Markovi PDF
+# katalozi i agencijski skillovi (skills/), interne beleske (project/),
+# skrejpovan stari sajt (scrape/, scrape-live/, extracted/) i radni fajlovi.
+/*
+!/.gitignore
+!/site/
+
+# tudji Framer sajt, nije deo naseg koda i ne koristi ga nijedna strana
+/site/inspo code
