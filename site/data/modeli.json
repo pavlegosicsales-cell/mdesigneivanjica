@@ -149,9 +149,18 @@
         ]
       },
       "limiti": [
-        "Laminat i keramika u standardu do 20 €/m², premium do 35 €/m². Razlika iznad limita i posebni formati se doplaćuju.",
-        "Oprema kupatila: standardni budžet do 1.200 € po kupatilu, premium do 2.200 €.",
-        "Veliki format pločica preko 60 × 120 cm, epoksidna fuga i ukrasne lajsne idu po ponudi."
+        {
+          "k": "Podovi i keramika",
+          "v": "Standard do 20 €/m², premium do 35 €/m². Razlika iznad limita i posebni formati se doplaćuju."
+        },
+        {
+          "k": "Oprema kupatila",
+          "v": "Standardni budžet do 1.200 € po kupatilu, premium do 2.200 €."
+        },
+        {
+          "k": "Posebni formati",
+          "v": "Pločice preko 60 × 120 cm, epoksidna fuga i ukrasne lajsne idu po ponudi."
+        }
       ]
     },
     {

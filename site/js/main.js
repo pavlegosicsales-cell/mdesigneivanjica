@@ -10,6 +10,67 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------------------------------------------------------------
+     MEKI SKROL (desktop)
+     Referentni sajt koristi Lenis. Ovo je isti princip u par redova:
+     tocak pomera cilj, a strana ga mekano sustize. Na dodir se ne dira,
+     jer telefoni vec imaju svoju inerciju.
+     --------------------------------------------------------------- */
+  (function () {
+    var finiPokazivac = window.matchMedia('(pointer: fine)').matches;
+    if (reduced || !finiPokazivac || window.matchMedia('(max-width: 809.98px)').matches) return;
+
+    var cilj = window.scrollY, tekuci = window.scrollY, radi = false;
+
+    function maxSkrol() {
+      return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    }
+
+    /* element koji ima svoj skrol (tabela, traka sa filterima, meni) zadrzava
+       podrazumevano ponasanje */
+    function svojSkrol(el) {
+      while (el && el !== document.body) {
+        if (el.scrollWidth > el.clientWidth + 4 || el.scrollHeight > el.clientHeight + 4) {
+          var pre = getComputedStyle(el).overflowX + getComputedStyle(el).overflowY;
+          if (pre.indexOf('auto') > -1 || pre.indexOf('scroll') > -1) return true;
+        }
+        el = el.parentElement;
+      }
+      return false;
+    }
+
+    function korak() {
+      tekuci += (cilj - tekuci) * 0.12;
+      if (Math.abs(cilj - tekuci) < 0.4) { tekuci = cilj; radi = false; }
+      window.scrollTo(0, tekuci);
+      if (radi) requestAnimationFrame(korak);
+    }
+
+    /* Osigurac: ako animacioni okvir ne stigne, meki skrol se gasi i strana
+       se skroluje na uobicajen nacin. Bez ovoga bi preuzet tockic ostavio
+       stranu zakljucanu. */
+    var okvirRadi = false;
+    requestAnimationFrame(function () { okvirRadi = true; });
+
+    function naTocak(e) {
+      if (!okvirRadi) { window.removeEventListener('wheel', naTocak, { passive: false }); return; }
+      if (e.ctrlKey || e.defaultPrevented || svojSkrol(e.target)) return;
+      e.preventDefault();
+      var korakPx = e.deltaMode === 1 ? e.deltaY * 16 : (e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY);
+      cilj = Math.max(0, Math.min(maxSkrol(), cilj + korakPx));
+      if (!radi) { radi = true; requestAnimationFrame(korak); }
+    }
+
+    window.addEventListener('wheel', naTocak, { passive: false });
+
+    /* kad se skrol desi na drugi nacin (tastatura, sidro, promena velicine),
+       cilj se poravnava sa stvarnim polozajem */
+    window.addEventListener('scroll', function () {
+      if (!radi) { cilj = tekuci = window.scrollY; }
+    }, { passive: true });
+    window.addEventListener('resize', function () { cilj = tekuci = window.scrollY; }, { passive: true });
+  })();
+
+  /* ---------------------------------------------------------------
      Navigacija
      --------------------------------------------------------------- */
   var toggle = document.querySelector('.nav-toggle');
@@ -65,23 +126,18 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
      Video je prekodiran tako da je svaki kadar kljucni,
      pa je premotavanje trenutno i bez trzanja.
      --------------------------------------------------------------- */
-  /* Telefon: bez skrabanja videa i bez horizontalnog pina.
-     Referentni sajt na mobilnom takodje daje obican tamni hero. */
+  /* Telefon: nema pina ni horizontalnog pomeranja kartica, ali video ostaje.
+     Strana se skroluje normalno, a snimak se odmotava dok hero prolazi
+     kroz ekran, umesto da drzi stranu na mestu dok se ne odmota. */
   var telefon = window.matchMedia('(max-width: 809.98px)').matches;
 
   var pin = document.querySelector('.hero-pin');
   var vid = pin && pin.querySelector('video');
 
-  if (telefon && vid) {
-    vid.removeAttribute('src');
-    vid.setAttribute('preload', 'none');
-    vid.load();
-  }
-
-  if (pin && vid && !reduced && !telefon) {
+  if (pin && vid && !reduced) {
     vid.pause();
 
-    var dur = 0, target = 0, curr = 0, running = false, primed = false;
+    var dur = 0, target = 0, curr = 0, primed = false;
 
     function onMeta() {
       if (vid.duration && isFinite(vid.duration)) { dur = vid.duration; loop(); }
@@ -90,9 +146,12 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
     if (vid.readyState >= 1) onMeta();
 
     function progress() {
-      var travel = pin.offsetHeight - window.innerHeight;
+      var r = pin.getBoundingClientRect();
+      /* Na telefonu hero nije pinovan, pa se racuna koliko je izasao iz kadra.
+         Na desktopu se racuna put unutar pinovane sekcije. */
+      var travel = telefon ? r.height : pin.offsetHeight - window.innerHeight;
       if (travel <= 0) return 0;
-      var p = -pin.getBoundingClientRect().top / travel;
+      var p = -r.top / travel;
       return p < 0 ? 0 : p > 1 ? 1 : p;
     }
 
@@ -101,34 +160,63 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
       return r.bottom > -200 && r.top < window.innerHeight + 200;
     }
 
-    /* Stalna petlja dok je hero u vidnom polju.
-       Meko priblizavanje ka cilju daje utisak inercije. */
-    function loop() {
-      if (running) return;
-      running = true;
-      (function frame() {
-        if (!inView()) { running = false; return; }
+    /* Petlja se pali na skrol i gasi sama kad snimak stigne do cilja.
+       Ranije je stalno radila i pamtila da je pokrenuta, pa kad bi je
+       brauzer zaustavio (kartica u pozadini, telefon u stednji), vise se
+       nikada ne bi pokrenula i video bi ostao zamrznut. */
+    var rafId = 0;
 
-        var p = progress();
-        target = p * dur;
-        curr += (target - curr) * 0.15;
+    function korak() {
+      rafId = 0;
+      if (!dur) return;
 
-        if (Math.abs(target - curr) < 0.002) curr = target;
+      var p = progress();
+      target = p * dur;
+      curr += (target - curr) * 0.18;
+      if (Math.abs(target - curr) < 0.008) curr = target;
 
-        if (dur && !vid.seeking) {
-          try { vid.currentTime = curr; } catch (e) {}
-        }
+      if (!vid.seeking) {
+        try { vid.currentTime = curr; } catch (e) {}
+      }
 
-        pin.classList.toggle('is-past', p > 0.9);
-        var cue = pin.querySelector('.hero__cue .track');
-        if (cue) cue.style.setProperty('--p', String(p));
+      pin.classList.toggle('is-past', p > 0.9);
+      var cue = pin.querySelector('.hero__cue .track');
+      if (cue) cue.style.setProperty('--p', String(p));
 
-        requestAnimationFrame(frame);
-      })();
+      /* nastavi dok se ne priblizi cilju, pa stani */
+      if (Math.abs(target - curr) > 0.004) rafId = requestAnimationFrame(korak);
     }
 
-    window.addEventListener('scroll', function () { loop(); }, { passive: true });
-    window.addEventListener('resize', function () { loop(); }, { passive: true });
+    /* Telefon: snimak se pomera odmah u dogadjaju skrola, bez inercije i bez
+       oslanjanja na animacioni okvir, jer ga mobilni brauzeri usporavaju ili
+       zaustavljaju dok se skroluje. Desktop zadrzava meko dotezanje. */
+    var zeljeno = 0;
+
+    /* Kada seek jos traje, novi zahtev se pamti i primenjuje cim se prethodni
+       zavrsi. Bez toga snimak ostane na kadru sa pocetka skrola. */
+    vid.addEventListener('seeked', function () {
+      if (telefon && Math.abs(vid.currentTime - zeljeno) > 0.05) {
+        try { vid.currentTime = zeljeno; } catch (e) {}
+      }
+    });
+
+    function loop() {
+      if (telefon) {
+        if (!dur) return;
+        var p = progress();
+        zeljeno = curr = p * dur;
+        pin.classList.toggle('is-past', p > 0.9);
+        /* postavlja se i dok prethodni seek traje: brauzer ga prekine i
+           skoci na novi kadar, sto je upravo ono sto skrabanje trazi */
+        try { vid.currentTime = zeljeno; } catch (e) {}
+        return;
+      }
+      if (!rafId) rafId = requestAnimationFrame(korak);
+    }
+
+    window.addEventListener('scroll', loop, { passive: true });
+    window.addEventListener('resize', loop, { passive: true });
+    document.addEventListener('visibilitychange', loop);
 
     /* Neki brauzeri traze jednu interakciju pre nego sto dozvole seek */
     function prime() {

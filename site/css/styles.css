@@ -906,10 +906,9 @@ tbody tr:last-child td { border-bottom: 0; }
     text-align: center;
     padding: 150px 0 40px;
   }
-  .hero__media video { display: none; }
-  .hero__media {
-    background: url('../images/brend/hero.webp') center / cover no-repeat var(--ink);
-  }
+  /* video ostaje i na telefonu, samo se ne pinuje: strana se skroluje
+     normalno, a snimak se odmotava dok hero prolazi kroz ekran */
+  .hero__media { background: var(--ink); }
   .hero__media::after {
     background: linear-gradient(180deg, rgba(18,18,18,.55) 0%, rgba(18,18,18,.45) 40%, rgba(18,18,18,.92) 100%);
   }

@@ -125,9 +125,9 @@
   letter-spacing: -.04em;
   line-height: .78em;
   font-size: 100px;                /* JS doteruje na punu sirinu */
-  opacity: .22;
+  opacity: .38;
   user-select: none;
-  background-image: linear-gradient(0deg, var(--accent-dark) 0%, rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(0deg, var(--accent) 0%, rgba(0,0,0,0) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -170,8 +170,8 @@
 }
 .site-footer.on .fcabin--bright {
   opacity: 1;
-  filter: brightness(1.04) saturate(1.45);
-  -webkit-filter: brightness(1.04) saturate(1.45);
+  filter: brightness(1.06) saturate(1.85);
+  -webkit-filter: brightness(1.06) saturate(1.85);
 }
 
 /* Wordmark isto: iz sive u terakotu. */
@@ -180,7 +180,7 @@
   -webkit-filter: saturate(0);
   transition: filter 1.4s var(--ease-appear);
 }
-.site-footer.on .fmark__t { filter: saturate(1); -webkit-filter: saturate(1); }
+.site-footer.on .fmark__t { filter: saturate(1.7); -webkit-filter: saturate(1.7); }
 
 @media (max-width: 1199.98px) { .site-footer { --cab-inset: 28px; } }
 @media (max-width: 809.98px)  { .site-footer { --cab-inset: 0px; } }
@@ -190,4 +190,37 @@
 @media (prefers-reduced-motion: reduce) {
   .fcabin--bright { opacity: 1; filter: brightness(1) saturate(.98); transition: none; }
   .fmark__t { filter: saturate(1); transition: none; }
+}
+
+/* ==========================================================================
+   PODNOZJE NA TELEFONU
+   Referentni sajt na telefonu ne podmece kucu ispod linkova nego je stavlja
+   u svoj red, ispod njih. Linkovi idu u dve kolone, kao kod njih.
+   ========================================================================== */
+@media (max-width: 809.98px) {
+  .site-footer { --cab-cap: none; }
+
+  /* linkovi u dve kolone umesto jedne dugacke liste */
+  .lgrid { gap: 32px; }
+  .lcols { flex-direction: row; flex-wrap: wrap; gap: 28px 20px; }
+  .lcol { width: calc(50% - 10px); }
+  .lcol a { font-size: 15px; }
+
+  /* kuca dobija svoj red i vise ne prekriva linkove */
+  .fmark { min-height: 0; padding: 0 20px; }
+  .fmark__t { opacity: .3; }
+  .fcabin {
+    position: relative;
+    left: auto; right: auto; bottom: auto;
+    transform: none;
+    width: calc(100% - 40px);
+    margin: 8px auto 0;
+    aspect-ratio: var(--cab-ratio);
+    max-height: 220px;
+  }
+  /* na telefonu ide samo puna boja, bez sloja koji tamni, jer dva sloja u
+     normalnom toku daju dve kuce jednu ispod druge */
+  .fcabin--dim { display: none; }
+  .fcabin--bright { opacity: 1; filter: brightness(1.06) saturate(1.85); }
+  .fcabin img { object-position: bottom center; }
 }

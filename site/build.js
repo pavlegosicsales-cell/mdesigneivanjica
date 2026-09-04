@@ -90,34 +90,70 @@ function categoryPage(kat, idx) {
     </div>
   </div>` : '';
 
-  /* Sta obuhvata koji paket, iz kataloga za tu kategoriju.
-     Bez ovoga posetilac vidi samo nazive paketa i cene, bez razlike medju njima. */
+  /* Sta obuhvata koji paket. Raspored je preuzet sa referentne strane
+     model-settings: slika levo, celije sa podacima desno, razdvojene tankim
+     linijama, bez razmaka izmedju njih. */
+  const cenaPaketa = (naziv) => {
+    const iznosi = modeli
+      .map(m => (m.cene || []).find(c => c.paket === naziv))
+      .filter(Boolean)
+      .map(c => broj(c.iznos))
+      .filter(Boolean);
+    return iznosi.length ? `od ${fmt(Math.min.apply(null, iznosi))} €` : 'Na upit';
+  };
+
   const paketiSek = (kat.paketiObuhvat || []).length ? `
   <div class="asec">
     <div class="hblock">
       <p class="eyebrow">NIVOI IZVOĐENJA</p>
       <h2 data-split>Šta obuhvata | koji paket.</h2>
-      <p>Nivo izvođenja najviše utiče na cenu. Ispod je obuhvat iz kataloga 2026 za kategoriju ${esc(kat.naziv.toLowerCase())}.</p>
+      <p>Nivo izvođenja najviše utiče na cenu. Ovo je obuhvat iz kataloga 2026 za ${esc(kat.naziv.toLowerCase())}, sa najnižom cenom u kolekciji za svaki nivo.</p>
     </div>
-    <div class="pkt" style="margin-top:24px">
-${kat.paketiObuhvat.map(pk => `      <div class="pkt__r">
-        <div class="pkt__k">${esc(pk.paket)}</div>
+
+    <div class="pkgrid">
+      <div class="pkcell pkcell--foto ap">
+        <img src="../${kat.slika}" alt="${esc(kat.naziv)}" loading="lazy" width="1200" height="900">
+        <div class="pkcell__preko">
+          <p class="eyebrow">${esc(kat.naziv.toUpperCase())}</p>
+          <h3 class="t-h4">${modeli.length ? modeli.length + ' modela u kolekciji' : 'Po projektu'}</h3>
+          <p>${esc(kat.podnaslov)}</p>
+        </div>
+      </div>
+
+      <div class="pkcol">
+${kat.paketiObuhvat.map((pk, i) => `      <article class="pkcell ap">
+        <p class="eyebrow">Paket ${String(i + 1).padStart(2, '0')} // ${esc(pk.paket)}</p>
+        <span class="pkcell__v">${esc(cenaPaketa(pk.paket))}</span>
         <p>${esc(pk.obuhvat)}</p>
-      </div>`).join(String.fromCharCode(10))}
-${kat.paketiNapomena ? `      <p class="note" style="margin-top:8px">${esc(kat.paketiNapomena)}</p>` : ''}
+      </article>`).join(String.fromCharCode(10))}
+
+        <article class="pkcell pkcell--cta ap">
+          <p class="eyebrow">Sledeći korak //</p>
+          <h4>Uporedite nivoe na svom modelu</h4>
+          <a class="btn btn--primary" href="../kontakt.html?kategorija=${kat.slug}">Zatraži ponudu ${ARROW}</a>
+        </article>
+      </div>
     </div>
-${kat.rok || kat.podloga ? `    <div class="cgrid" style="margin-top:48px">
-${kat.rok ? `      <div class="cell ap"><span class="cell__n">Rok</span><p class="eyebrow">Izrada i montaža //</p><p>${esc(kat.rok)}</p></div>` : ''}
-${kat.podloga ? `      <div class="cell ap"><span class="cell__n">Podloga</span><p class="eyebrow">Priprema terena //</p><p>${esc(kat.podloga)}</p></div>` : ''}
-${DATA.transport ? `      <div class="cell ap"><span class="cell__n">Transport</span><p class="eyebrow">Dolazak na lokaciju //</p><p>${esc(DATA.transport)}</p></div>` : ''}
-    </div>` : ''}
-${(kat.limiti || []).length ? `    <div class="hblock" style="margin-top:56px">
+
+${kat.paketiNapomena ? `    <p class="note" style="margin-top:20px">${esc(kat.paketiNapomena)}</p>` : ''}
+${(kat.limiti || []).length ? `
+    <div class="hblock" style="margin-top:72px">
       <p class="eyebrow">ZAVRŠNI MATERIJALI</p>
-      <h2 data-split>Limiti materijala | u paketima.</h2>
+      <h2 data-split>Do kog iznosa | ide standard.</h2>
+      <p>Limiti su deo ugovora. Sve preko njih je doplata, i zna se unapred koliko.</p>
     </div>
-    <ul class="lista" style="margin-top:16px">
-${kat.limiti.map(l => `      <li>${esc(l)}</li>`).join(String.fromCharCode(10))}
-    </ul>` : ''}
+    <div class="limgrid">
+${kat.limiti.map((l, i) => `      <article class="limcell ap">
+        <span class="limcell__n">${String(i + 1).padStart(2, '0')}</span>
+        <p class="limcell__t">${esc(l.k)}</p>
+        <p>${esc(l.v)}</p>
+      </article>`).join(String.fromCharCode(10))}
+    </div>` : ''}
+${kat.rok || kat.podloga ? `    <div class="limgrid" style="margin-top:56px">
+${kat.rok ? `      <article class="limcell ap"><span class="limcell__n">Rok</span><p class="limcell__t">Izrada i montaža</p><p>${esc(kat.rok)}</p></article>` : ''}
+${kat.podloga ? `      <article class="limcell ap"><span class="limcell__n">Podloga</span><p class="limcell__t">Priprema terena</p><p>${esc(kat.podloga)}</p></article>` : ''}
+${DATA.transport ? `      <article class="limcell ap"><span class="limcell__n">Transport</span><p class="limcell__t">Dolazak na lokaciju</p><p>${esc(DATA.transport)}</p></article>` : ''}
+    </div>` : ''}
   </div>` : '';
 
   /* Uporedna tabela paketa, za sada samo A-frame jer je samo taj katalog ima. */

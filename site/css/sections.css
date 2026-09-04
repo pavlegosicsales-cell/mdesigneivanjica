@@ -302,26 +302,45 @@
 
 /* Ilustracije iz kataloga imaju providnu pozadinu i razlicite odnose strana,
    pa se prikazuju cele umesto da ih okvir isece. */
-.pstep__img--ilu, .cell__img--ilu {
+/* Dvostruka klasa je namerna: about.css se ucitava posle ovog fajla, pa bi
+   .cell__img sa odnosom 4/3 i overflow hidden inace pregazio ova pravila i
+   isekao ilustracije. */
+.pstep__img.pstep__img--ilu, .cell__img.cell__img--ilu {
   background: rgba(18,18,18,.035);
   border-radius: var(--r);
   aspect-ratio: auto;
-  display: grid; place-items: center;
-  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
 }
-.sec--dark .pstep__img--ilu, .asec--dark .cell__img--ilu { background: rgba(250,246,237,.05); }
-/* slika zadrzava svoj odnos strana, samo joj se ogranicava visina */
-.pstep__img--ilu img, .cell__img--ilu img {
+.sec--dark .pstep__img.pstep__img--ilu,
+.asec--dark .cell__img.cell__img--ilu { background: rgba(250,246,237,.05); }
+/* Slika popunjava okvir i uklapa se unutar njega. Procenat na max-height u
+   grid celiji brauzer ignorise (visina reda zavisi od sadrzaja), pa portretne
+   ilustracije prelaze preko teksta ispod. Zato ide puna visina uz contain. */
+/* Apsolutno pozicioniranje daje slici tacne mere okvira, pa contain radi.
+   U grid celiji se procenat visine ne moze izracunati (visina reda zavisi od
+   sadrzaja), pa su portretne ilustracije prelazile preko teksta ispod. */
+.pstep__img.pstep__img--ilu img, .cell__img.cell__img--ilu img {
+  position: absolute;
+  inset: 18px;
   aspect-ratio: auto;
-  width: auto; max-width: 100%;
-  height: auto;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
   object-fit: contain;
+  transform: none;
 }
-.pstep__img--ilu img { max-height: 460px; }
-.cell__img--ilu img { max-height: 300px; }
+/* okviri su iste visine da bi naslovi ispod njih stajali u istoj liniji */
+.cell__img.cell__img--ilu { height: 260px; }
+.pstep__img.pstep__img--ilu { height: 420px; }
+
+@media (max-width: 1199.98px) {
+  .cell__img.cell__img--ilu { height: 220px; }
+  .pstep__img.pstep__img--ilu { height: 340px; }
+}
 @media (max-width: 809.98px) {
-  .pstep__img--ilu img { max-height: 300px; }
-  .cell__img--ilu img { max-height: 240px; }
+  .cell__img.cell__img--ilu { height: 200px; }
+  .pstep__img.pstep__img--ilu { height: 280px; }
 }
 .pstep p:last-child { font-size: 18px; font-weight: 400; line-height: 1.6em; color: var(--body-ink); }
 
@@ -383,4 +402,99 @@ body.is-leaving main, body.is-leaving .site-footer { transform: translateY(-40px
 .cta-full.on > *:nth-child(4) { transition-delay: .24s; }
 @media (prefers-reduced-motion: reduce) {
   .cta-full > *, .closing > * { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   PAKETI PO KATEGORIJI
+   Raspored sa referentne strane model-settings: slika levo, celije sa
+   podacima desno, razdvojene tankim linijama, bez razmaka izmedju njih.
+   ========================================================================== */
+.pkgrid {
+  margin-top: 40px;
+  display: flex; align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--white);
+}
+.pkcol { flex: 1 1 58%; display: flex; flex-direction: column; min-width: 0; }
+.pkcell {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 28px 30px 32px;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  min-width: 0;
+}
+.pkcell:last-child { border-bottom: 0; }
+.pkcell p { margin: 0; color: var(--body-ink); font-size: 15px; line-height: 1.7; }
+.pkcell .eyebrow { margin: 0; }
+
+/* slika levo, preko cele visine mreze */
+.pkcell--foto {
+  flex: 1 1 42%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative;
+  padding: 0;
+  border-left: 0; border-bottom: 0;
+  min-height: 320px;
+  background: var(--ink);
+}
+.pkcell--foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pkcell--foto .pkcell__preko {
+  position: relative; z-index: 2;
+  margin-top: auto;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 28px 30px 30px;
+  background: linear-gradient(180deg, rgba(18,18,18,0) 0%, rgba(18,18,18,.88) 65%);
+}
+.pkcell--foto h3 { color: var(--cream); margin: 0; }
+.pkcell--foto p { color: rgba(250,246,237,.72); }
+.pkcell--foto .eyebrow { color: var(--peach); }
+
+/* iznos u celiji paketa */
+.pkcell__v {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 32px; font-weight: 600; line-height: 1.1em; letter-spacing: -.01em;
+  color: var(--ink);
+}
+.pkcell--cta { background: var(--paper, #f5efe3); gap: 14px; }
+.pkcell--cta h4 { margin: 0; max-width: 20ch; }
+.pkcell--cta .btn { align-self: flex-start; margin-top: 4px; }
+
+@media (max-width: 899.98px) {
+  .pkgrid { flex-direction: column; }
+  .pkcell--foto { min-height: 240px; }
+  .pkcell { border-left: 0; padding: 24px 20px 26px; }
+}
+
+/* --- limiti i uslovi: red celija sa tankim linijama --------------------- */
+.limgrid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.limcell {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 28px 32px 32px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  min-width: 0;
+}
+/* prva u redu se poravnava sa naslovom sekcije */
+.limgrid > .limcell:nth-child(3n + 1) { border-left: 0; padding-left: 0; }
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .limgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .limgrid > .limcell:nth-child(3n + 1) { border-left: 1px solid var(--line); padding-left: 32px; }
+  .limgrid > .limcell:nth-child(2n + 1) { border-left: 0; padding-left: 0; }
+}
+.limcell__n {
+  font-family: 'Fragment Mono', ui-monospace, monospace;
+  font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent);
+}
+.limcell__t { font-weight: 600; color: var(--ink) !important; font-size: 16px !important; }
+.limcell p { margin: 0; color: var(--body-ink); font-size: 15px; line-height: 1.7; }
+@media (max-width: 809.98px) {
+  .limgrid { grid-template-columns: 1fr; }
+  .limcell { border-left: 0 !important; padding: 22px 0 24px !important; }
 }
