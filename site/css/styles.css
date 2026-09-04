@@ -897,6 +897,10 @@ tbody tr:last-child td { border-bottom: 0; }
   .lineup__sticky { position: relative; height: auto; padding: var(--pad-y) 0 var(--pad-y) var(--pad-x); }
   .lineup__row {
     transform: none !important;
+    /* traka mora da bude siroka koliko i ekran, inace nema sta da se skroluje
+       i kartice posle prve ostaju nedostupne */
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;

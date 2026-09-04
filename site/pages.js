@@ -70,17 +70,17 @@ ${katKartice}
     </div>
     <div class="cgrid" style="margin-top:40px">
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/aframe-terasa.png" alt="Objekat u sivoj fazi, zatvoren spolja" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/galerija/montaza-fasadna-obloga.webp" alt="Objekat u sivoj fazi, zatvoren spolja, sa fasadnom oblogom" loading="lazy" width="1200" height="1600"></div>
         <h4>01 // Siva faza</h4>
         <p>Noseća konstrukcija, krovni sklop, spoljno zatvaranje objekta, termoizolacioni slojevi prema paketu, fasadni sistem i ugovorena spoljna stolarija. Objekat je spolja završen i spreman za nastavak instalacija i završnih radova.</p>
       </div>
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/montazna-moderna.png" alt="Useljiva montažna kuća, ključ u ruke" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/galerija/a-frame-enterijer-stepenice.webp" alt="Useljiv enterijer sa završnim oblogama, ključ u ruke" loading="lazy" width="932" height="932"></div>
         <h4>02 // Ključ u ruke</h4>
         <p>Pored sive faze obuhvata unutrašnje obloge, osnovne elektro i vodovodne instalacije, podove, keramiku, unutrašnja vrata, osnovne sanitarije i završno krečenje. Najčešći izbor kod porodičnih objekata.</p>
       </div>
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/aframe-minimal.png" alt="Premium nivo opreme i završne obrade" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/galerija/a-frame-sa-bazenom-nocu.webp" alt="Premium nivo opreme i završne obrade" loading="lazy" width="1200" height="1600"></div>
         <h4>03 // Comfort i Premium</h4>
         <p>Viši nivo izolacije, završnih obloga, stolarije i opreme. Konačna specifikacija se formira prema željenom energetskom nivou, dizajnu i budžetu kupca, uz limite završnih materijala ugovorene unapred.</p>
       </div>

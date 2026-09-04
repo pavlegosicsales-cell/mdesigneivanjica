@@ -199,3 +199,14 @@
   .wnav .btn { flex: 1 1 100%; padding: 12px 16px; }
   .wnav .btn--outline { flex: 1 1 auto; }
 }
+
+/* Telefon: sadrzaj u konfiguratoru je bio uvucen 64px sa svake strane
+   (sekcija 20 + kartica 24 + kolona 20), pa su opcije ostajale uske. */
+@media (max-width: 809.98px) {
+  .wsec { padding-inline: 12px; }
+  .wcard.wizard { padding: 0; }
+  .wleft { padding: 44px 16px 16px; }
+  .wright { padding: 20px 16px 24px; }
+  .wchrome { left: 16px; }
+  .wopt { padding: 14px 14px; }
+}
