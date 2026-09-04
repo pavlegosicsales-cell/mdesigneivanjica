@@ -52,6 +52,7 @@ module.exports = function (DATA, L) {
         </tbody>
       </table>
     </div>
+    <p class="matrix__hint">Prevucite tabelu levo i desno &rarr;</p>
     <div class="btn-row">
       <a class="btn btn--light" href="modeli/${kat.slug}.html">Sve o kategoriji ${esc(kat.naziv)} ${ARROW}</a>
     </div>
@@ -77,6 +78,7 @@ module.exports = function (DATA, L) {
         </tbody>
       </table>
     </div>
+    <p class="matrix__hint">Prevucite tabelu levo i desno &rarr;</p>
   </div>`;
   }
 
@@ -188,6 +190,7 @@ ${pregled}
         </tbody>
       </table>
     </div>
+    <p class="matrix__hint">Prevucite tabelu levo i desno &rarr;</p>
     <p class="note"><strong>Sve cene su početne i informativne.</strong> Ne predstavljaju konačnu ponudu. Konačan iznos zavisi od lokacije, temelja, izabranih materijala, izmena projekta, transporta i uslova pristupa gradilištu. Temelj, dozvole, priključci i uređenje parcele nisu uključeni osim kada ponuda to izričito navodi.</p>
   </div>
 ${DATA.kategorije.map(kat => tabelaKat(kat) + doplateKat(kat)).join('\n')}
@@ -203,6 +206,46 @@ ${faq.slice(0, 3).map((f, i) => `      <div class="cell ap">
         <p class="eyebrow">${esc(f.p)}</p>
         <p>${esc(f.o)}</p>
       </div>`).join('\n')}
+    </div>
+  </div>
+
+  <div class="asec asec--dark">
+    <div class="hblock">
+      <p class="eyebrow">OBIM PONUDE</p>
+      <h2 data-split>Šta nije uključeno | u katalošku cenu.</h2>
+      <p>Pravilo je jednostavno: uključeno je samo ono što je imenovano, količinski određeno i opisano u konačnoj ponudi. Ako stavka nije navedena, ne smatra se automatski uključenom.</p>
+    </div>
+    <div class="cgrid" style="margin-top:40px">
+      <div class="cell ap">
+        <span class="cell__n">01</span>
+        <p class="eyebrow">Parcela i dokumentacija //</p>
+        <p>Kupovina i pravno uređenje parcele. Geodetski radovi, geomehanika, projekti, dozvole, takse i saglasnosti, osim kada su izričito ugovoreni.</p>
+      </div>
+      <div class="cell ap">
+        <span class="cell__n">02</span>
+        <p class="eyebrow">Zemljani radovi i priključci //</p>
+        <p>Čišćenje parcele, rušenje, iskop, nasipanje, drenaža, potporni zidovi i kosine. Priključci struje, vode, kanalizacije, gasa, interneta, septička jama ili prečistač.</p>
+      </div>
+      <div class="cell ap">
+        <span class="cell__n">03</span>
+        <p class="eyebrow">Logistika gradilišta //</p>
+        <p>Transport van ugovorenog radijusa, putarine i posebne dozvole. Smeštaj radnika, kran, pumpa za beton, dizalica, agregat i specijalna mehanizacija kada ih zahteva lokacija.</p>
+      </div>
+      <div class="cell ap">
+        <span class="cell__n">04</span>
+        <p class="eyebrow">Spoljno uređenje //</p>
+        <p>Parking, staze, ograde, kapije, hortikultura, rasveta parcele i odvođenje atmosferskih voda. Bazen, spa, letnjikovac, pergola i objekti izvan ugovorene kuće.</p>
+      </div>
+      <div class="cell ap">
+        <span class="cell__n">05</span>
+        <p class="eyebrow">Enterijer i oprema //</p>
+        <p>Kuhinja, nameštaj, bela tehnika, zavese, dekoracija i turistički inventar, osim izabranog paketa opremanja. Materijali i oprema iznad ugovorenih limita.</p>
+      </div>
+      <div class="cell ap">
+        <span class="cell__n">06</span>
+        <p class="eyebrow">Naknadne promene //</p>
+        <p>Demontaža, otpad, ponovna nabavka i dodatni rad nastali posle potvrde projekta ili specifikacije. Sanacija temelja i radova drugih izvođača.</p>
+      </div>
     </div>
   </div>
 

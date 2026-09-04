@@ -87,7 +87,21 @@ module.exports = function (DATA, L, FOOT) {
         <h4>03 // Grede i stubovi</h4>
         <p>Za nagib ili kada treba smanjiti obim iskopa. Manje zemljanih radova, koristi konfiguraciju parcele. Obavezna statika, ukrućenje i kontrola oslonaca.</p>
       </div>
+      <div class="cell ap">
+        <h4>04 // Suteren ili podrum</h4>
+        <p>Za veliki pad terena ili kada se traži dodatna korisna površina. Koristi konfiguraciju parcele, ali ide isključivo uz poseban arhitektonski i konstruktivni projekat.</p>
+      </div>
     </div>
+
+    <div class="hblock" style="margin-top:64px">
+      <p class="eyebrow">Ponuda_Temelja</p>
+      <h2 data-split>Šta nam treba za ponudu temelja.</h2>
+      <p>Bez ovih podataka svaka cena temelja je nagađanje. Sa njima dobijate obračun koji se ne menja u toku radova.</p>
+    </div>
+    <ul class="lista" style="margin-top:16px">
+${(DATA.temeljPodaci || []).map(t => `      <li>${esc(t)}</li>`).join(String.fromCharCode(10))}
+    </ul>
+    <p class="note" style="margin-top:16px">Orijentaciona kataloška cena tipske ploče je 90 do 120 € po m². To nije ponuda za svaku parcelu. Stenska masa, nasip, veliki pad, šipovi, potporni zidovi, crpljenje vode, specijalni transport i otežan pristup obračunavaju se posebno.</p>
   </div>
 
   <!-- ===== PAKETI  (MARKET DASHBOARD) ===== -->

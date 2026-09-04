@@ -53,3 +53,15 @@
 
 @media (max-width: 1199.98px) { .matrix { padding: 100px 24px 80px; gap: 60px; } .matrix__head { align-items: flex-start; text-align: left; max-width: 600px; } }
 @media (max-width: 809.98px) { .matrix { padding: 80px 16px; gap: 40px; } .matrix th, .matrix td { padding: 12px 12px; font-size: 15px; } }
+
+/* Telefon: tabela se prevlaci prstom, pa to treba i reci */
+.matrix__hint { display: none; }
+@media (max-width: 809.98px) {
+  .matrix__hint {
+    display: block;
+    font-family: 'Fragment Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); margin: 10px 0 0;
+  }
+  .matrix__wrap { position: relative; }
+}

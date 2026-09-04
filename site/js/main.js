@@ -19,11 +19,16 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
       var open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
       nav.classList.toggle('is-open', !open);
+      var t = toggle.querySelector('.nav-toggle__t');
+      if (t) t.textContent = open ? '[ MENI ]' : '[ ZATVORI ]';
+      toggle.setAttribute('aria-label', open ? 'Otvori meni' : 'Zatvori meni');
     });
     nav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         toggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('is-open');
+        var tt = toggle.querySelector('.nav-toggle__t');
+        if (tt) tt.textContent = '[ MENI ]';
       });
     });
     document.addEventListener('keydown', function (e) {
@@ -60,10 +65,20 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
      Video je prekodiran tako da je svaki kadar kljucni,
      pa je premotavanje trenutno i bez trzanja.
      --------------------------------------------------------------- */
+  /* Telefon: bez skrabanja videa i bez horizontalnog pina.
+     Referentni sajt na mobilnom takodje daje obican tamni hero. */
+  var telefon = window.matchMedia('(max-width: 809.98px)').matches;
+
   var pin = document.querySelector('.hero-pin');
   var vid = pin && pin.querySelector('video');
 
-  if (pin && vid && !reduced) {
+  if (telefon && vid) {
+    vid.removeAttribute('src');
+    vid.setAttribute('preload', 'none');
+    vid.load();
+  }
+
+  if (pin && vid && !reduced && !telefon) {
     vid.pause();
 
     var dur = 0, target = 0, curr = 0, running = false, primed = false;
@@ -132,7 +147,7 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
      LINEUP: kartice klize horizontalno dok se skroluje vertikalno
      --------------------------------------------------------------- */
   var lineup = document.querySelector('.lineup');
-  if (lineup && !reduced) {
+  if (lineup && !reduced && !telefon) {
     var row = lineup.querySelector('.lineup__row');
     var sticky = lineup.querySelector('.lineup__sticky');
 

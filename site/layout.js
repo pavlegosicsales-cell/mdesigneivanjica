@@ -224,7 +224,7 @@ ${NAV.map(([h, t]) => `      <a href="${b}${h}">${t}</a>`).join('\n')}
       <a class="btn btn--dark" href="${b}kontakt.html">Zatraži ponudu</a>
     </div>
     <button class="nav-toggle" aria-expanded="false" aria-controls="glavna-navigacija" aria-label="Otvori meni">
-      <span></span><span></span><span></span>
+      <span class="nav-toggle__t">[ MENI ]</span>
     </button>
   </div>
 </header>`;

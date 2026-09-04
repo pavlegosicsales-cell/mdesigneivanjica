@@ -83,6 +83,7 @@ function categoryPage(kat, idx) {
         </tbody>
       </table>
     </div>
+    <p class="matrix__hint">Prevucite tabelu levo i desno &rarr;</p>
     ${NOTE}
     <div class="btn-row">
       <a class="btn btn--light" href="../cenovnik.html">Ceo cenovnik 2026 ${ARROW}</a>
@@ -135,6 +136,7 @@ ${kat.paketiTabela.redovi.map(r => `          <tr>${r.map((c, i) => i ? `<td cla
         </tbody>
       </table>
     </div>
+    <p class="matrix__hint">Prevucite tabelu levo i desno &rarr;</p>
   </div>` : '';
 
   const dop = DATA.doplate[kat.slug];
@@ -153,6 +155,7 @@ ${kat.paketiTabela.redovi.map(r => `          <tr>${r.map((c, i) => i ? `<td cla
         </tbody>
       </table>
     </div>
+    <p class="matrix__hint">Prevucite tabelu levo i desno &rarr;</p>
   </div>` : '';
 
   const invest = kat.tip === 'investicije' ? `
