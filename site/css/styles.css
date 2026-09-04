@@ -475,6 +475,16 @@ section { padding: var(--pad-y) 0; position: relative; }
 }
 .gcard__img { position: absolute; inset: 0; z-index: 0; transition: inset .6s var(--ease-hover); }
 .gcard:hover .gcard__img { inset: -10px; }
+/* Filter u galeriji i na blogu radi preko hidden atributa, a kartice imaju
+   svoj display, koji bi ga inace pregazio. */
+[data-cat][hidden] { display: none !important; }
+/* Kartica sa snimkom: video popunjava kadar, a sloj sa naslovom ne sme da
+   preuzme klik jer su ispod njega kontrole plejera. */
+.gcard--video .gcard__img { inset: 0; }
+.gcard--video .gcard__img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gcard--video .gcard__overlay,
+.gcard--video .gcard__row,
+.gcard--video .gcard__meta { pointer-events: none; }
 .gcard__img img { width: 100%; height: 100%; object-fit: cover; }
 .gcard__overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(18,18,18,0) 28%, var(--ink) 100%); }
 .gcard__meta { position: relative; z-index: 2; font-size: 12px; font-weight: 500; letter-spacing: .02em; color: var(--cream); }

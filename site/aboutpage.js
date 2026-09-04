@@ -73,17 +73,17 @@ module.exports = function (DATA, L, FOOT) {
     </div>
     <div class="cgrid" style="margin-top:40px">
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/montazna-trem.png" alt="Priprema armiranobetonske ploče za montažnu kuću" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/temelj-ab-ploca.jpg" alt="Armiranobetonska ploča sa ankerima za montažni objekat" loading="lazy" width="1600" height="900"></div>
         <h4>01 // Armiranobetonska ploča</h4>
         <p>Za ravan ili pripremljen teren sa ravnomernim oslanjanjem. Daje brzu i čistu podnu zonu. Traži iskop, tampon, drenažu i debljinu prema projektu. Orijentaciono 90 do 120 € po m² osnove.</p>
       </div>
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/montazna-moderna.png" alt="Trakasti temelji na nosivom tlu" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/temelj-trakasti.jpg" alt="Trakasti temelji sa ankerima, pripremljeni za montažu" loading="lazy" width="1536" height="1024"></div>
         <h4>02 // Trakasti temelji</h4>
         <p>Klasično temeljenje na nosivom tlu. Fleksibilno za različite osnove i rasporede, ali zahteva precizno izvođenje zidova i serklaža prema statičkom proračunu.</p>
       </div>
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/aframe-terasa.png" alt="Sistem greda i stubova na nagnutom terenu" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/temelj-grede-stubovi.jpg" alt="Konstrukcija na gredama i stubovima, bez pune ploče" loading="lazy" width="1200" height="1600"></div>
         <h4>03 // Grede i stubovi</h4>
         <p>Za nagib ili kada treba smanjiti obim iskopa. Manje zemljanih radova, koristi konfiguraciju parcele. Obavezna statika, ukrućenje i kontrola oslonaca.</p>
       </div>
@@ -132,7 +132,7 @@ module.exports = function (DATA, L, FOOT) {
 
     <div class="cgrid cgrid--4" style="margin-top:40px">
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/aframe-dizajn.png" alt="Drvena noseća konstrukcija A-frame kuće" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/mat-konstrukcija.jpg" alt="Noseća drvena konstrukcija A-frame kuće u fazi montaže" loading="lazy" width="1200" height="1600"></div>
         <h4>01 // Noseća konstrukcija</h4>
         <p>Suva, sortirana građa. Konačni preseci potvrđuju se statičkim proračunom. A-frame rogovi 10 × 12 cm na oko 60 cm, galerijske grede 10 × 20 cm.</p>
         <p>Spojevi: zavrtnji, navojne šipke, pocinkovane ploče i ugaonici. Drvo zaštićeno odgovarajućim premazom.</p>
@@ -141,7 +141,7 @@ ${spark('Pocinkovani spojevi: 100%', 100)}
       </div>
 
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/montazna-moderna.png" alt="Slojevi termoizolacije u zidu" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/mat-termoizolacija.jpg" alt="Rolna mineralne vune za termoizolaciju krova i zidova" loading="lazy" width="1000" height="1000"></div>
         <h4>02 // Termoizolacija</h4>
         <p>Standard: 20 cm staklene vune u krovu, 10 cm u zidovima. Parna brana sa zalepljenim preklopima i obrađenim prodorima.</p>
         <p>Premium: 25 i 15 cm ili kamena vuna prema projektu, za celogodišnji boravak i planinske lokacije.</p>
@@ -150,7 +150,7 @@ ${spark('Premium nadogradnja: 25 cm', 100)}
       </div>
 
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/aframe-bazen.png" alt="Krovni sklop sa limom i opšivkama" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/mat-krovni-sklop.jpg" alt="Crep kao osnovna pokrivka krovnog sklopa" loading="lazy" width="1000" height="1000"></div>
         <h4>03 // Krovni sklop</h4>
         <p>Paropropusna vodonepropusna folija, kontraletve za ventilacioni kanal, letve i završni trapezni ili falcovani lim 0,5 mm.</p>
         <p>Kod montažnih kuća crep je osnovna pokrivka. Sleme, vetar-lajsne, opšivke, okapnice i oluci u boji krova.</p>
@@ -159,7 +159,7 @@ ${spark('Lim 0,5 mm ili crep', 90)}
       </div>
 
       <div class="cell ap">
-        <div class="cell__img"><img src="images/objekti/aframe-minimal.png" alt="Staklena fasada i PVC stolarija" loading="lazy" width="900" height="675"></div>
+        <div class="cell__img"><img src="images/sekcije/mat-stolarija.jpg" alt="Zastakljena fasada A-frame kuće sa crnom stolarijom" loading="lazy" width="1024" height="1024"></div>
         <h4>04 // Stolarija i staklo</h4>
         <p>Crna ili bela PVC stolarija u osnovnom paketu, sa termoizolacionim staklom prema dimenziji otvora.</p>
         <p>Veće visine, kaljena i laminirana sigurnosna stakla, ALU sistemi, troslojno staklo i klizni portali biraju se kroz doplate.</p>

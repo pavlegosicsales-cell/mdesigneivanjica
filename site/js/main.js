@@ -273,9 +273,17 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
     filters.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var cat = btn.dataset.filter;
-        filters.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+        filters.forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('is-active', on);
+          if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        /* Stavka moze da pripada vise grupa (galerija), ili da ima jedan
+           naziv sa razmakom (blog kategorije), pa se proverava oboje. */
         document.querySelectorAll('[data-cat]').forEach(function (it) {
-          it.hidden = !(cat === 'sve' || it.dataset.cat === cat);
+          var pun = it.dataset.cat || '';
+          var grupe = pun.split(/\s+/);
+          it.hidden = !(cat === 'sve' || pun === cat || grupe.indexOf(cat) > -1);
         });
       });
     });

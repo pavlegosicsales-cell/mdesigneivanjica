@@ -16,7 +16,175 @@
     <loc>https://www.mdesigneivanjica.com/galerija.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-kuca-na-livadi.webp</image:loc>
+      <image:title>Izvedena A-frame kuća sa drvenom terasom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-sa-bazenom-nocu.webp</image:loc>
+      <image:title>A-frame kuća sa bazenom, večernje osvetljenje</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-sa-hot-tubom.webp</image:loc>
+      <image:title>A-frame kuća sa drvenom kadom u dvorištu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-staklena-fasada.webp</image:loc>
+      <image:title>Staklena fasada A-frame kuće, detalj stolarije</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-enterijer-ulaz.webp</image:loc>
+      <image:title>Enterijer A-frame kuće, ulazna zona u drvetu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-enterijer-stepenice.webp</image:loc>
+      <image:title>Enterijer sa stepenicama za galeriju</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-galerija-prozor.webp</image:loc>
+      <image:title>Galerija za spavanje sa trougaonim prozorom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-izlaz-na-terasu.webp</image:loc>
+      <image:title>Izlaz na terasu iz dnevne zone</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-stakleni-zabat.webp</image:loc>
+      <image:title>Stakleni zabat A-frame kuće iznutra</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/a-frame-enterijer-drvo.webp</image:loc>
+      <image:title>Drvena obloga krovne ravni u enterijeru</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/letnjikovac-drveni-sa-tremom.webp</image:loc>
+      <image:title>Izveden drveni letnjikovac sa tremom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/letnjikovac-terasa-namestaj.webp</image:loc>
+      <image:title>Natkrivena terasa letnjikovca sa nameštajem</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/letnjikovac-sa-ljuljaskom.webp</image:loc>
+      <image:title>Letnjikovac uređen za sedenje i odmor</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/letnjikovac-spolja.webp</image:loc>
+      <image:title>Letnjikovac sa drvenim stubovima, spoljni pogled</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/temelj-ab-ploca-gradiliste.webp</image:loc>
+      <image:title>Armiranobetonska ploča izlivena na parceli</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/temelj-oplata.webp</image:loc>
+      <image:title>Oplata temelja pre betoniranja</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/temelj-blokovi.webp</image:loc>
+      <image:title>Zidani sokl sa pripremom za instalacije</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/temelj-zidani-sokl.webp</image:loc>
+      <image:title>Temeljni zid na kosom terenu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-podizanje-rama.webp</image:loc>
+      <image:title>Podizanje prvog A rama na ploču</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-prvi-ramovi.webp</image:loc>
+      <image:title>Sklapanje ramova na gradilištu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-rogovi-niz.webp</image:loc>
+      <image:title>Niz rogova postavljen na razmaku iz proračuna</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-rogovi-sa-strane.webp</image:loc>
+      <image:title>Konstrukcija A-frame kuće u punoj dužini</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-krovna-konstrukcija.webp</image:loc>
+      <image:title>Krovna konstrukcija pred zatvaranje</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-detalj-konstrukcije.webp</image:loc>
+      <image:title>Detalj spoja krovne i podne konstrukcije</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-konstrukcija-iznutra.webp</image:loc>
+      <image:title>Pogled na konstrukciju iznutra tokom radova</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-enterijer-konstrukcija.webp</image:loc>
+      <image:title>Unutrašnja obloga krovnih ravni u toku</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-unutrasnji-radovi.webp</image:loc>
+      <image:title>Unutrašnji radovi pre završne obrade</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-stakleni-zabat.webp</image:loc>
+      <image:title>Priprema otvora za stakleni zabat</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-zidni-paneli.webp</image:loc>
+      <image:title>Postavljanje zidnih panela montažnog objekta</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-fasadna-folija.webp</image:loc>
+      <image:title>Paropropusna folija i letve pre fasade</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-fasadna-obloga.webp</image:loc>
+      <image:title>Fasadna obloga krovne ravni</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/galerija/montaza-zavrsna-faza.webp</image:loc>
+      <image:title>Objekat u završnoj fazi na parceli</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-dizajn.png</image:loc>
+      <image:title>A-frame sa staklenom fasadom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-terasa.png</image:loc>
+      <image:title>A-frame sa drvenom terasom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-minimal.png</image:loc>
+      <image:title>Minimalistički A-frame</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-bazen.png</image:loc>
+      <image:title>A-frame sa bazenom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-moderna.png</image:loc>
+      <image:title>Moderna montažna kuća</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-trem.png</image:loc>
+      <image:title>Montažna kuća sa tremom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/vikendica.png</image:loc>
+      <image:title>Bungalov za odmor</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:title>Drveni letnjikovac</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/igraliste.jpg</image:loc>
+      <image:title>Dečje igralište od drveta</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:title>Objekat po želji kupca</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.mdesigneivanjica.com/blog.html</loc>
@@ -94,7 +262,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/igraliste.jpg</image:loc>
       <image:title>Dečja igrališta</image:title>
     </image:image>
   </url>

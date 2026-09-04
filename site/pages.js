@@ -121,65 +121,7 @@ ${katKartice}
   /* =================================================================
      GALERIJA   (Lookbook raspored)
      ================================================================= */
-  const gal = [
-    ['images/objekti/aframe-dizajn.png', 'a-frame', 'A-frame sa staklenom fasadom'],
-    ['images/objekti/aframe-terasa.png', 'a-frame', 'A-frame sa drvenom terasom'],
-    ['images/objekti/aframe-minimal.png', 'a-frame', 'Minimalistički A-frame'],
-    ['images/objekti/aframe-bazen.png', 'a-frame', 'A-frame sa bazenom'],
-    ['images/objekti/montazna-moderna.png', 'montazne', 'Moderna montažna kuća'],
-    ['images/objekti/montazna-trem.png', 'montazne', 'Montažna kuća sa tremom'],
-    ['images/objekti/vikendica.png', 'bungalovi', 'Bungalov za odmor'],
-    ['images/objekti/letnjikovac.png', 'letnjikovci', 'Drveni letnjikovac'],
-    ['images/objekti/dome.png', 'ostalo', 'Objekat po želji kupca']
-  ];
-
-  P['galerija.html'] = {
-    title: 'Galerija: A-frame i montažne kuće | M Designe Ivanjica',
-    desc: 'Galerija A-frame kuća, montažnih kuća, bungalova, letnjikovaca i dečjih igrališta iz proizvodnje M Designe Ivanjica. Prikazi modela i izvedeni objekti.',
-    ogImage: 'images/objekti/aframe-bazen.png',
-    preload: 'images/objekti/aframe-bazen.png',
-    extraHead: L.jsonld(L.crumbsLd([['Početna', 'index.html'], ['Galerija', 'galerija.html']])),
-    body: `
-  <div class="phead">
-    <div class="phead__main">
-      <span class="tab">Galerija</span>
-      <h1 data-split>Naši objekti</h1>
-    </div>
-    <div class="phead__side">
-      <p>Prikazi pokazuju stil, proporcije i mogućnosti završne obrade. Merodavni su ugovor, projekat, specifikacija i odobreni uzorci.</p>
-    </div>
-  </div>
-
-  <section class="sec--dark" style="padding-top:80px">
-    <div class="wrap">
-      <div class="filters" style="margin-bottom:40px" role="group" aria-label="Filter galerije">
-        <button class="filter-btn is-active" data-filter="sve">Sve</button>
-        <button class="filter-btn" data-filter="a-frame">A-frame</button>
-        <button class="filter-btn" data-filter="montazne">Montažne</button>
-        <button class="filter-btn" data-filter="bungalovi">Bungalovi</button>
-        <button class="filter-btn" data-filter="letnjikovci">Letnjikovci</button>
-        <button class="filter-btn" data-filter="ostalo">Po želji</button>
-      </div>
-      <div class="grid grid--3">
-${gal.map(([src, cat, cap]) => `        <article class="gcard ap" data-cat="${cat}">
-          <div class="gcard__img"><img src="${src}" alt="${cap}" loading="lazy" width="900" height="850"></div>
-          <div class="gcard__overlay"></div>
-          <div class="gcard__row"><span class="gcard__title">${cap}</span></div>
-        </article>`).join('\n')}
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-full">
-    <p class="eyebrow">Sviđa vam se?</p>
-    <h2 data-split>Dopada vam se neki model?</h2>
-    <p>Pošaljite nam skicu, inspiraciju ili fotografiju željenog objekta, pa ćemo predložiti rešenje i dalje korake.</p>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="kontakt.html">Pošalji upit ${ARROW}</a>
-      <a class="btn btn--light" href="modeli.html">Svi modeli i cene</a>
-    </div>
-  </section>`
-  };
+  P['galerija.html'] = require('./galerijapage.js')(DATA, L);
 
   /* =================================================================
      KONTAKT   (Header centriran + Form_Section red)

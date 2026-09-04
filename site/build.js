@@ -257,7 +257,7 @@ function write(rel, html) {
 /* ---------- pokretanje ---------- */
 const written = [];
 const urls = [
-  { loc: '', p: '1.0' }, { loc: 'modeli.html', p: '0.9' }, { loc: 'galerija.html', p: '0.7' },
+  { loc: '', p: '1.0' }, { loc: 'modeli.html', p: '0.9' }, { loc: 'galerija.html', p: '0.8' },
   { loc: 'blog.html', p: '0.7' }, { loc: 'o-nama.html', p: '0.6' },
   { loc: 'kontakt.html', p: '0.8' }, { loc: 'cenovnik.html', p: '0.9' },
   { loc: 'privatnost.html', p: '0.2' }
@@ -270,6 +270,11 @@ written.push(write('kontakt.html', require('./contactpage.js')(DATA, L, FOOT)));
 const PAGES = require('./pages.js')(DATA, L, FOOT);
 Object.keys(PAGES).forEach(file => {
   const p = PAGES[file];
+  /* stranica moze da prijavi svoje slike za sitemap (galerija) */
+  if (p.slike && p.slike.length) {
+    const u = urls.find(x => x.loc === file);
+    if (u) u.slike = p.slike;
+  }
   written.push(write(file, head({
     title: p.title, desc: p.desc, canonical: file, depth: 0, ogImage: p.ogImage,
     preload: p.preload || '', extraHead: p.extraHead || '',
@@ -308,7 +313,11 @@ ${urls.map(u => `  <url>
     <image:image>
       <image:loc>${SITE}/${u.img}</image:loc>
       <image:title>${esc(u.alt || '')}</image:title>
-    </image:image>` : ''}
+    </image:image>` : ''}${u.slike ? u.slike.map(sl => `
+    <image:image>
+      <image:loc>${SITE}/${sl[0]}</image:loc>
+      <image:title>${esc(sl[1])}</image:title>
+    </image:image>`).join('') : ''}
   </url>`).join(String.fromCharCode(10))}
 </urlset>
 `;
