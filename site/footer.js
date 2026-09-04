@@ -8,7 +8,7 @@
    Donja traka preseca kucu, kao na referentnom sajtu.
    ========================================================================== */
 
-module.exports = function (K, esc, up, NAV, sticky) {
+module.exports = function (K, esc, up, NAV, sticky, v) {
 
   return function foot(depth = 0, kategorije = []) {
     const b = up(depth);
@@ -77,7 +77,7 @@ ${sticky(depth)}
   </div>
 
 </footer>
-<script src="${b}js/main.js"></script>
+<script src="${b}js/main.js${v('js/main.js')}"></script>
 </body>
 </html>`;
   };

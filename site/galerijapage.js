@@ -62,7 +62,7 @@ module.exports = function (DATA, L) {
     ['images/objekti/montazna-trem.png', ['renderi', 'montazne'], 'Montažna kuća sa tremom', 'render'],
     ['images/objekti/vikendica.png', ['renderi', 'bungalovi'], 'Bungalov za odmor', 'render'],
     ['images/objekti/letnjikovac.png', ['renderi', 'letnjikovci'], 'Drveni letnjikovac', 'render'],
-    ['images/objekti/igraliste.jpg', ['renderi', 'igralista'], 'Dečje igralište od drveta', 'render'],
+    ['images/objekti/igraliste.png', ['renderi', 'igralista'], 'Dečje igralište od drveta', 'render'],
     ['images/objekti/dome.png', ['renderi'], 'Objekat po želji kupca', 'render']
   ];
 

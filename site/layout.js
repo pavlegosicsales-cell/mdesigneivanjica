@@ -3,7 +3,24 @@
    Jedno mesto za sve stranice.
    ========================================================================== */
 
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+
 const SITE = 'https://www.mdesigneivanjica.com';
+
+/* Otisak sadrzaja uz CSS i JS. Vercel ove fajlove kesira, pa bez ovoga
+   posetilac koji je vec bio na sajtu jos danima vuce staru verziju. */
+const otisci = {};
+function v(rel) {
+  if (!(rel in otisci)) {
+    try {
+      const buf = fs.readFileSync(path.join(__dirname, rel));
+      otisci[rel] = crypto.createHash('md5').update(buf).digest('hex').slice(0, 8);
+    } catch (e) { otisci[rel] = ''; }
+  }
+  return otisci[rel] ? '?v=' + otisci[rel] : '';
+}
 
 /* ==========================================================================
    MERENJE I POTVRDA VLASNISTVA
@@ -165,14 +182,14 @@ module.exports = function (K) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,400;10..72,500;10..72,600;10..72,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fragment+Mono&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="${b}css/styles.css">
-<link rel="stylesheet" href="${b}css/sections.css">
-<link rel="stylesheet" href="${b}css/about.css">
-<link rel="stylesheet" href="${b}css/faq.css">
-<link rel="stylesheet" href="${b}css/matrix.css">
-<link rel="stylesheet" href="${b}css/wizard.css">
-<link rel="stylesheet" href="${b}css/footer.css">
-<link rel="stylesheet" href="${b}css/loader.css">
+<link rel="stylesheet" href="${b}css/styles.css${v('css/styles.css')}">
+<link rel="stylesheet" href="${b}css/sections.css${v('css/sections.css')}">
+<link rel="stylesheet" href="${b}css/about.css${v('css/about.css')}">
+<link rel="stylesheet" href="${b}css/faq.css${v('css/faq.css')}">
+<link rel="stylesheet" href="${b}css/matrix.css${v('css/matrix.css')}">
+<link rel="stylesheet" href="${b}css/wizard.css${v('css/wizard.css')}">
+<link rel="stylesheet" href="${b}css/footer.css${v('css/footer.css')}">
+<link rel="stylesheet" href="${b}css/loader.css${v('css/loader.css')}">
 ${preload ? `<link rel="preload" as="image" href="${b}${preload}" fetchpriority="high">
 ` : ''}${noOrg ? '' : jsonld(orgLd())}${merenje()}${extraHead}</head>
 <body>
@@ -235,7 +252,7 @@ ${NAV.map(([h, t]) => `      <a href="${b}${h}">${t}</a>`).join('\n')}
 </div>`;
   }
 
-  const foot = require('./footer.js')(K, esc, up, NAV, sticky);
+  const foot = require('./footer.js')(K, esc, up, NAV, sticky, v);
 
   return { head, header, sticky, foot, esc, up, meta, SITE, ARROW, DOTS, NAV, orgLd, crumbsLd, faqLd, jsonld, ORG_ID };
 };

@@ -178,7 +178,7 @@
       <image:title>Drveni letnjikovac</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/igraliste.jpg</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/igraliste.png</image:loc>
       <image:title>Dečje igralište od drveta</image:title>
     </image:image>
     <image:image>
@@ -262,7 +262,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/igraliste.jpg</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/objekti/igraliste.png</image:loc>
       <image:title>Dečja igrališta</image:title>
     </image:image>
   </url>
@@ -282,7 +282,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-minimal.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/mini-30.jpg</image:loc>
       <image:title>MINI 30, Najkompaktniji ulazak u A-frame svet</image:title>
     </image:image>
   </url>
@@ -292,7 +292,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-terasa.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/tara-48.jpg</image:loc>
       <image:title>TARA 48, Kompaktna vikendica</image:title>
     </image:image>
   </url>
@@ -302,7 +302,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-dizajn.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/golija-54.jpg</image:loc>
       <image:title>GOLIJA 54, Više prostora, ista čista forma</image:title>
     </image:image>
   </url>
@@ -312,7 +312,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-terasa.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/zlatar-69.jpg</image:loc>
       <image:title>ZLATAR 69, Porodični model sa bočnim krilom</image:title>
     </image:image>
   </url>
@@ -322,7 +322,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-dizajn.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/family-85.jpg</image:loc>
       <image:title>FAMILY 85, Prava porodična kuća za celogodišnji boravak</image:title>
     </image:image>
   </url>
@@ -332,7 +332,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-bazen.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/divcibare-110.jpg</image:loc>
       <image:title>DIVČIBARE 110, Velika kuća za porodicu ili izdavanje</image:title>
     </image:image>
   </url>
@@ -342,7 +342,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-minimal.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/kopaonik-125.jpg</image:loc>
       <image:title>KOPAONIK 125, Premium planinska rezidencija</image:title>
     </image:image>
   </url>
@@ -352,7 +352,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-bazen.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/vila-avala-140.jpg</image:loc>
       <image:title>VILA AVALA 140, Premium vila sa jednim širokim bočnim krilom</image:title>
     </image:image>
   </url>
@@ -362,7 +362,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-dizajn.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/vila-panorama-160.jpg</image:loc>
       <image:title>VILA PANORAMA 160, Flagship vila za premium turizam</image:title>
     </image:image>
   </url>
@@ -372,7 +372,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-bazen.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/resort-grand-200.jpg</image:loc>
       <image:title>RESORT GRAND 200, Reprezentativna vila sa dva simetrična bočna krila</image:title>
     </image:image>
   </url>
@@ -382,7 +382,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-trem.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-mini-24.jpg</image:loc>
       <image:title>M MINI 24, Pametan ulaz u svet montažnih kuća</image:title>
     </image:image>
   </url>
@@ -392,7 +392,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-moderna.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-compact-36.jpg</image:loc>
       <image:title>M COMPACT 36, Kompaktna kuća za odmor ili svakodnevni život para</image:title>
     </image:image>
   </url>
@@ -402,7 +402,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-trem.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-smart-50.jpg</image:loc>
       <image:title>M SMART 50, Najmanji model sa dve prave spavaće sobe</image:title>
     </image:image>
   </url>
@@ -412,7 +412,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-moderna.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-family-65.jpg</image:loc>
       <image:title>M FAMILY 65, Porodični format sa dve komforne sobe</image:title>
     </image:image>
   </url>
@@ -422,7 +422,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-trem.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-comfort-80.jpg</image:loc>
       <image:title>M COMFORT 80, Tri pune spavaće sobe, dodatni WC, ostava i tehnika</image:title>
     </image:image>
   </url>
@@ -432,7 +432,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-moderna.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-premium-100.jpg</image:loc>
       <image:title>M PREMIUM 100, Master celina, dve dodatne sobe i široka natkrivena terasa</image:title>
     </image:image>
   </url>
@@ -442,7 +442,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-trem.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-grand-120.jpg</image:loc>
       <image:title>M GRAND 120, Četiri sobe, dva kupatila, vešernica i velika veranda</image:title>
     </image:image>
   </url>
@@ -452,7 +452,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-moderna.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/m-villa-150.jpg</image:loc>
       <image:title>M VILLA 150, Najveći model kolekcije, master apartman</image:title>
     </image:image>
   </url>
@@ -462,7 +462,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/vikendica.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/studio-18.jpg</image:loc>
       <image:title>STUDIO 18, Hotelska soba ili mini apartman</image:title>
     </image:image>
   </url>
@@ -472,7 +472,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/vikendica.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/compact-24.jpg</image:loc>
       <image:title>COMPACT 24, Komforna turistička jedinica sa punom kuhinjom</image:title>
     </image:image>
   </url>
@@ -482,7 +482,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-trem.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/family-30.jpg</image:loc>
       <image:title>FAMILY 30, Mali porodični bungalov sa odvojenom spavaćom sobom</image:title>
     </image:image>
   </url>
@@ -492,7 +492,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/aframe-minimal.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/panorama-36.jpg</image:loc>
       <image:title>PANORAMA 36, Premium jedinica sa velikim zastakljenjem</image:title>
     </image:image>
   </url>
@@ -502,7 +502,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/montazna-moderna.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/twin-42.jpg</image:loc>
       <image:title>TWIN 42, Dve sobe ili dve manje apartmanske celine</image:title>
     </image:image>
   </url>
@@ -512,7 +512,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/wellness-30.jpg</image:loc>
       <image:title>WELLNESS 30, Butik bungalov sa prostorom za saunu ili hidromasažnu kadu</image:title>
     </image:image>
   </url>
@@ -522,7 +522,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/mini-9.jpg</image:loc>
       <image:title>MINI 9, Kompaktan četvorovodni letnjikovac</image:title>
     </image:image>
   </url>
@@ -532,7 +532,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/classic-16.jpg</image:loc>
       <image:title>CLASSIC 16, Klasičan porodični model</image:title>
     </image:image>
   </url>
@@ -542,7 +542,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/family-20.jpg</image:loc>
       <image:title>FAMILY 20, Produženi letnjikovac za veća okupljanja</image:title>
     </image:image>
   </url>
@@ -552,7 +552,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/grill-house-24.jpg</image:loc>
       <image:title>GRILL HOUSE 24, Model projektovan oko letnje kuhinje i roštilja</image:title>
     </image:image>
   </url>
@@ -562,7 +562,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/modern-line-24.jpg</image:loc>
       <image:title>MODERN LINE 24, Ravne linije, skriveni pad krova, antracit detalji</image:title>
     </image:image>
   </url>
@@ -572,7 +572,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/letnjikovac.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/event-pavilion-40.jpg</image:loc>
       <image:title>EVENT PAVILION 40, Veći paviljon za događaje i ugostiteljstvo</image:title>
     </image:image>
   </url>
@@ -582,7 +582,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/mini-play.jpg</image:loc>
       <image:title>MINI PLAY, Kućica na platformi sa merdevinama i toboganom</image:title>
     </image:image>
   </url>
@@ -592,7 +592,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/fun-2.jpg</image:loc>
       <image:title>FUN 2, Kula, tobogan i dve ljuljaške u kompaktnom sklopu</image:title>
     </image:image>
   </url>
@@ -602,7 +602,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/adventure.jpg</image:loc>
       <image:title>ADVENTURE, Penjalica, mreža, zid za penjanje, kula i tobogan</image:title>
     </image:image>
   </url>
@@ -612,7 +612,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/castle-bridge.jpg</image:loc>
       <image:title>CASTLE BRIDGE, Dve kule povezane ograđenim mostom</image:title>
     </image:image>
   </url>
@@ -622,7 +622,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/custom-play.jpg</image:loc>
       <image:title>CUSTOM PLAY, Igralište prilagođeno prostoru i uzrastu</image:title>
     </image:image>
   </url>
@@ -632,7 +632,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/hospitality-play.jpg</image:loc>
       <image:title>HOSPITALITY PLAY, Za restorane, hotele i apartmanske komplekse</image:title>
     </image:image>
   </url>
@@ -642,7 +642,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/kindergarten-park.jpg</image:loc>
       <image:title>KINDERGARTEN PARK, Niže platforme i lak pristup</image:title>
     </image:image>
   </url>
@@ -652,7 +652,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/adventure-park.jpg</image:loc>
       <image:title>ADVENTURE PARK, Veći sistem sa više kula, mostovima i mrežama</image:title>
     </image:image>
   </url>
@@ -662,7 +662,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/modular-playground.jpg</image:loc>
       <image:title>MODULAR PLAYGROUND, Sistem koji se planira fazno</image:title>
     </image:image>
   </url>
@@ -672,7 +672,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.mdesigneivanjica.com/images/objekti/dome.png</image:loc>
+      <image:loc>https://www.mdesigneivanjica.com/images/modeli/inclusive-play.jpg</image:loc>
       <image:title>INCLUSIVE PLAY, Pristupačne aktivnosti u nivou tla</image:title>
     </image:image>
   </url>

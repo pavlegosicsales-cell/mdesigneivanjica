@@ -137,7 +137,11 @@ ${m.specs.map((s, i) => `        <div class="ap"><div class="k">${String(i + 1).
           <p class="t-18">${esc(m.raspored)}</p>
           ${m.namena ? `<div class="mile" style="border-top:0;padding-top:0"><div class="mile__y">NAMENA</div><div class="mile__b"><p>${esc(m.namena)}</p></div></div>` : ''}
           ${m.prednost ? `<div class="mile"><div class="mile__y">PREDNOST</div><div class="mile__b"><p>${esc(m.prednost)}</p></div></div>` : ''}
-          <p class="note">Nacrt osnove sa kotama, karakterističan presek i fasade izrađuju se u projektnoj fazi. Katalog ne predstavlja projekat za građenje.</p>
+${m.osnova ? `          <figure class="osnova">
+            <img src="../${m.osnova}" alt="Kataloška osnova prizemlja, model ${esc(m.naziv)}" loading="lazy" width="1006" height="1172">
+            <figcaption>Kataloška osnova prizemlja. Mere su okvirne, konačne se usklađuju sa projektom.</figcaption>
+          </figure>
+` : ''}          <p class="note">Nacrt osnove sa kotama, karakterističan presek i fasade izrađuju se u projektnoj fazi. Katalog ne predstavlja projekat za građenje.</p>
         </div>
       </div>
     </div>
@@ -156,8 +160,19 @@ ${m.cene.map((c, i) => `        <div class="price-card${i === mid && m.cene.leng
         </div>`).join('\n')}
       </div>
 
+${(kat.paketiObuhvat || []).length ? `
+      <div class="pkt">
+        <h3 class="t-h4">Šta obuhvata koji paket</h3>
+${kat.paketiObuhvat.map(pk => `        <div class="pkt__r">
+          <div class="pkt__k">${esc(pk.paket)}</div>
+          <p>${esc(pk.obuhvat)}</p>
+        </div>`).join(String.fromCharCode(10))}
+${kat.paketiNapomena ? `        <p class="note" style="margin-top:8px">${esc(kat.paketiNapomena)}</p>` : ''}
+      </div>` : ''}
+
       <div style="margin-top:32px;max-width:72ch">
         ${m.temelj ? `<p><strong>Temelj:</strong> ${esc(m.temelj)}. Obračunava se posebno, prema geomehanici i nagibu terena.</p>` : ''}
+        ${kat.podloga ? `<p><strong>Priprema podloge:</strong> ${esc(kat.podloga)}</p>` : ''}
         ${m.opremanje ? `<p><strong>Paket opremanja nameštajem:</strong> ${esc(m.opremanje)}. Nije deo osnovne cene kuće.</p>` : ''}
         ${NOTE}
       </div>
@@ -174,15 +189,15 @@ ${m.cene.map((c, i) => `        <div class="price-card${i === mid && m.cene.leng
     <div class="lookbook">
       <div class="lookbook__head">
         <span class="tab">Rokovi</span>
-        <h2 data-split>Realizacija po fazama</h2>
-        <p>Planski okvir za organizaciju posla. Rok se potvrđuje ugovorom nakon zaključavanja modela, lokacije, projekta i specifikacije.</p>
-        <div class="miles" style="margin-top:12px">
+        <h2 data-split>${kat.rok ? 'Rok izrade i montaže' : 'Realizacija po fazama'}</h2>
+        <p>${kat.rok ? esc(kat.rok) : 'Planski okvir za organizaciju posla. Rok se potvrđuje ugovorom nakon zaključavanja modela, lokacije, projekta i specifikacije.'}</p>
+${kat.rok ? `        <p>${esc(DATA.transport || '')}</p>` : `        <div class="miles" style="margin-top:12px">
 ${DATA.faze.map(f => `          <div class="mile"><div class="mile__y">${esc(f.okvir)}</div><div class="mile__b"><h4>${esc(f.faza)}</h4><p>${esc(f.utice)}</p></div></div>`).join('\n')}
-        </div>
+        </div>`}
       </div>
       <div class="lookbook__gal">
         <img src="../${m.slika}" alt="Prikaz modela ${esc(m.naziv)}" loading="lazy" width="1200" height="900">
-        <img src="../${kat.slika}" alt="${esc(kat.naziv)}, kontekst modela" loading="lazy" width="1200" height="900">
+
       </div>
     </div>
   </section>

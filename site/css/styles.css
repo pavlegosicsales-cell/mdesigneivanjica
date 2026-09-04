@@ -478,6 +478,37 @@ section { padding: var(--pad-y) 0; position: relative; }
 /* Filter u galeriji i na blogu radi preko hidden atributa, a kartice imaju
    svoj display, koji bi ga inace pregazio. */
 [data-cat][hidden] { display: none !important; }
+
+.lista { max-width: 900px; margin: 0; padding-left: 20px; color: var(--body-ink); }
+.lista li { margin-bottom: 10px; }
+
+/* Obuhvat paketa na stranici modela */
+.pkt { margin-top: 40px; max-width: 900px; border-top: 1px solid var(--line); }
+.pkt h3 { margin: 24px 0 4px; }
+.pkt__r {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.pkt__r p { margin: 0; color: var(--body-ink); }
+.pkt__k {
+  font-family: 'Big Shoulders', sans-serif;
+  font-size: 16px; font-weight: 400; letter-spacing: .1em; line-height: 1.4em;
+  text-transform: uppercase; color: var(--accent);
+}
+@media (max-width: 809.98px) { .pkt__r { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Kataloska osnova na stranici modela */
+.osnova { margin: 28px 0 0; }
+.osnova img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: #fff;
+}
+.osnova figcaption {
+  margin-top: 10px;
+  font-family: 'Fragment Mono', ui-monospace, monospace;
+  font-size: 12px; letter-spacing: .04em; color: var(--muted);
+}
 /* Kartica sa snimkom: video popunjava kadar, a sloj sa naslovom ne sme da
    preuzme klik jer su ispod njega kontrole plejera. */
 .gcard--video .gcard__img { inset: 0; }

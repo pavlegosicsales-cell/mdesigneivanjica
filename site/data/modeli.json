@@ -26,7 +26,133 @@
         "Standard",
         "Premium"
       ],
-      "katalog": "katalozi/m-designe-a-frame-katalog-2026.pdf"
+      "katalog": "katalozi/m-designe-a-frame-katalog-2026.pdf",
+      "paketiObuhvat": [
+        {
+          "paket": "Siva faza",
+          "obuhvat": "Noseća konstrukcija, krov sa limom i opšivkama, izolacija krova 20 i zidova 10 cm, spoljna drvena obloga, prednja i zadnja stolarija po tipskoj specifikaciji i elektro izvodi. Bez instalacija, obloga, podova i kupatila."
+        },
+        {
+          "paket": "Standard",
+          "obuhvat": "Sve iz sive faze, plus elektro i vodovodne instalacije, unutrašnja lamperija, podovi u standardnom limitu, kupatilo sa hidroizolacijom i keramikom, standardni set sanitarija i baterija, unutrašnja vrata, jedan uređaj za klimatizaciju i osnovna rasveta."
+        },
+        {
+          "paket": "Premium",
+          "obuhvat": "Sve iz standarda u višem nivou: izolacija 25 i 15 cm, viša klasa spoljne obrade, PVC premium ili ALU stolarija uz doplatu, premium podovi i obloge, premium sanitarije i vrata, sistem grejanja prema modelu i dekorativna rasveta."
+        }
+      ],
+      "paketiNapomena": "Kuhinja i nameštaj nisu deo nijednog paketa, ugovaraju se posebno. Temelj se u svakom paketu obračunava posebno.",
+      "paketiTabela": {
+        "zaglavlje": [
+          "Stavka",
+          "Siva faza",
+          "Standard",
+          "Premium"
+        ],
+        "redovi": [
+          [
+            "Projekat za izvođenje i statika",
+            "prema ugovoru",
+            "prema ugovoru",
+            "prema ugovoru"
+          ],
+          [
+            "Temelj",
+            "doplata",
+            "doplata",
+            "doplata"
+          ],
+          [
+            "Noseća konstrukcija",
+            "da",
+            "da",
+            "da"
+          ],
+          [
+            "Krov sa limom i opšivkama",
+            "da",
+            "da",
+            "da"
+          ],
+          [
+            "Izolacija krova i zidova",
+            "20 / 10 cm",
+            "20 / 10 cm",
+            "25 / 15 cm"
+          ],
+          [
+            "Spoljna drvena obloga",
+            "da",
+            "da",
+            "viša klasa obrade"
+          ],
+          [
+            "Prednja i zadnja stolarija",
+            "tipska specifikacija",
+            "PVC standard",
+            "PVC premium ili ALU uz doplatu"
+          ],
+          [
+            "Elektro i vodovodne instalacije",
+            "ne",
+            "da",
+            "da"
+          ],
+          [
+            "Unutrašnja lamperija i zidne obloge",
+            "ne",
+            "da",
+            "premium izbor"
+          ],
+          [
+            "Podovi",
+            "ne",
+            "standardni limit",
+            "premium limit"
+          ],
+          [
+            "Kupatilo, hidroizolacija i keramika",
+            "ne",
+            "da",
+            "da"
+          ],
+          [
+            "Sanitarije i baterije",
+            "ne",
+            "standardni set",
+            "premium set"
+          ],
+          [
+            "Unutrašnja vrata",
+            "ne",
+            "standard",
+            "premium"
+          ],
+          [
+            "Klimatizacija i osnovno grejanje",
+            "ne",
+            "1 uređaj prema modelu",
+            "sistem prema modelu"
+          ],
+          [
+            "Rasveta",
+            "izvodi",
+            "osnovna tela",
+            "dekorativni paket"
+          ],
+          [
+            "Kuhinja i nameštaj",
+            "ne",
+            "doplata",
+            "doplata"
+          ]
+        ]
+      },
+      "limiti": [
+        "Laminat i keramika u standardu do 20 €/m², premium do 35 €/m². Razlika iznad limita i posebni formati se doplaćuju.",
+        "Oprema kupatila: standardni budžet do 1.200 € po kupatilu, premium do 2.200 €.",
+        "Veliki format pločica preko 60 × 120 cm, epoksidna fuga i ukrasne lajsne idu po ponudi."
+      ]
     },
     {
       "slug": "montazne-kuce",
@@ -40,7 +166,26 @@
         "Comfort",
         "Premium"
       ],
-      "katalog": "katalozi/m-designe-montazne-kuce-katalog-2026.pdf"
+      "katalog": "katalozi/m-designe-montazne-kuce-katalog-2026.pdf",
+      "paketiObuhvat": [
+        {
+          "paket": "Siva faza Standard",
+          "obuhvat": "Noseća konstrukcija, krov sa crepom, spoljašnje zatvaranje objekta, termoizolacioni slojevi prema paketu, fasadni sistem i ugovorena spoljna stolarija."
+        },
+        {
+          "paket": "Ključ u ruke Standard",
+          "obuhvat": "Pored sive faze obuhvata unutrašnje obloge, osnovne elektro i vodovodne instalacije unutar kuće, podove, keramiku, unutrašnja vrata, osnovne sanitarije i završno krečenje."
+        },
+        {
+          "paket": "Ključ u ruke Comfort",
+          "obuhvat": "Viši nivo izolacije, završnih obloga, stolarije i opreme u odnosu na standard. Specifikacija se formira prema željenom energetskom nivou i budžetu."
+        },
+        {
+          "paket": "Ključ u ruke Premium",
+          "obuhvat": "Najviši nivo izolacije, obloga, stolarije i opreme iz kataloga, sa dizajnerskim izborom materijala prema projektu."
+        }
+      ],
+      "paketiNapomena": "Crep je osnovna pokrivka za dvovodne i četvorovodne modele. Trapezni ili falcovani lim, tegola i drugi sistemi su izmena ili doplata. Terase sa rendera nisu deo bruto površine i ugovaraju se posebno."
     },
     {
       "slug": "bungalovi",
@@ -52,7 +197,20 @@
         "Siva faza",
         "Ključ u ruke"
       ],
-      "katalog": "katalozi/m-designe-outdoor-collection-2026.pdf"
+      "katalog": "katalozi/m-designe-outdoor-collection-2026.pdf",
+      "paketiObuhvat": [
+        {
+          "paket": "Siva faza",
+          "obuhvat": "Konstrukcija, krov, fasada, stolarija i osnovni slojevi, bez završnog enterijera."
+        },
+        {
+          "paket": "Ključ u ruke",
+          "obuhvat": "Završne obloge, instalacije i sanitarije prema specifikaciji ponude."
+        }
+      ],
+      "paketiNapomena": "Doplate: temelj, terasa, pergola, jača izolacija, premium stolarija, nameštaj i wellness oprema.",
+      "podloga": "Temeljna ploča, trakasti temelj ili projektovano oslanjanje, prema zemljištu i dozvolama.",
+      "rok": "Proizvodnja i montaža okvirno 30 do 90 radnih dana, prema paketu i broju jedinica."
     },
     {
       "slug": "letnjikovci",
@@ -65,20 +223,54 @@
         "Standard",
         "Premium / Custom"
       ],
-      "katalog": "katalozi/m-designe-outdoor-collection-2026.pdf"
+      "katalog": "katalozi/m-designe-outdoor-collection-2026.pdf",
+      "paketiObuhvat": [
+        {
+          "paket": "Osnovni",
+          "obuhvat": "Noseća konstrukcija, standardna zaštita drveta, osnovni elementi i montaža na pripremljenoj podlozi."
+        },
+        {
+          "paket": "Standard",
+          "obuhvat": "Dodatna oprema, kvalitetnija obrada i funkcionalni elementi prema modelu."
+        },
+        {
+          "paket": "Premium i Custom",
+          "obuhvat": "Posebne boje, rasveta, pod, dodatni moduli i individualni detalji."
+        }
+      ],
+      "paketiNapomena": "Kataloške cene su za osnovni paket. Standard i premium se obračunavaju prema izabranoj opremi i obradi.",
+      "podloga": "Armiranobetonska ploča, pojedinačne stope ili projektovana podna konstrukcija. Metalni nosači odvajaju stubove od podloge.",
+      "rok": "Proizvodnja 7 do 25 radnih dana, montaža 1 do 5 dana, zavisno od modela."
     },
     {
       "slug": "igralista",
       "naziv": "Dečja igrališta",
       "podnaslov": "Privatna i komercijalna",
       "opis": "Deset modela za dvorišta, hotele, restorane, vrtiće i naselja. Drvena konstrukcija sa zaobljenim ivicama, zaštitnim ogradama i zamenljivim potrošnim delovima.",
-      "slika": "images/objekti/igraliste.jpg",
+      "slika": "images/objekti/igraliste.png",
       "paketi": [
         "Osnovni",
         "Standard",
         "Premium / Custom"
       ],
-      "katalog": "katalozi/m-designe-outdoor-collection-2026.pdf"
+      "katalog": "katalozi/m-designe-outdoor-collection-2026.pdf",
+      "paketiObuhvat": [
+        {
+          "paket": "Osnovni",
+          "obuhvat": "Noseća konstrukcija, standardna zaštita, osnovni elementi i montaža."
+        },
+        {
+          "paket": "Standard",
+          "obuhvat": "Dodatna oprema, kvalitetnija obrada i funkcionalni elementi prema modelu."
+        },
+        {
+          "paket": "Premium i Custom",
+          "obuhvat": "Posebne boje, rasveta, pod, dodatni moduli i individualni detalji."
+        }
+      ],
+      "paketiNapomena": "Bezbednosna zona, visina slobodnog pada, ankerisanje i podloga potvrđuju se tehničkim listom pre izrade. Za javnu i komercijalnu upotrebu projekat, materijali i podloga usklađuju se sa zahtevima na mestu ugradnje.",
+      "podloga": "Ankerisanje i amortizujuća podloga prema opremi, visini pada i nameni prostora.",
+      "rok": "Privatna igrališta 10 do 30 dana. Komercijalna prema projektu, opremi i proverama."
     },
     {
       "slug": "resort",
@@ -87,7 +279,13 @@
       "opis": "Za turistička naselja i investicione projekte modeli se kombinuju u jedinstvenu arhitektonsku celinu. Cilj nije samo ponoviti kuću, već standardizovati nabavku, montažu, održavanje i iskustvo gosta.",
       "slika": "images/objekti/aframe-bazen.png",
       "tip": "investicije",
-      "katalog": "katalozi/m-designe-a-frame-katalog-2026.pdf"
+      "katalog": "katalozi/m-designe-a-frame-katalog-2026.pdf",
+      "paketiObuhvat": [
+        {
+          "paket": "Po projektu",
+          "obuhvat": "Miks modela, faze realizacije i nivo opreme definišu se prema parceli, ciljnoj grupi i planu finansiranja. Ponuda se radi za ceo kompleks, ne po jedinici."
+        }
+      ]
     }
   ],
   "modeli": [
@@ -96,7 +294,7 @@
       "naziv": "MINI 30",
       "kategorija": "a-frame",
       "podnaslov": "Najkompaktniji ulazak u A-frame svet",
-      "slika": "images/objekti/aframe-minimal.png",
+      "slika": "images/modeli/mini-30.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -147,7 +345,7 @@
       "naziv": "TARA 48",
       "kategorija": "a-frame",
       "podnaslov": "Kompaktna vikendica",
-      "slika": "images/objekti/aframe-terasa.png",
+      "slika": "images/modeli/tara-48.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -198,7 +396,7 @@
       "naziv": "GOLIJA 54",
       "kategorija": "a-frame",
       "podnaslov": "Više prostora, ista čista forma",
-      "slika": "images/objekti/aframe-dizajn.png",
+      "slika": "images/modeli/golija-54.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -249,7 +447,7 @@
       "naziv": "ZLATAR 69",
       "kategorija": "a-frame",
       "podnaslov": "Porodični model sa bočnim krilom",
-      "slika": "images/objekti/aframe-terasa.png",
+      "slika": "images/modeli/zlatar-69.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -300,7 +498,7 @@
       "naziv": "FAMILY 85",
       "kategorija": "a-frame",
       "podnaslov": "Prava porodična kuća za celogodišnji boravak",
-      "slika": "images/objekti/aframe-dizajn.png",
+      "slika": "images/modeli/family-85.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -351,7 +549,7 @@
       "naziv": "DIVČIBARE 110",
       "kategorija": "a-frame",
       "podnaslov": "Velika kuća za porodicu ili izdavanje",
-      "slika": "images/objekti/aframe-bazen.png",
+      "slika": "images/modeli/divcibare-110.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -402,7 +600,7 @@
       "naziv": "KOPAONIK 125",
       "kategorija": "a-frame",
       "podnaslov": "Premium planinska rezidencija",
-      "slika": "images/objekti/aframe-minimal.png",
+      "slika": "images/modeli/kopaonik-125.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -453,7 +651,7 @@
       "naziv": "VILA AVALA 140",
       "kategorija": "a-frame",
       "podnaslov": "Premium vila sa jednim širokim bočnim krilom",
-      "slika": "images/objekti/aframe-bazen.png",
+      "slika": "images/modeli/vila-avala-140.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -504,7 +702,7 @@
       "naziv": "VILA PANORAMA 160",
       "kategorija": "a-frame",
       "podnaslov": "Flagship vila za premium turizam",
-      "slika": "images/objekti/aframe-dizajn.png",
+      "slika": "images/modeli/vila-panorama-160.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -555,7 +753,7 @@
       "naziv": "RESORT GRAND 200",
       "kategorija": "a-frame",
       "podnaslov": "Reprezentativna vila sa dva simetrična bočna krila",
-      "slika": "images/objekti/aframe-bazen.png",
+      "slika": "images/modeli/resort-grand-200.jpg",
       "specs": [
         {
           "k": "Osnova",
@@ -606,7 +804,7 @@
       "naziv": "M MINI 24",
       "kategorija": "montazne-kuce",
       "podnaslov": "Pametan ulaz u svet montažnih kuća",
-      "slika": "images/objekti/montazna-trem.png",
+      "slika": "images/modeli/m-mini-24.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -631,6 +829,10 @@
         {
           "k": "Kapacitet",
           "v": "2 osobe, povremeno 4"
+        },
+        {
+          "k": "Terasa",
+          "v": "opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 11,0 m², spavaća soba oko 5,1 m², kupatilo oko 3,2 m², ulaz i komunikacija oko 1,2 m².",
@@ -653,14 +855,15 @@
           "iznos": "28.500 €"
         }
       ],
-      "temelj": "2.500–3.200 €"
+      "temelj": "2.500–3.200 €",
+      "osnova": "images/modeli/m-mini-24-osnova.jpg"
     },
     {
       "slug": "m-compact-36",
       "naziv": "M COMPACT 36",
       "kategorija": "montazne-kuce",
       "podnaslov": "Kompaktna kuća za odmor ili svakodnevni život para",
-      "slika": "images/objekti/montazna-moderna.png",
+      "slika": "images/modeli/m-compact-36.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -685,6 +888,10 @@
         {
           "k": "Kapacitet",
           "v": "2–3 osobe"
+        },
+        {
+          "k": "Terasa",
+          "v": "opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 18 m², spavaća soba oko 9 m², kupatilo oko 4,1 m², ulaz i komunikacija oko 1,5 m².",
@@ -707,14 +914,15 @@
           "iznos": "29.500 €"
         }
       ],
-      "temelj": "3.240–4.320 €"
+      "temelj": "3.240–4.320 €",
+      "osnova": "images/modeli/m-compact-36-osnova.jpg"
     },
     {
       "slug": "m-smart-50",
       "naziv": "M SMART 50",
       "kategorija": "montazne-kuce",
       "podnaslov": "Najmanji model sa dve prave spavaće sobe",
-      "slika": "images/objekti/montazna-trem.png",
+      "slika": "images/modeli/m-smart-50.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -739,6 +947,10 @@
         {
           "k": "Kapacitet",
           "v": "3–4 osobe"
+        },
+        {
+          "k": "Terasa",
+          "v": "otvorena baštenska terasa, opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 24,8 m², spavaća soba 1 oko 8,2 m², spavaća soba 2 oko 7,0 m², kupatilo oko 4,8 m².",
@@ -761,14 +973,15 @@
           "iznos": "41.328 €"
         }
       ],
-      "temelj": "4.536–6.048 €"
+      "temelj": "4.536–6.048 €",
+      "osnova": "images/modeli/m-smart-50-osnova.jpg"
     },
     {
       "slug": "m-family-65",
       "naziv": "M FAMILY 65",
       "kategorija": "montazne-kuce",
       "podnaslov": "Porodični format sa dve komforne sobe",
-      "slika": "images/objekti/montazna-moderna.png",
+      "slika": "images/modeli/m-family-65.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -793,6 +1006,10 @@
         {
           "k": "Kapacitet",
           "v": "3–4 osobe"
+        },
+        {
+          "k": "Terasa",
+          "v": "natkrivena baštenska terasa, opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 29,0 m², spavaća soba 1 oko 10,5 m², spavaća soba 2 oko 9,8 m², kupatilo oko 5,0 m², tehnička prostorija oko 2,5 m².",
@@ -815,14 +1032,15 @@
           "iznos": "53.136 €"
         }
       ],
-      "temelj": "5.832–7.776 €"
+      "temelj": "5.832–7.776 €",
+      "osnova": "images/modeli/m-family-65-osnova.jpg"
     },
     {
       "slug": "m-comfort-80",
       "naziv": "M COMFORT 80",
       "kategorija": "montazne-kuce",
       "podnaslov": "Tri pune spavaće sobe, dodatni WC, ostava i tehnika",
-      "slika": "images/objekti/montazna-trem.png",
+      "slika": "images/modeli/m-comfort-80.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -847,6 +1065,10 @@
         {
           "k": "Kapacitet",
           "v": "4–5 osoba"
+        },
+        {
+          "k": "Terasa",
+          "v": "opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 29,0 m², master soba oko 11,0 m², soba 2 oko 10,1 m², soba 3 oko 9,5 m², kupatilo i WC oko 6,5 m², tehnika i ostava oko 5,0 m².",
@@ -869,14 +1091,15 @@
           "iznos": "65.600 €"
         }
       ],
-      "temelj": "7.200–9.600 €"
+      "temelj": "7.200–9.600 €",
+      "osnova": "images/modeli/m-comfort-80-osnova.jpg"
     },
     {
       "slug": "m-premium-100",
       "naziv": "M PREMIUM 100",
       "kategorija": "montazne-kuce",
       "podnaslov": "Master celina, dve dodatne sobe i široka natkrivena terasa",
-      "slika": "images/objekti/montazna-moderna.png",
+      "slika": "images/modeli/m-premium-100.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -901,6 +1124,10 @@
         {
           "k": "Kapacitet",
           "v": "4–5 osoba"
+        },
+        {
+          "k": "Terasa",
+          "v": "široka natkrivena terasa, opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 34,0 m², master soba oko 13,5 m², sobe 2 i 3 po oko 10,5 m², dva kupatila oko 8,5 m², garderober oko 3,5 m², tehnika i ostava oko 5,0 m².",
@@ -923,14 +1150,15 @@
           "iznos": "82.000 €"
         }
       ],
-      "temelj": "9.000–12.000 €"
+      "temelj": "9.000–12.000 €",
+      "osnova": "images/modeli/m-premium-100-osnova.jpg"
     },
     {
       "slug": "m-grand-120",
       "naziv": "M GRAND 120",
       "kategorija": "montazne-kuce",
       "podnaslov": "Četiri sobe, dva kupatila, vešernica i velika veranda",
-      "slika": "images/objekti/montazna-trem.png",
+      "slika": "images/modeli/m-grand-120.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -955,6 +1183,10 @@
         {
           "k": "Kapacitet",
           "v": "5–6 osoba"
+        },
+        {
+          "k": "Terasa",
+          "v": "velika natkrivena veranda, opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 39,0 m², master soba oko 15,0 m², sobe 2 i 3 po oko 11,2 m², soba 4 ili radna oko 9,5 m², dva kupatila oko 9,5 m², garderober i servis oko 11,5 m².",
@@ -977,14 +1209,15 @@
           "iznos": "98.400 €"
         }
       ],
-      "temelj": "10.800–14.400 €"
+      "temelj": "10.800–14.400 €",
+      "osnova": "images/modeli/m-grand-120-osnova.jpg"
     },
     {
       "slug": "m-villa-150",
       "naziv": "M VILLA 150",
       "kategorija": "montazne-kuce",
       "podnaslov": "Najveći model kolekcije, master apartman",
-      "slika": "images/objekti/montazna-moderna.png",
+      "slika": "images/modeli/m-villa-150.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1009,6 +1242,10 @@
         {
           "k": "Kapacitet",
           "v": "5–7 osoba"
+        },
+        {
+          "k": "Terasa",
+          "v": "velika natkrivena baštenska terasa, opciona doplata"
         }
       ],
       "raspored": "Dnevna zona oko 46,0 m², master soba oko 16,5 m², sobe 2 i 3 oko 12 i 11,5 m², soba 4 ili radna oko 10,5 m², dva kupatila i WC oko 12,5 m², garderober i servis oko 15,0 m².",
@@ -1031,14 +1268,15 @@
           "iznos": "123.000 €"
         }
       ],
-      "temelj": "13.500–18.000 €"
+      "temelj": "13.500–18.000 €",
+      "osnova": "images/modeli/m-villa-150-osnova.jpg"
     },
     {
       "slug": "studio-18",
       "naziv": "STUDIO 18",
       "kategorija": "bungalovi",
       "podnaslov": "Hotelska soba ili mini apartman",
-      "slika": "images/objekti/vikendica.png",
+      "slika": "images/modeli/studio-18.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1071,7 +1309,7 @@
       "naziv": "COMPACT 24",
       "kategorija": "bungalovi",
       "podnaslov": "Komforna turistička jedinica sa punom kuhinjom",
-      "slika": "images/objekti/vikendica.png",
+      "slika": "images/modeli/compact-24.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1104,7 +1342,7 @@
       "naziv": "FAMILY 30",
       "kategorija": "bungalovi",
       "podnaslov": "Mali porodični bungalov sa odvojenom spavaćom sobom",
-      "slika": "images/objekti/montazna-trem.png",
+      "slika": "images/modeli/family-30.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1137,7 +1375,7 @@
       "naziv": "PANORAMA 36",
       "kategorija": "bungalovi",
       "podnaslov": "Premium jedinica sa velikim zastakljenjem",
-      "slika": "images/objekti/aframe-minimal.png",
+      "slika": "images/modeli/panorama-36.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1170,7 +1408,7 @@
       "naziv": "TWIN 42",
       "kategorija": "bungalovi",
       "podnaslov": "Dve sobe ili dve manje apartmanske celine",
-      "slika": "images/objekti/montazna-moderna.png",
+      "slika": "images/modeli/twin-42.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1203,7 +1441,7 @@
       "naziv": "WELLNESS 30",
       "kategorija": "bungalovi",
       "podnaslov": "Butik bungalov sa prostorom za saunu ili hidromasažnu kadu",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/wellness-30.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1232,7 +1470,7 @@
       "naziv": "MINI 9",
       "kategorija": "letnjikovci",
       "podnaslov": "Kompaktan četvorovodni letnjikovac",
-      "slika": "images/objekti/letnjikovac.png",
+      "slika": "images/modeli/mini-9.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1261,7 +1499,7 @@
       "naziv": "CLASSIC 16",
       "kategorija": "letnjikovci",
       "podnaslov": "Klasičan porodični model",
-      "slika": "images/objekti/letnjikovac.png",
+      "slika": "images/modeli/classic-16.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1290,7 +1528,7 @@
       "naziv": "FAMILY 20",
       "kategorija": "letnjikovci",
       "podnaslov": "Produženi letnjikovac za veća okupljanja",
-      "slika": "images/objekti/letnjikovac.png",
+      "slika": "images/modeli/family-20.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1319,7 +1557,7 @@
       "naziv": "GRILL HOUSE 24",
       "kategorija": "letnjikovci",
       "podnaslov": "Model projektovan oko letnje kuhinje i roštilja",
-      "slika": "images/objekti/letnjikovac.png",
+      "slika": "images/modeli/grill-house-24.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1348,7 +1586,7 @@
       "naziv": "MODERN LINE 24",
       "kategorija": "letnjikovci",
       "podnaslov": "Ravne linije, skriveni pad krova, antracit detalji",
-      "slika": "images/objekti/letnjikovac.png",
+      "slika": "images/modeli/modern-line-24.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1377,7 +1615,7 @@
       "naziv": "EVENT PAVILION 40",
       "kategorija": "letnjikovci",
       "podnaslov": "Veći paviljon za događaje i ugostiteljstvo",
-      "slika": "images/objekti/letnjikovac.png",
+      "slika": "images/modeli/event-pavilion-40.jpg",
       "specs": [
         {
           "k": "Dimenzije",
@@ -1407,7 +1645,7 @@
       "kategorija": "igralista",
       "tip": "privatno",
       "podnaslov": "Kućica na platformi sa merdevinama i toboganom",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/mini-play.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1437,7 +1675,7 @@
       "kategorija": "igralista",
       "tip": "privatno",
       "podnaslov": "Kula, tobogan i dve ljuljaške u kompaktnom sklopu",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/fun-2.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1467,7 +1705,7 @@
       "kategorija": "igralista",
       "tip": "privatno",
       "podnaslov": "Penjalica, mreža, zid za penjanje, kula i tobogan",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/adventure.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1497,7 +1735,7 @@
       "kategorija": "igralista",
       "tip": "privatno",
       "podnaslov": "Dve kule povezane ograđenim mostom",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/castle-bridge.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1527,7 +1765,7 @@
       "kategorija": "igralista",
       "tip": "privatno",
       "podnaslov": "Igralište prilagođeno prostoru i uzrastu",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/custom-play.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1557,7 +1795,7 @@
       "kategorija": "igralista",
       "tip": "komercijalno",
       "podnaslov": "Za restorane, hotele i apartmanske komplekse",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/hospitality-play.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1587,7 +1825,7 @@
       "kategorija": "igralista",
       "tip": "komercijalno",
       "podnaslov": "Niže platforme i lak pristup",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/kindergarten-park.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1617,7 +1855,7 @@
       "kategorija": "igralista",
       "tip": "komercijalno",
       "podnaslov": "Veći sistem sa više kula, mostovima i mrežama",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/adventure-park.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1647,7 +1885,7 @@
       "kategorija": "igralista",
       "tip": "komercijalno",
       "podnaslov": "Sistem koji se planira fazno",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/modular-playground.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1677,7 +1915,7 @@
       "kategorija": "igralista",
       "tip": "komercijalno",
       "podnaslov": "Pristupačne aktivnosti u nivou tla",
-      "slika": "images/objekti/dome.png",
+      "slika": "images/modeli/inclusive-play.jpg",
       "specs": [
         {
           "k": "Gabarit",
@@ -1930,5 +2168,14 @@
       "p": "Od čega zavisi konačna cena objekta?",
       "o": "Model, paket, arhitektonske izmene, izabrani materijali, temelj, logistika i posebni uslovi parcele. Konačna cena se formira nakon pregleda lokacije i usaglašene specifikacije."
     }
+  ],
+  "transport": "Transport se obračunava prema udaljenosti, količini elemenata, potrebnom vozilu, pristupu lokaciji i mogućnosti istovara. Pre ponude šaljete tačnu adresu, fotografije prilaza i podatke o ograničenjima. Montaža počinje kada je teren bezbedan, pristupačan i pripremljen prema dogovorenom nacrtu.",
+  "temeljPodaci": [
+    "Lokacija i katastarska parcela",
+    "Geodetski snimak sa visinskim kotama",
+    "Geomehanički elaborat kada je potreban",
+    "Fotografije prilaza i radne zone",
+    "Podaci o priključcima, drenaži i odvođenju vode",
+    "Željena kota poda, terase, potporni zidovi i eventualni suteren"
   ]
 }

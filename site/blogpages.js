@@ -31,10 +31,6 @@ module.exports = function (BLOG, H) {
     const lead = sorted.find(c => c.istaknut) || sorted[0];
     const rest = sorted.filter(c => c !== lead);
 
-    const filteri = ['sve'].concat(BLOG.kategorije).map((k, i) =>
-      `        <button class="filter-btn${i === 0 ? ' is-active' : ''}" data-filter="${k === 'sve' ? 'sve' : esc(k)}">${k === 'sve' ? 'Sve teme' : esc(k)}</button>`
-    ).join('\n');
-
     return head({
       title: 'Blog o gradnji montažnih i A-frame kuća | M Designe',
       desc: 'Praktični tekstovi o ceni, temelju, dozvolama, izolaciji i održavanju montažnih i A-frame kuća. Iskustvo sa terena, bez uopštenih saveta.',
@@ -64,9 +60,6 @@ module.exports = function (BLOG, H) {
 
   <section>
     <div class="wrap">
-      <div class="filters" style="margin-bottom:48px" role="group" aria-label="Filter tema">
-${filteri}
-      </div>
       <div class="grid grid--3">
 ${post(lead, true, '', 'savet/')}
 ${rest.map(c => post(c, false, '', 'savet/')).join('\n')}

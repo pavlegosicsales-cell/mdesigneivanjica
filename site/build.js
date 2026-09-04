@@ -89,6 +89,54 @@ function categoryPage(kat, idx) {
     </div>
   </div>` : '';
 
+  /* Sta obuhvata koji paket, iz kataloga za tu kategoriju.
+     Bez ovoga posetilac vidi samo nazive paketa i cene, bez razlike medju njima. */
+  const paketiSek = (kat.paketiObuhvat || []).length ? `
+  <div class="asec">
+    <div class="hblock">
+      <p class="eyebrow">NIVOI IZVOĐENJA</p>
+      <h2 data-split>Šta obuhvata | koji paket.</h2>
+      <p>Nivo izvođenja najviše utiče na cenu. Ispod je obuhvat iz kataloga 2026 za kategoriju ${esc(kat.naziv.toLowerCase())}.</p>
+    </div>
+    <div class="pkt" style="margin-top:24px">
+${kat.paketiObuhvat.map(pk => `      <div class="pkt__r">
+        <div class="pkt__k">${esc(pk.paket)}</div>
+        <p>${esc(pk.obuhvat)}</p>
+      </div>`).join(String.fromCharCode(10))}
+${kat.paketiNapomena ? `      <p class="note" style="margin-top:8px">${esc(kat.paketiNapomena)}</p>` : ''}
+    </div>
+${kat.rok || kat.podloga ? `    <div class="cgrid" style="margin-top:48px">
+${kat.rok ? `      <div class="cell ap"><span class="cell__n">Rok</span><p class="eyebrow">Izrada i montaža //</p><p>${esc(kat.rok)}</p></div>` : ''}
+${kat.podloga ? `      <div class="cell ap"><span class="cell__n">Podloga</span><p class="eyebrow">Priprema terena //</p><p>${esc(kat.podloga)}</p></div>` : ''}
+${DATA.transport ? `      <div class="cell ap"><span class="cell__n">Transport</span><p class="eyebrow">Dolazak na lokaciju //</p><p>${esc(DATA.transport)}</p></div>` : ''}
+    </div>` : ''}
+${(kat.limiti || []).length ? `    <div class="hblock" style="margin-top:56px">
+      <p class="eyebrow">ZAVRŠNI MATERIJALI</p>
+      <h2 data-split>Limiti materijala | u paketima.</h2>
+    </div>
+    <ul class="lista" style="margin-top:16px">
+${kat.limiti.map(l => `      <li>${esc(l)}</li>`).join(String.fromCharCode(10))}
+    </ul>` : ''}
+  </div>` : '';
+
+  /* Uporedna tabela paketa, za sada samo A-frame jer je samo taj katalog ima. */
+  const paketiTab = kat.paketiTabela ? `
+  <div class="matrix">
+    <div class="matrix__head">
+      <p class="eyebrow">PAKETI IZVOĐENJA // ${esc(kat.naziv.toUpperCase())}</p>
+      <h2 data-split>Stavka po stavka, | šta tačno dobijate.</h2>
+      <p>Konačna specifikacija u ugovoru ima prednost nad katalogom.</p>
+    </div>
+    <div class="matrix__wrap">
+      <table>
+        <thead><tr>${kat.paketiTabela.zaglavlje.map((h, i) => `<th scope="col"${i ? ' class="num"' : ''}>${esc(h)}</th>`).join('')}</tr></thead>
+        <tbody>
+${kat.paketiTabela.redovi.map(r => `          <tr>${r.map((c, i) => i ? `<td class="num">${esc(c)}</td>` : `<td>${esc(c)}</td>`).join('')}</tr>`).join(String.fromCharCode(10))}
+        </tbody>
+      </table>
+    </div>
+  </div>` : '';
+
   const dop = DATA.doplate[kat.slug];
   const doplate = dop ? `
   <div class="matrix">
@@ -210,6 +258,8 @@ ${modeli.map(m => gcard(m, '../', kat)).join('\n')}
     </div>
   </section>` : ''}
 ${invest}
+${paketiSek}
+${paketiTab}
 ${tabela}
 ${doplate}
   <section class="cta-full">
