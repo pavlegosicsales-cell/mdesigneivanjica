@@ -251,7 +251,7 @@ ${lineup}
       <div class="two-col">
         <div class="two-col__left">
           <span class="tab">FAQ</span>
-          <h2 data-split>Pitanja koja obično dobijamo</h2>
+          <h2 data-split>Pitanja koja || obično dobijamo</h2>
           <div class="cta-box">
             <p>Imate još pitanja?</p>
             <p>Tu smo da olakšamo posao. Javite se slobodno.</p>

@@ -219,7 +219,7 @@ ${braca.map(b => gcard(b, '../')).join('\n')}
 
   <section class="cta-full">
     <p class="eyebrow">Sledeći korak</p>
-    <h2 data-split>Pošaljite podatke o parceli</h2>
+    <h2 data-split>Pošaljite podatke || o parceli</h2>
     <p>Mesto i link lokacije, fotografije parcele i prilaza, željeni paket i planirani budžet. Nakon početne analize dobijate predlog i strukturu ponude.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="${upit}">Pošalji upit ${ARROW}</a>

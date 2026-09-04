@@ -95,7 +95,7 @@ module.exports = function (DATA, L, FOOT) {
 
     <div class="hblock" style="margin-top:64px">
       <p class="eyebrow">Ponuda_Temelja</p>
-      <h2 data-split>Šta nam treba za ponudu temelja.</h2>
+      <h2 data-split>Šta nam treba || za ponudu temelja.</h2>
       <p>Bez ovih podataka svaka cena temelja je nagađanje. Sa njima dobijate obračun koji se ne menja u toku radova.</p>
     </div>
     <ul class="lista" style="margin-top:16px">
@@ -220,7 +220,7 @@ ${spark('ALU i troslojno: doplata', 60)}
   <div class="closing">
     <div class="hblock">
       <p class="eyebrow">SLEDEĆI KORAK</p>
-      <h2 data-split>Pošaljite podatke o parceli.</h2>
+      <h2 data-split>Pošaljite podatke || o parceli.</h2>
       <p>Mesto i link lokacije, fotografije parcele i prilaznog puta, željena kvadratura i broj korisnika, paket i planirani budžet. Nakon početne analize dobijate predlog modela i strukturu ponude.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn--primary" href="kontakt.html">Zatraži ponudu ${ARROW}</a>

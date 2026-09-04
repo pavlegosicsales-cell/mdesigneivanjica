@@ -259,26 +259,35 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
   /* ---------------------------------------------------------------
      Naslovi rec po rec
      --------------------------------------------------------------- */
-  var BR = '⏎';   /* interna oznaka za prelom reda */
+  var BR = '⏎';    /* prelom reda na svim velicinama */
+  var BRM = '⏎m';  /* prelom koji vazi samo na telefonu */
 
   document.querySelectorAll('[data-split]').forEach(function (el) {
-    /* uspravna crta u tekstu znaci prelom reda */
-    var lines = el.textContent.trim().split('|').map(function (x) { return x.trim(); });
+    /* jedna uspravna crta znaci prelom svuda, dve samo na telefonu */
     var words = [];
-    lines.forEach(function (ln, li) {
-      ln.split(/\s+/).forEach(function (w) { if (w) words.push(w); });
-      if (li < lines.length - 1) words.push(BR);
+    el.textContent.trim().split('||').forEach(function (deo, di, sviDelovi) {
+      deo.split('|').forEach(function (ln, li, redovi) {
+        ln.trim().split(/\s+/).forEach(function (w) { if (w) words.push(w); });
+        if (li < redovi.length - 1) words.push(BR);
+      });
+      if (di < sviDelovi.length - 1) words.push(BRM);
     });
 
     el.textContent = '';
     words.forEach(function (w, i) {
+      if (w === BRM) {
+        var brm = document.createElement('br');
+        brm.className = 'br-mob';
+        el.appendChild(brm);
+        return;
+      }
       if (w === BR) { el.appendChild(document.createElement('br')); return; }
       var s = document.createElement('span');
       s.className = 'w';
       s.textContent = w;
       s.style.transitionDelay = (i * 0.045) + 's';
       el.appendChild(s);
-      if (i < words.length - 1 && words[i + 1] !== BR) el.appendChild(document.createTextNode(' '));
+      if (i < words.length - 1 && words[i + 1] !== BR && words[i + 1] !== BRM) el.appendChild(document.createTextNode(' '));
     });
     el.classList.add('ap-split');
   });

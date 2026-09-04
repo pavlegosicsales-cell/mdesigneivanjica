@@ -858,6 +858,10 @@ tbody tr:last-child td { border-bottom: 0; }
 .ap:nth-child(5) { transition-delay: .24s; }
 .ap:nth-child(6) { transition-delay: .3s; }
 
+/* prelom naslova koji vazi samo na telefonu */
+br.br-mob { display: none; }
+@media (max-width: 809.98px) { br.br-mob { display: block; } }
+
 /* naslov rec po rec */
 .w { display: inline-block; opacity: .001; transform: translateY(10px); transition: opacity .55s var(--ease-appear), transform .55s var(--ease-appear); }
 .on .w { opacity: 1; transform: none; }
