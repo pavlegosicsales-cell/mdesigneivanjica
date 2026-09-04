@@ -5,22 +5,22 @@
   "trailingSlash": false,
 
   "redirects": [
-    { "source": "/pocetna", "destination": "/", "permanent": true },
-    { "source": "/usluge", "destination": "/modeli.html", "permanent": true },
-    { "source": "/usluge/a-frame-kuca-tip-a", "destination": "/modeli/a-frame.html", "permanent": true },
-    { "source": "/usluge/a-frame-kuca-tip-b-bocni-zidovi", "destination": "/modeli/a-frame.html", "permanent": true },
-    { "source": "/usluge/a-frame-kuca-tip-c-puni-zidovi", "destination": "/modeli/a-frame.html", "permanent": true },
-    { "source": "/usluge/:put*", "destination": "/modeli.html", "permanent": true },
-    { "source": "/galerija", "destination": "/galerija.html", "permanent": true },
-    { "source": "/galerija/a-frame-kuce", "destination": "/modeli/a-frame.html", "permanent": true },
-    { "source": "/galerija/montazne-kuce", "destination": "/modeli/montazne-kuce.html", "permanent": true },
-    { "source": "/galerija/:put*", "destination": "/galerija.html", "permanent": true },
-    { "source": "/o-nama", "destination": "/o-nama.html", "permanent": true },
-    { "source": "/kontakt", "destination": "/kontakt.html", "permanent": true },
-    { "source": "/cart", "destination": "/", "permanent": true },
-    { "source": "/cenovnik", "destination": "/cenovnik.html", "permanent": true },
-    { "source": "/modeli", "destination": "/modeli.html", "permanent": true },
-    { "source": "/blog", "destination": "/blog.html", "permanent": true }
+    { "source": "/pocetna", "destination": "/", "statusCode": 301 },
+    { "source": "/usluge", "destination": "/modeli.html", "statusCode": 301 },
+    { "source": "/usluge/a-frame-kuca-tip-a", "destination": "/modeli/a-frame.html", "statusCode": 301 },
+    { "source": "/usluge/a-frame-kuca-tip-b-bocni-zidovi", "destination": "/modeli/a-frame.html", "statusCode": 301 },
+    { "source": "/usluge/a-frame-kuca-tip-c-puni-zidovi", "destination": "/modeli/a-frame.html", "statusCode": 301 },
+    { "source": "/usluge/:put*", "destination": "/modeli.html", "statusCode": 301 },
+    { "source": "/galerija", "destination": "/galerija.html", "statusCode": 301 },
+    { "source": "/galerija/a-frame-kuce", "destination": "/modeli/a-frame.html", "statusCode": 301 },
+    { "source": "/galerija/montazne-kuce", "destination": "/modeli/montazne-kuce.html", "statusCode": 301 },
+    { "source": "/galerija/:put*", "destination": "/galerija.html", "statusCode": 301 },
+    { "source": "/o-nama", "destination": "/o-nama.html", "statusCode": 301 },
+    { "source": "/kontakt", "destination": "/kontakt.html", "statusCode": 301 },
+    { "source": "/cart", "destination": "/", "statusCode": 301 },
+    { "source": "/cenovnik", "destination": "/cenovnik.html", "statusCode": 301 },
+    { "source": "/modeli", "destination": "/modeli.html", "statusCode": 301 },
+    { "source": "/blog", "destination": "/blog.html", "statusCode": 301 }
   ],
 
   "headers": [
