@@ -170,8 +170,8 @@
 }
 .site-footer.on .fcabin--bright {
   opacity: 1;
-  filter: brightness(1) saturate(.98);
-  -webkit-filter: brightness(1) saturate(.98);
+  filter: brightness(1.04) saturate(1.45);
+  -webkit-filter: brightness(1.04) saturate(1.45);
 }
 
 /* Wordmark isto: iz sive u terakotu. */

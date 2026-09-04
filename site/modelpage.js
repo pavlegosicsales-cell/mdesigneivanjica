@@ -119,8 +119,12 @@ ${m.specs.slice(0, 3).map(s => `        <div><span class="v">${esc(s.v)}</span><
     <div class="wrap">
       <span class="tab">Specifikacija</span>
       <h2 data-split style="margin-top:24px;max-width:20ch">Tehnički podaci</h2>
-      <div class="specgrid">
-${m.specs.map((s, i) => `        <div class="ap"><div class="k">${String(i + 1).padStart(2, '0')}</div><h4>${esc(s.k)}</h4><p>${esc(s.v)}</p></div>`).join('\n')}
+      <div class="specgrid specgrid--${m.specs.length % 3 === 0 ? '3' : '4'}">
+${m.specs.map((s, i) => `        <div class="spec ap">
+          <span class="spec__n">${String(i + 1).padStart(2, '0')}</span>
+          <span class="spec__v">${esc(s.v)}</span>
+          <p class="eyebrow">${esc(s.k)} //</p>
+        </div>`).join(String.fromCharCode(10))}
       </div>
     </div>
   </section>

@@ -199,25 +199,25 @@ ${lineup}
     <div class="proc__right">
         <div class="pstep ap">
           <p class="pstep__n">Korak 01 //</p>
-          <div class="pstep__img"><img src="images/sekcije/proces-01.png" alt="Osnove i preseci objekta u fazi analize potreba" loading="lazy" width="1600" height="1218"></div>
+          <div class="pstep__img pstep__img--ilu"><img src="images/sekcije/proces-01.png" alt="Osnove i preseci objekta u fazi analize potreba" loading="lazy" width="1600" height="1218"></div>
           <h4>Lokacija i potrebe</h4>
           <p>Analiziramo parcelu, pristup, namenu, željeni kapacitet i budžet. Ovaj razgovor određuje sve što sledi, od tipa temelja do izbora modela i nivoa opreme.</p>
         </div>
         <div class="pstep ap">
           <p class="pstep__n">Korak 02 //</p>
-          <div class="pstep__img"><img src="images/sekcije/proces-02.png" alt="Trodimenzionalni model A-frame kuće sa rasporedom prostorija" loading="lazy" width="1600" height="1280"></div>
+          <div class="pstep__img pstep__img--ilu"><img src="images/sekcije/proces-02.png" alt="Trodimenzionalni model A-frame kuće sa rasporedom prostorija" loading="lazy" width="1600" height="1280"></div>
           <h4>Model i specifikacija</h4>
           <p>Biramo tipski model i precizno evidentiramo sve izmene i nivo opreme, stavku po stavku. Izmene pre zaključavanja projekta su najjednostavnije i najjeftinije.</p>
         </div>
         <div class="pstep ap">
           <p class="pstep__n">Korak 03 //</p>
-          <div class="pstep__img"><img src="images/sekcije/proces-03.png" alt="Materijal pripremljen za proizvodnju objekta" loading="lazy" width="1536" height="1024"></div>
+          <div class="pstep__img pstep__img--ilu"><img src="images/sekcije/proces-03.png" alt="Materijal pripremljen za proizvodnju objekta" loading="lazy" width="1536" height="1024"></div>
           <h4>Priprema i proizvodnja</h4>
           <p>Nabavka materijala, priprema elemenata u pogonu i koordinacija temelja sa instalacijama. Elementi se izrađuju prema usaglašenom projektu.</p>
         </div>
         <div class="pstep ap">
           <p class="pstep__n">Korak 04 //</p>
-          <div class="pstep__img"><img src="images/sekcije/proces-04.png" alt="Završena A-frame kuća sa osvetljenim enterijerom" loading="lazy" width="1024" height="1536"></div>
+          <div class="pstep__img pstep__img--ilu"><img src="images/sekcije/proces-04.png" alt="Završena A-frame kuća sa osvetljenim enterijerom" loading="lazy" width="1024" height="1536"></div>
           <h4>Montaža i primopredaja</h4>
           <p>Konstrukcija, zatvaranje, instalacije i završna obrada po izabranom paketu. Zatim zajednički pregled, zapisnik i predaja dokumentacije.</p>
         </div>

@@ -30,33 +30,66 @@
 }
 
 /* --- Spec_Grid: 4 kolone, bez razmaka, deljene bordure ------------------- */
-.specgrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(50px, 1fr));
-  gap: 0;
-  width: 100%;
-  padding-top: 80px;
-}
-.specgrid > * {
-  padding: 24px 24px 24px 0;
+/* --- Specifikacija modela ------------------------------------------------
+   Vrednost je najkrupnija jer se nju i trazi, naziv stoji ispod kao oznaka,
+   redni broj je tiha kota. Celije razdvaja uspravna linija koja je uvucena
+   gore i dole, da tekst ne lezi na njoj.
+   ------------------------------------------------------------------------ */
+.specgrid { display: grid; gap: 0; width: 100%; padding-top: 64px; }
+.specgrid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.specgrid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.spec {
+  position: relative;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 40px 44px 48px;
   border-top: 1px solid var(--line);
-  border-right: 1px solid var(--line);
 }
-.specgrid > *:last-child { border-right: 0; }
-.sec--dark .specgrid > * { border-color: rgba(250,246,237,.14); }
-.specgrid .k {
+.sec--dark .spec { border-top-color: rgba(250,246,237,.14); }
+
+.spec::before {
+  content: '';
+  position: absolute; left: 0; top: 28px; bottom: 28px;
+  width: 1px; background: var(--line);
+}
+.sec--dark .spec::before { background: rgba(250,246,237,.14); }
+
+.specgrid--3 > .spec:nth-child(3n + 1),
+.specgrid--4 > .spec:nth-child(4n + 1) { padding-left: 0; }
+.specgrid--3 > .spec:nth-child(3n + 1)::before,
+.specgrid--4 > .spec:nth-child(4n + 1)::before { display: none; }
+.specgrid--3 > .spec:nth-child(3n),
+.specgrid--4 > .spec:nth-child(4n) { padding-right: 0; }
+
+.spec__n {
+  font-family: 'Fragment Mono', ui-monospace, monospace;
+  font-size: 12px; letter-spacing: .12em;
+  color: var(--muted);
+}
+.sec--dark .spec__n { color: rgba(250,246,237,.38); }
+
+.spec__v {
   font-family: 'Big Shoulders', sans-serif;
-  font-size: 40px; font-weight: 600; line-height: 1.15em;
-  color: var(--accent); margin-bottom: 12px;
+  font-size: 36px; font-weight: 600; line-height: 1.1em; letter-spacing: -.01em;
+  color: var(--ink);
+  text-wrap: balance;
 }
-.specgrid h4 { margin-bottom: 8px; }
+.sec--dark .spec__v { color: var(--peach); }
+.spec .eyebrow { margin: 0; }
+
 @media (max-width: 1199.98px) {
-  .specgrid { grid-template-columns: repeat(2, 1fr); }
-  .specgrid > *:nth-child(2n) { border-right: 0; }
+  .specgrid--3, .specgrid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec { padding: 32px 32px 40px; }
+  .specgrid > .spec:nth-child(odd) { padding-left: 0; }
+  .specgrid > .spec:nth-child(odd)::before { display: none; }
+  .specgrid > .spec:nth-child(even) { padding-right: 0; }
 }
+
 @media (max-width: 809.98px) {
-  .specgrid { grid-template-columns: 1fr; padding-top: 40px; }
-  .specgrid > * { border-right: 0; padding-right: 0; }
+  .specgrid--3, .specgrid--4 { grid-template-columns: 1fr; padding-top: 40px; }
+  .spec { padding: 24px 0 28px; }
+  .spec::before { display: none; }
+  .spec__v { font-size: 32px; }
 }
 
 /* --- Bento_Grid: 3 kartice sa slikom i tekstom preko -------------------- */
@@ -280,6 +313,30 @@
 .pstep__img { width: 100%; overflow: hidden; }
 .pstep__img img { width: 100%; aspect-ratio: 16/10; object-fit: cover; transition: transform .6s var(--ease-hover); }
 .pstep:hover .pstep__img img { transform: scale(1.03); }
+
+/* Ilustracije iz kataloga imaju providnu pozadinu i razlicite odnose strana,
+   pa se prikazuju cele umesto da ih okvir isece. */
+.pstep__img--ilu, .cell__img--ilu {
+  background: rgba(18,18,18,.035);
+  border-radius: var(--r);
+  aspect-ratio: auto;
+  display: grid; place-items: center;
+  padding: 20px;
+}
+.sec--dark .pstep__img--ilu, .asec--dark .cell__img--ilu { background: rgba(250,246,237,.05); }
+/* slika zadrzava svoj odnos strana, samo joj se ogranicava visina */
+.pstep__img--ilu img, .cell__img--ilu img {
+  aspect-ratio: auto;
+  width: auto; max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.pstep__img--ilu img { max-height: 460px; }
+.cell__img--ilu img { max-height: 300px; }
+@media (max-width: 809.98px) {
+  .pstep__img--ilu img { max-height: 300px; }
+  .cell__img--ilu img { max-height: 240px; }
+}
 .pstep p:last-child { font-size: 18px; font-weight: 400; line-height: 1.6em; color: var(--body-ink); }
 
 @media (max-width: 1199.98px) { .proc { padding: 120px var(--pad-x); } }
