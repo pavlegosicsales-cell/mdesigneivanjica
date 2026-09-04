@@ -214,7 +214,9 @@
   .fcabin {
     position: relative;
     left: auto; right: auto; bottom: auto;
-    transform: none;
+    /* isto fino pomeranje udesno kao na desktopu, samo malo vece jer je
+       na uzem ekranu odstupanje tezista uocljivije */
+    transform: translateX(var(--cab-x-mob, 4%));
     width: calc(100% - 40px);
     margin: 8px auto 0;
     aspect-ratio: var(--cab-ratio);
@@ -224,5 +226,5 @@
      normalnom toku daju dve kuce jednu ispod druge */
   .fcabin--dim { display: none; }
   .fcabin--bright { opacity: 1; filter: brightness(1.06) saturate(1.85); }
-  .fcabin img { object-position: bottom 54%; }
+  .fcabin img { object-position: bottom center; }
 }
