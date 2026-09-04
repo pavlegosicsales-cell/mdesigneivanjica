@@ -205,11 +205,21 @@ ${preload ? `<link rel="preload" as="image" href="${b}${preload}" fetchpriority=
   </div>
 </div>
 <div class="grain" aria-hidden="true"></div>
-${header(depth)}
+${header(depth, aktivna(canonical))}
 <main id="glavni">`;
   }
 
-  function header(depth) {
+  /* Koja stavka u navigaciji je aktivna za datu adresu.
+     Stranice modela i kategorija pale Modele, tekstovi pale Blog. */
+  function aktivna(canonical) {
+    const c = String(canonical || '');
+    if (c === '' || c === 'index.html') return 'index.html';
+    if (c.indexOf('model') === 0) return 'modeli.html';
+    if (c.indexOf('savet/') === 0) return 'blog.html';
+    return c;
+  }
+
+  function header(depth, strana) {
     const b = up(depth);
     return `<header class="site-header">
   <div class="header-bar">
@@ -218,7 +228,7 @@ ${header(depth)}
       <span class="logo__meta">43.6° N</span>
     </a>
     <nav class="nav" id="glavna-navigacija" aria-label="Glavna navigacija">
-${NAV.map(([h, t]) => `      <a href="${b}${h}">${t}</a>`).join('\n')}
+${NAV.map(([h, t]) => `      <a href="${b}${h}"${h === strana ? ' aria-current="page"' : ''}>${t}</a>`).join(String.fromCharCode(10))}
     </nav>
     <div class="header-cta">
       <a class="btn btn--dark" href="${b}kontakt.html">Zatraži ponudu</a>

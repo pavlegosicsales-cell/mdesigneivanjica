@@ -253,27 +253,13 @@
 .site-header.on-dark .logo__meta { color: rgba(250,246,237,.5); }
 .site-header.on-dark .nav a { color: var(--cream); }
 .site-header.on-dark .nav a:hover { color: var(--accent); }
-.site-header.on-dark .nav-toggle__t { color: var(--cream); }
+.site-header.on-dark .nav-toggle__t { color: rgba(250,246,237,.62); }
+.site-header.on-dark .nav-toggle[aria-expanded="true"] .nav-toggle__t { color: var(--accent); }
 .site-header.on-dark .btn--dark { background: var(--peach); color: var(--ink); }
 .site-header.on-dark .btn--dark:hover { background: var(--white); }
-@media (min-width: 810px) and (max-width: 1023px) {
-  .site-header.on-dark .nav { background: rgba(18,18,18,.96); border-color: rgba(250,246,237,.18); }
+@media (max-width: 1023px) {
+  .site-header.on-dark .nav { background: rgba(18,18,18,.97); border-color: rgba(250,246,237,.18); }
   .site-header.on-dark .nav a { border-bottom-color: rgba(250,246,237,.12); }
-}
-
-/* Na telefonu traka ostaje svetla i nad tamnim sekcijama, kao na referentnom
-   sajtu. Inverzija se tamo ne koristi, a tamna traka nad tamnim herojem se
-   stapala sa pozadinom. */
-@media (max-width: 809.98px) {
-  .site-header.on-dark .header-bar {
-    background: rgba(250,246,237,.82);
-    border-color: rgba(18,18,18,.15);
-  }
-  .site-header.on-dark .logo__mark { color: var(--accent); }
-  .site-header.on-dark .logo__meta { color: var(--muted); }
-  .site-header.on-dark .nav-toggle__t { color: var(--ink); }
-  .site-header.on-dark .nav { background: rgba(250,246,237,.96); border-color: rgba(18,18,18,.15); }
-  .site-header.on-dark .nav a { color: var(--ink); border-bottom-color: rgba(18,18,18,.08); }
 }
 
 
