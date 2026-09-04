@@ -42,22 +42,31 @@ module.exports = function (DATA, L, FOOT) {
             <div class="acc__a" id="fa-${i}" role="region" aria-labelledby="fq-${i}"><p>${esc(f.o)}</p></div>
           </div>`).join('\n');
 
-  const ld = {
-    '@context': 'https://schema.org', '@type': 'GeneralContractor',
-    name: 'M Designe Ivanjica',
-    description: 'Projektovanje, proizvodnja i montaža A-frame kuća, montažnih kuća, bungalova, letnjikovaca, pergola i dečjih igrališta.',
-    url: SITE, telephone: K.telefonRaw, email: K.email,
-    image: SITE + '/images/brend/logo.png',
-    address: { '@type': 'PostalAddress', addressLocality: 'Ivanjica', addressCountry: 'RS' },
-    areaServed: { '@type': 'Country', name: 'Srbija' },
-    sameAs: [K.instagram, K.tiktok, K.facebook]
-  };
+  /* Sitewide LocalBusiness dolazi iz layout.js. Ovde idu samo cvorovi
+     specificni za pocetnu: WebSite, FAQPage i lista kategorija. */
+  const ld = [
+    {
+      '@context': 'https://schema.org', '@type': 'WebSite',
+      '@id': SITE + '/#sajt', url: SITE + '/', name: 'M Designe Ivanjica',
+      inLanguage: 'sr-Latn-RS', publisher: { '@id': SITE + '/#firma' }
+    },
+    L.faqLd(DATA.faq),
+    {
+      '@context': 'https://schema.org', '@type': 'ItemList',
+      name: 'Kategorije montažnih objekata',
+      itemListElement: DATA.kategorije.map((kat, i) => ({
+        '@type': 'ListItem', position: i + 1, name: kat.naziv,
+        url: SITE + '/modeli/' + kat.slug + '.html'
+      }))
+    }
+  ];
 
   return head({
-    title: 'A-frame i montažne kuće, cene 2026 | M Designe Ivanjica',
-    desc: 'A-frame kuće, montažne kuće, bungalovi, letnjikovci i dečja igrališta. 40 tipskih modela sa cenama, od sive faze do ključa u ruke. Ivanjica, cela Srbija.',
+    title: 'Montažne i A-frame kuće, cene 2026 | M Designe Ivanjica',
+    desc: 'Montažne i A-frame kuće, bungalovi, letnjikovci i dečja igrališta iz Ivanjice. 40 modela sa cenama od 1.390 €, od sive faze do ključa u ruke, u celoj Srbiji.',
     canonical: '', depth: 0, ogImage: 'images/brend/hero.jpg',
-    extraHead: `<script type="application/ld+json">${JSON.stringify(ld)}</script>\n`
+    preload: 'images/brend/hero.jpg',
+    extraHead: ld.map(L.jsonld).join('')
   }) + `
 
   <!-- ===== HERO: video se odvija skrolom ===== -->

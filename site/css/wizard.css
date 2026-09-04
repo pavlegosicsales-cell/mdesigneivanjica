@@ -181,8 +181,12 @@
 }
 
 /* --- potvrda --- */
-.wdone { display: none; padding: 60px 32px; text-align: center; width: 100%; }
-.wdone.is-active { display: block; }
+.wleft[hidden], .wright[hidden], .wprog[hidden] { display: none !important; }
+.wdone { display: none; padding: 96px 32px; text-align: center; width: 100%; }
+.wdone.is-active {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 420px;
+}
 .wdone .tick {
   width: 56px; height: 56px; margin: 0 auto 20px;
   border: 1px solid var(--accent); border-radius: 50%;

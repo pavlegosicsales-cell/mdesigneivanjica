@@ -93,3 +93,45 @@ site/
 - sve slike imaju `alt`
 - `lang="sr"` svuda
 - nema em-dasheva
+
+## SEO sistem (dodato 4. septembra 2026)
+
+Šta je ugrađeno u generator:
+
+- **`layout.js` glava strane.** Svaka strana dobija `robots` sa
+  `max-image-preview:large`, kanonikal, pun Open Graph i Twitter set,
+  `geo.region`/`geo.placename` i jedan `LocalBusiness` JSON-LD čvor sa
+  `@id` `#firma` (adresa, telefon, radno vreme, područja rada, mreže).
+  Ostale šeme na strani pokazuju na taj `@id` umesto da ponavljaju podatke.
+- **Šeme po tipu strane.** Početna: `WebSite`, `FAQPage`, `ItemList`.
+  Kategorija: `BreadcrumbList`, `Service` sa `AggregateOffer`, `ItemList` modela.
+  Model: `BreadcrumbList`, `Product` sa `AggregateOffer` i svim specifikacijama.
+  Cenovnik: `BreadcrumbList`, `FAQPage`, `ItemList` sa cenom po modelu.
+  Tekst: `BreadcrumbList`, `Article`. Kontakt i O nama: `ContactPage`, `AboutPage`.
+- **`cenovnikpage.js`.** Nova strana `cenovnik.html`, sve cene i doplate iz
+  `data/modeli.json` na jednom mestu. Cilja upit "cena" i "cenovnik", koji je
+  najčešći komercijalni upit u ovoj delatnosti.
+- **WebP.** `build.js` pri upisu zamenjuje svaku sliku u `src`, `poster` i
+  `preload` WebP verzijom kada ona postoji na disku. `og:image` ostaje PNG ili
+  JPG, jer neke aplikacije za deljenje linkova ne prikazuju WebP.
+  Nove WebP fajlove praviti iz PNG-a preko Pythona i PIL-a, kvalitet 82,
+  za logo i kuću u podnožju 92.
+- **Preload LCP slike.** Svaka strana šalje `preload: 'putanja/slike'` u `head()`,
+  generator dopisuje prefiks za dubinu i prebacuje na WebP.
+- **Sitemap sa slikama.** `sitemap.xml` ima `image:image` za kategorije,
+  modele i tekstove, plus `changefreq`.
+- **Merenje.** Na vrhu `layout.js` stoje `GA4_ID`, `GSC_VERIFY` i
+  `META_PIXEL_ID`. Dok su prazni, u stranu se ne ubacuje ništa. Kada stignu
+  pristupi, popuniti i pokrenuti `node build.js`.
+
+Šta stoji van generatora:
+
+- **`../vercel.json`** ima 301 preusmerenja sa svih adresa starog Squarespace
+  sajta (`/usluge`, `/usluge/a-frame-kuca-tip-a`, `/galerija/montazne-kuce`,
+  `/o-nama`, `/kontakt`, `/pocetna`, `/cart`) na nove adrese. Aktiviraju se
+  onog trenutka kada se domen prebaci na Vercel.
+- **`X-Robots-Tag: noindex`** važi samo za host `mdesigneivanjica.vercel.app`,
+  da probna adresa ne bi konkurisala pravom domenu. Kada domen bude prebačen,
+  taj blok u `vercel.json` može da ostane, on ne dira pravi domen.
+- **Keširanje.** Slike i video 30 dana, CSS i JS jedan dan uz
+  `stale-while-revalidate`.

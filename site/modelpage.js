@@ -32,28 +32,66 @@ module.exports = function (DATA, L, FOOT, NOTE) {
     const mid = m.cene.length > 2 ? 1 : 0;
 
     const povrsina = (m.specs.find(s => /ukupno|bruto|površina/i.test(s.k)) || m.specs[0] || {}).v || '';
-    let title = `${m.naziv} ${povrsina ? '(' + povrsina + ') ' : ''}| ${kat.naziv} | M Designe`;
-    if (title.length > 60) title = `${m.naziv} | ${kat.naziv} | M Designe`;
-    if (title.length > 60) title = `${m.naziv} | M Designe Ivanjica`;
 
-    const ld = {
-      '@context': 'https://schema.org', '@type': 'Product',
-      name: `${m.naziv} - ${kat.naziv}`, description: m.podnaslov,
-      image: `${SITE}/${m.slika}`, brand: { '@type': 'Brand', name: 'M Designe Ivanjica' },
-      offers: {
-        '@type': 'AggregateOffer', priceCurrency: 'EUR',
-        lowPrice: (m.cene[0].iznos.match(/[\d.]+/) || [''])[0].replace(/\./g, ''),
-        offerCount: m.cene.length, availability: 'https://schema.org/PreOrder',
-        seller: { '@type': 'Organization', name: 'M Designe Ivanjica', telephone: K.telefonRaw }
+    /* Jednina kategorije: "A-frame kuće" -> "A-frame kuća", da naslov cita kao upit. */
+    const jednina = {
+      'A-frame kuće': 'A-frame kuća',
+      'Montažne kuće': 'Montažna kuća',
+      'Bungalovi': 'Bungalov',
+      'Letnjikovci i pergole': 'Letnjikovac',
+      'Dečja igrališta': 'Dečje igralište',
+      'Resort i investicije': 'Resort objekat'
+    }[kat.naziv] || kat.naziv;
+
+    const cena1 = m.cene && m.cene[0] ? m.cene[0].iznos : '';
+    const cenaBroj = parseFloat(String(cena1).replace(/\./g, '').replace(/[^\d.]/g, '')) || 0;
+    const cenaVisoka = m.cene && m.cene.length > 1
+      ? parseFloat(String(m.cene[m.cene.length - 1].iznos).replace(/\./g, '').replace(/[^\d.]/g, '')) || 0
+      : 0;
+
+    /* Naslov nosi model, tip objekta i rec "cena", jer se tako i pretrazuje. */
+    let title = `${jednina} ${m.naziv}${povrsina ? ' (' + povrsina + ')' : ''}, cena | M Designe`;
+    if (title.length > 62) title = `${jednina} ${m.naziv}, cena | M Designe`;
+    if (title.length > 62) title = `${m.naziv} | ${kat.naziv} | M Designe`;
+
+    const ld = [
+      L.crumbsLd([
+        ['Početna', 'index.html'], ['Modeli', 'modeli.html'],
+        [kat.naziv, `modeli/${kat.slug}.html`], [m.naziv, `model/${m.slug}.html`]
+      ]),
+      {
+        '@context': 'https://schema.org', '@type': 'Product',
+        name: `${m.naziv}, ${jednina}`,
+        description: `${m.podnaslov}. ${m.raspored}`,
+        image: `${SITE}/${m.slika}`,
+        sku: m.slug,
+        category: kat.naziv,
+        url: `${SITE}/model/${m.slug}.html`,
+        brand: { '@type': 'Brand', name: 'M Designe Ivanjica' },
+        manufacturer: { '@id': SITE + '/#firma' },
+        additionalProperty: m.specs.map(sp => ({
+          '@type': 'PropertyValue', name: sp.k, value: sp.v
+        })),
+        offers: {
+          '@type': 'AggregateOffer', priceCurrency: 'EUR',
+          lowPrice: cenaBroj || undefined,
+          highPrice: cenaVisoka || undefined,
+          offerCount: m.cene.length,
+          availability: 'https://schema.org/PreOrder',
+          areaServed: { '@type': 'Country', name: 'Srbija' },
+          seller: { '@id': SITE + '/#firma' }
+        }
       }
-    };
+    ];
 
     const upit = `../kontakt.html?model=${m.slug}&amp;kategorija=${kat.slug}`;
 
     return head({
-      title, desc: meta(`${m.naziv}: ${m.podnaslov}. ${m.raspored}`),
+      title,
+      desc: meta(`${jednina} ${m.naziv}${povrsina ? ', ' + povrsina : ''}, cena od ${cena1}. ${m.podnaslov}. Proizvodnja u Ivanjici, isporuka i montaža u celoj Srbiji.`),
       canonical: `model/${m.slug}.html`, depth: 1, ogImage: m.slika,
-      extraHead: `<script type="application/ld+json">${JSON.stringify(ld)}</script>\n`
+      preload: m.slika, ogType: 'product',
+      extraHead: ld.map(L.jsonld).join('')
     }) + `
 
   <!-- ===== Model_Hero: tekst levo, slika desno ===== -->

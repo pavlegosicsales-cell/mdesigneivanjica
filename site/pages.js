@@ -27,9 +27,21 @@ module.exports = function (DATA, L, FOOT) {
   }).join('\n');
 
   P['modeli.html'] = {
-    title: 'Modeli i cene 2026, A-frame i montažne kuće | M Designe',
-    desc: 'Četrdeset tipskih modela sa cenama: A-frame kuće, montažne kuće, bungalovi, letnjikovci, pergole i dečja igrališta. Od sive faze do ključa u ruke.',
+    title: 'Montažne i A-frame kuće: 40 modela i cene | M Designe',
+    desc: 'Četrdeset tipskih modela sa cenama: montažne kuće, A-frame kuće, bungalovi, letnjikovci, pergole i dečja igrališta. Od sive faze do ključa u ruke, cene od 1.390 €.',
     ogImage: 'images/objekti/aframe-dizajn.png',
+    preload: 'images/objekti/aframe-dizajn.png',
+    extraHead: [
+      L.crumbsLd([['Početna', 'index.html'], ['Modeli', 'modeli.html']]),
+      {
+        '@context': 'https://schema.org', '@type': 'CollectionPage',
+        name: 'Modeli i cene', url: L.SITE + '/modeli.html',
+        about: { '@id': L.SITE + '/#firma' },
+        hasPart: DATA.kategorije.map(kat => ({
+          '@type': 'WebPage', name: kat.naziv, url: L.SITE + '/modeli/' + kat.slug + '.html'
+        }))
+      }
+    ].map(L.jsonld).join(''),
     body: `
   <div class="phead">
     <div class="phead__main">
@@ -40,6 +52,7 @@ module.exports = function (DATA, L, FOOT) {
       <p>Četrdeset tipskih modela u šest kategorija. Svaki model ima svoju stranicu sa dimenzijama, rasporedom, paketima, cenom i doplatama.</p>
       <div class="btn-row" style="margin-top:24px">
         <a class="btn btn--primary" href="kontakt.html">Zatraži ponudu ${ARROW}</a>
+        <a class="btn btn--outline" href="cenovnik.html">Cenovnik 2026</a>
       </div>
     </div>
   </div>
@@ -121,9 +134,11 @@ ${katKartice}
   ];
 
   P['galerija.html'] = {
-    title: 'Galerija objekata | M Designe Ivanjica',
-    desc: 'Pogledajte A-frame kuće, montažne kuće, bungalove i letnjikovce koje izrađuje M Designe Ivanjica. Prikazi modela i izvedeni projekti.',
+    title: 'Galerija: A-frame i montažne kuće | M Designe Ivanjica',
+    desc: 'Galerija A-frame kuća, montažnih kuća, bungalova, letnjikovaca i dečjih igrališta iz proizvodnje M Designe Ivanjica. Prikazi modela i izvedeni objekti.',
     ogImage: 'images/objekti/aframe-bazen.png',
+    preload: 'images/objekti/aframe-bazen.png',
+    extraHead: L.jsonld(L.crumbsLd([['Početna', 'index.html'], ['Galerija', 'galerija.html']])),
     body: `
   <div class="phead">
     <div class="phead__main">
@@ -214,6 +229,52 @@ ${gal.map(([src, cat, cap]) => `        <article class="gcard ap" data-cat="${ca
     </div>
   </section>`
   };
+
+  /* =================================================================
+     404   (Vercel je servira automatski za nepostojece adrese)
+     ================================================================= */
+  P['404.html'] = {
+    title: 'Stranica nije pronađena | M Designe Ivanjica',
+    desc: 'Tražena stranica ne postoji ili je premeštena. Pogledajte modele, cenovnik ili nas pozovite.',
+    ogImage: 'images/brend/logo.png',
+    robots: 'noindex, follow',
+    body: `
+  <div class="phead">
+    <div class="phead__main">
+      <span class="tab">Greška 404</span>
+      <h1 data-split>Stranica nije pronađena</h1>
+    </div>
+    <div class="phead__side">
+      <p>Adresa koju ste otvorili ne postoji ili je premeštena. Ispod su najčešće tražene strane.</p>
+      <div class="btn-row" style="margin-top:24px">
+        <a class="btn btn--primary" href="modeli.html">Svi modeli ${ARROW}</a>
+        <a class="btn btn--outline" href="cenovnik.html">Cenovnik 2026</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="asec">
+    <div class="cgrid">
+${DATA.kategorije.slice(0, 3).map((kat, i) => `      <div class="cell ap">
+        <span class="cell__n">${String(i + 1).padStart(2, '0')}</span>
+        <p class="eyebrow">${esc(kat.naziv)}</p>
+        <p><a href="modeli/${kat.slug}.html" style="color:var(--accent)">Pogledaj kategoriju</a></p>
+      </div>`).join(String.fromCharCode(10))}
+    </div>
+  </div>
+
+  <section class="cta-full">
+    <p class="eyebrow">Pomoć</p>
+    <h2 data-split>Recite šta tražite</h2>
+    <p>Pozovite ili pošaljite upit, pa vam šaljemo direktan link do modela i cene.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="kontakt.html">Pošalji upit ${ARROW}</a>
+      <a class="btn btn--light" href="tel:${K.telefonRaw}">${esc(K.telefon)}</a>
+    </div>
+  </section>`
+  };
+
+  P['cenovnik.html'] = require('./cenovnikpage.js')(DATA, L);
 
   return P;
 };

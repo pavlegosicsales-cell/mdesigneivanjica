@@ -20,9 +20,16 @@ module.exports = function (DATA, L, FOOT) {
   const traka = oznake.map(o => `<p>${o}</p>`).join('');
 
   return head({
-    title: 'O nama | M Designe Ivanjica',
-    desc: 'M Designe Ivanjica projektuje, proizvodi i montira A-frame kuće, montažne kuće, bungalove i letnjikovce. Preko dvadeset izvedenih objekata.',
-    canonical: 'o-nama.html', depth: 0, ogImage: 'images/objekti/aframe-terasa.png'
+    title: 'O nama: proizvodnja montažnih kuća u Ivanjici | M Designe',
+    desc: 'M Designe iz Ivanjice projektuje, proizvodi i montira A-frame kuće, montažne kuće, bungalove i letnjikovce. Preko dvadeset izvedenih objekata i četiri godine rada.',
+    canonical: 'o-nama.html', depth: 0, ogImage: 'images/objekti/aframe-terasa.png',
+    preload: 'images/objekti/aframe-terasa.png',
+    extraHead: [
+      L.crumbsLd([['Početna', 'index.html'], ['O nama', 'o-nama.html']]),
+      { '@context': 'https://schema.org', '@type': 'AboutPage',
+        url: L.SITE + '/o-nama.html', name: 'O nama, M Designe Ivanjica',
+        mainEntity: { '@id': L.SITE + '/#firma' } }
+    ].map(L.jsonld).join('')
   }) + `
 
   <!-- ===== Header_Section ===== -->

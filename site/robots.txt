@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /apps-script/
+
+# AI i pretrazivaci koji citaju sadrzaj
+User-agent: Googlebot-Image
+Allow: /images/
 
 Sitemap: https://www.mdesigneivanjica.com/sitemap.xml

@@ -5,6 +5,31 @@
 
 const SITE = 'https://www.mdesigneivanjica.com';
 
+/* ==========================================================================
+   MERENJE I POTVRDA VLASNISTVA
+   Popuni kad stignu pristupi, pa pokreni node build.js. Prazno znaci da se
+   nista ne ubacuje u stranu, bez ijednog dodatnog zahteva ka mrezi.
+   GA4_ID          - "G-XXXXXXXXXX" iz Google Analytics 4
+   GSC_VERIFY      - sadrzaj meta oznake iz Search Console, HTML tag metoda
+   META_PIXEL_ID   - broj piksela iz Meta Business Manager-a
+   ========================================================================== */
+const GA4_ID = '';
+const GSC_VERIFY = '';
+const META_PIXEL_ID = '';
+
+const merenje = () => {
+  let out = '';
+  if (GSC_VERIFY) out += `<meta name="google-site-verification" content="${GSC_VERIFY}">
+`;
+  if (GA4_ID) out += `<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_ID}');</script>
+`;
+  if (META_PIXEL_ID) out += `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');</script>
+`;
+  return out;
+};
+
 const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -37,7 +62,80 @@ const NAV = [
 
 module.exports = function (K) {
 
-  function head({ title, desc, canonical, depth = 0, ogImage = 'images/brend/logo.png', extraHead = '' }) {
+  /* Sitewide JSON-LD: jedan LocalBusiness cvor na koji sve ostale seme mogu da
+     pokazuju preko @id. Google trazi NAP (naziv, adresa, telefon) na svakoj strani. */
+  const ORG_ID = SITE + '/#firma';
+  const orgLd = () => ({
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'GeneralContractor', 'HomeAndConstructionBusiness'],
+    '@id': ORG_ID,
+    name: 'M Designe Ivanjica',
+    alternateName: ['M Designe', 'MDesigne Ivanjica'],
+    description: 'Projektovanje, proizvodnja i montaža A-frame kuća, montažnih kuća, bungalova, letnjikovaca, pergola i dečjih igrališta. Ivanjica, isporuka na celoj teritoriji Srbije.',
+    url: SITE + '/',
+    telephone: K.telefonRaw,
+    email: K.email,
+    image: SITE + '/images/brend/hero.jpg',
+    logo: SITE + '/images/brend/logo.png',
+    priceRange: '€€',
+    currenciesAccepted: 'EUR, RSD',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ivanjica',
+      addressRegion: 'Moravički okrug',
+      postalCode: '32250',
+      addressCountry: 'RS'
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: 43.5781, longitude: 20.2297 },
+    areaServed: [
+      { '@type': 'Country', name: 'Srbija' },
+      { '@type': 'City', name: 'Ivanjica' },
+      { '@type': 'City', name: 'Beograd' },
+      { '@type': 'City', name: 'Novi Sad' },
+      { '@type': 'Place', name: 'Zlatibor' },
+      { '@type': 'Place', name: 'Kopaonik' },
+      { '@type': 'Place', name: 'Tara' },
+      { '@type': 'Place', name: 'Divčibare' },
+      { '@type': 'Place', name: 'Golija' }
+    ],
+    knowsLanguage: ['sr', 'en'],
+    openingHoursSpecification: [{
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00', closes: '18:00'
+    }],
+    sameAs: [K.instagram, K.tiktok, K.facebook].filter(Boolean),
+    makesOffer: [
+      'A-frame kuće', 'Montažne kuće', 'Bungalovi',
+      'Letnjikovci i pergole', 'Dečja igrališta', 'Resort i investicioni objekti'
+    ].map(n => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n, serviceType: n, areaServed: 'Srbija' } }))
+  });
+
+  /* BreadcrumbList: Google ga koristi za putanju u rezultatu umesto gole adrese. */
+  function crumbsLd(items) {
+    return {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: items.map((it, i) => ({
+        '@type': 'ListItem', position: i + 1, name: it[0],
+        item: SITE + '/' + String(it[1] || '').replace(/^\//, '')
+      }))
+    };
+  }
+
+  function faqLd(pitanja) {
+    return {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: pitanja.map(f => ({
+        '@type': 'Question', name: f.p,
+        acceptedAnswer: { '@type': 'Answer', text: f.o }
+      }))
+    };
+  }
+
+  const jsonld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>
+`;
+
+  function head({ title, desc, canonical, depth = 0, ogImage = 'images/brend/logo.png', extraHead = '', preload = '', ogType = 'website', noOrg = false, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }) {
     const b = up(depth);
     return `<!doctype html>
 <html lang="sr">
@@ -46,15 +144,22 @@ module.exports = function (K) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
+<meta name="robots" content="${robots}">
 <link rel="canonical" href="${SITE}/${canonical}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${ogType}">
 <meta property="og:locale" content="sr_RS">
 <meta property="og:site_name" content="M Designe Ivanjica">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${SITE}/${canonical}">
 <meta property="og:image" content="${SITE}/${ogImage}">
+<meta property="og:image:alt" content="${esc(title)}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${SITE}/${ogImage}">
+<meta name="geo.region" content="RS">
+<meta name="geo.placename" content="Ivanjica">
 <meta name="theme-color" content="#faf6ed">
 <link rel="icon" href="${b}images/brend/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +173,8 @@ module.exports = function (K) {
 <link rel="stylesheet" href="${b}css/wizard.css">
 <link rel="stylesheet" href="${b}css/footer.css">
 <link rel="stylesheet" href="${b}css/loader.css">
-${extraHead}</head>
+${preload ? `<link rel="preload" as="image" href="${b}${preload}" fetchpriority="high">
+` : ''}${noOrg ? '' : jsonld(orgLd())}${merenje()}${extraHead}</head>
 <body>
 <a class="skip-link" href="#glavni">Preskoči na sadržaj</a>
 <div class="pcover" aria-hidden="true">
@@ -131,5 +237,5 @@ ${NAV.map(([h, t]) => `      <a href="${b}${h}">${t}</a>`).join('\n')}
 
   const foot = require('./footer.js')(K, esc, up, NAV, sticky);
 
-  return { head, header, sticky, foot, esc, up, meta, SITE, ARROW, DOTS, NAV };
+  return { head, header, sticky, foot, esc, up, meta, SITE, ARROW, DOTS, NAV, orgLd, crumbsLd, faqLd, jsonld, ORG_ID };
 };

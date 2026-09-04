@@ -15,6 +15,13 @@ const K = DATA.kontakt;
 const L = require('./layout.js')(K);
 const { head, foot, esc, meta, SITE, ARROW } = L;
 
+/* "14.900 €" -> 14900, radi racunanja raspona cena i kvadratura */
+const broj = (v) => {
+  const m = String(v || '').replace(/\./g, '').match(/\d+(?:,\d+)?/);
+  return m ? parseFloat(m[0].replace(',', '.')) : 0;
+};
+const fmt = (n) => n ? Math.round(n).toLocaleString('de-DE') : '';
+
 const FOOT = (d) => foot(d, DATA.kategorije);
 
 /* Napomena uz svaku cenu */
@@ -77,6 +84,9 @@ function categoryPage(kat, idx) {
       </table>
     </div>
     ${NOTE}
+    <div class="btn-row">
+      <a class="btn btn--light" href="../cenovnik.html">Ceo cenovnik 2026 ${ARROW}</a>
+    </div>
   </div>` : '';
 
   const dop = DATA.doplate[kat.slug];
@@ -122,10 +132,47 @@ function categoryPage(kat, idx) {
     </div>
   </section>` : '';
 
-  const title = `${kat.naziv} 2026, modeli i cene | M Designe`;
-  const desc = meta(`${kat.naziv}: ${kat.opis}`);
+  /* --- naslov, opis i strukturirani podaci --- */
+  const cene = modeli.map(m => broj(m.cene && m.cene[0] ? m.cene[0].iznos : '')).filter(Boolean);
+  const najniza = cene.length ? Math.min.apply(null, cene) : 0;
+  const kvadrature = modeli.map(m => broj((m.specs.find(x => /ukupno|bruto|površina/i.test(x.k)) || {}).v || '')).filter(Boolean);
 
-  return head({ title, desc, canonical: `modeli/${kat.slug}.html`, depth: 1, ogImage: kat.slika }) + `
+  const title = modeli.length
+    ? `${kat.naziv}, cene 2026 i ${modeli.length} modela | M Designe`
+    : `${kat.naziv} 2026, ponuda i cene | M Designe Ivanjica`;
+
+  const raspon = kvadrature.length ? `od ${Math.min.apply(null, kvadrature)} do ${Math.max.apply(null, kvadrature)} m², ` : '';
+  const desc = meta(modeli.length
+    ? `${kat.naziv}${raspon ? ' ' + raspon : ', '}${modeli.length} tipskih modela, cene od ${fmt(najniza)} €. Proizvodnja u Ivanjici, montaža na celoj teritoriji Srbije.`
+    : `${kat.naziv}: ${kat.opis}`);
+
+  const ld = [
+    L.crumbsLd([['Početna', 'index.html'], ['Modeli', 'modeli.html'], [kat.naziv, `modeli/${kat.slug}.html`]]),
+    {
+      '@context': 'https://schema.org', '@type': 'Service',
+      name: kat.naziv, serviceType: kat.naziv,
+      description: kat.opis,
+      provider: { '@id': SITE + '/#firma' },
+      areaServed: { '@type': 'Country', name: 'Srbija' },
+      url: `${SITE}/modeli/${kat.slug}.html`,
+      ...(najniza ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'EUR', lowPrice: najniza, offerCount: modeli.length, availability: 'https://schema.org/PreOrder' } } : {})
+    }
+  ];
+  if (modeli.length) ld.push({
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    name: `${kat.naziv}, tipski modeli`,
+    numberOfItems: modeli.length,
+    itemListElement: modeli.map((m, i) => ({
+      '@type': 'ListItem', position: i + 1, name: m.naziv,
+      url: `${SITE}/model/${m.slug}.html`
+    }))
+  });
+
+  return head({
+    title, desc, canonical: `modeli/${kat.slug}.html`, depth: 1,
+    ogImage: kat.slika, preload: kat.slika,
+    extraHead: ld.map(L.jsonld).join('')
+  }) + `
   <section class="mhero">
     <div class="mhero__text">
       <p class="crumbs"><a href="../index.html">Početna</a><i>/</i><a href="../modeli.html">Modeli</a><i>/</i>${esc(kat.naziv)}</p>
@@ -179,11 +226,31 @@ ${doplate}
 
 const modelPage = require('./modelpage.js')(DATA, L, FOOT, NOTE);
 
-/* ---------- upis ---------- */
+/* ---------- upis ----------
+   Pri upisu se svaka slika u src, poster i preload zamenjuje WebP verzijom
+   kad ona postoji na disku. Original ostaje za og:image, jer neke aplikacije
+   za deljenje linkova jos ne prikazuju WebP. WebP se pravi sa tools/webp.js. */
+const imaWebp = (rel) => {
+  const w = rel.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+  if (w === rel) return null;
+  const cist = w.replace(/^(\.\.\/)+/, '');
+  return fs.existsSync(path.join(ROOT, cist)) ? w : null;
+};
+
+function uWebp(html) {
+  return html
+    .replace(/(\s(?:src|poster)=")([^"]+\.(?:png|jpg|jpeg))(")/gi,
+      (m, a, url, b) => a + (imaWebp(url) || url) + b)
+    .replace(/(<link rel="preload" as="image" href=")([^"]+)(")/gi,
+      (m, a, url, b) => a + (imaWebp(url) || url) + b)
+    /* dekodiranje van glavne niti za sve slike koje se ucitavaju lenjo */
+    .replace(/<img (?![^>]*decoding=)([^>]*loading="lazy")/gi, '<img decoding="async" $1');
+}
+
 function write(rel, html) {
   const full = path.join(ROOT, rel);
   fs.mkdirSync(path.dirname(full), { recursive: true });
-  fs.writeFileSync(full, html, 'utf8');
+  fs.writeFileSync(full, uWebp(html), 'utf8');
   return rel;
 }
 
@@ -192,7 +259,8 @@ const written = [];
 const urls = [
   { loc: '', p: '1.0' }, { loc: 'modeli.html', p: '0.9' }, { loc: 'galerija.html', p: '0.7' },
   { loc: 'blog.html', p: '0.7' }, { loc: 'o-nama.html', p: '0.6' },
-  { loc: 'kontakt.html', p: '0.8' }, { loc: 'privatnost.html', p: '0.2' }
+  { loc: 'kontakt.html', p: '0.8' }, { loc: 'cenovnik.html', p: '0.9' },
+  { loc: 'privatnost.html', p: '0.2' }
 ];
 
 written.push(write('index.html', require('./home.js')(DATA, L, FOOT)));
@@ -202,34 +270,60 @@ written.push(write('kontakt.html', require('./contactpage.js')(DATA, L, FOOT)));
 const PAGES = require('./pages.js')(DATA, L, FOOT);
 Object.keys(PAGES).forEach(file => {
   const p = PAGES[file];
-  written.push(write(file, head({ title: p.title, desc: p.desc, canonical: file, depth: 0, ogImage: p.ogImage }) + p.body + FOOT(0)));
+  written.push(write(file, head({
+    title: p.title, desc: p.desc, canonical: file, depth: 0, ogImage: p.ogImage,
+    preload: p.preload || '', extraHead: p.extraHead || '',
+    robots: p.robots || undefined
+  }) + p.body + FOOT(0)));
 });
 
 DATA.kategorije.forEach((kat, i) => {
   written.push(write(path.join('modeli', kat.slug + '.html'), categoryPage(kat, i)));
-  urls.push({ loc: `modeli/${kat.slug}.html`, p: '0.9' });
+  urls.push({ loc: `modeli/${kat.slug}.html`, p: '0.9', img: kat.slika, alt: kat.naziv });
 });
 
 DATA.modeli.forEach(m => {
   written.push(write(path.join('model', m.slug + '.html'), modelPage(m)));
-  urls.push({ loc: `model/${m.slug}.html`, p: '0.8' });
+  urls.push({ loc: `model/${m.slug}.html`, p: '0.8', img: m.slika, alt: `${m.naziv}, ${m.podnaslov}` });
 });
 
-const blog = require('./blogpages.js')(BLOG, { esc, meta, head, foot: FOOT, SITE, K, ARROW });
+const blog = require('./blogpages.js')(BLOG, { esc, meta, head, foot: FOOT, SITE, K, ARROW, crumbsLd: L.crumbsLd, jsonld: L.jsonld, faqLd: L.faqLd });
 written.push(write('blog.html', blog.blogPage()));
 BLOG.clanci.forEach(c => {
   written.push(write(path.join('savet', c.slug + '.html'), blog.articlePage(c)));
-  urls.push({ loc: `savet/${c.slug}.html`, p: '0.6' });
+  urls.push({ loc: `savet/${c.slug}.html`, p: '0.6', img: c.slika, alt: c.naslov });
 });
 
 const today = new Date().toISOString().slice(0, 10);
-fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
-`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url>\n    <loc>${SITE}/${u.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${u.p}</priority>\n  </url>`).join('\n')}
-</urlset>
-`, 'utf8');
 
-fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`, 'utf8');
+/* Sitemap sa slikama: Google image ekstenzija pomaze da se renderi modela
+   nadju u pretrazi slika, sto je za ovu delatnost realan izvor upita. */
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls.map(u => `  <url>
+    <loc>${SITE}/${u.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${u.p >= '0.9' ? 'weekly' : 'monthly'}</changefreq>
+    <priority>${u.p}</priority>${u.img ? `
+    <image:image>
+      <image:loc>${SITE}/${u.img}</image:loc>
+      <image:title>${esc(u.alt || '')}</image:title>
+    </image:image>` : ''}
+  </url>`).join(String.fromCharCode(10))}
+</urlset>
+`;
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemapXml, 'utf8');
+
+fs.writeFileSync(path.join(ROOT, 'robots.txt'),
+`User-agent: *
+Allow: /
+Disallow: /apps-script/
+
+# AI i pretrazivaci koji citaju sadrzaj
+User-agent: Googlebot-Image
+Allow: /images/
+
+Sitemap: ${SITE}/sitemap.xml
+`, 'utf8');
 
 console.log(`Generisano ${written.length} stranica (${DATA.kategorije.length} kategorija, ${DATA.modeli.length} modela, ${BLOG.clanci.length} tekstova).`);

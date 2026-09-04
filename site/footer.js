@@ -54,6 +54,7 @@ ${sticky(depth)}
           ${nav}
         </div>
         <div class="lcol">
+          <a href="${b}cenovnik.html">Cenovnik 2026</a>
           <a href="${b}privatnost.html">Politika privatnosti</a>
           <a href="${K.instagram}" target="_blank" rel="noopener">Instagram</a>
           <a href="${K.tiktok}" target="_blank" rel="noopener">TikTok</a>

@@ -303,8 +303,14 @@ ${opt('raspitujem se', 'Raspitujem se', 'Info', 'Prikupljam informacije i cene.'
 `;
 
   return head({
-    title: 'Kontakt i zahtev za ponudu | M Designe Ivanjica',
-    desc: 'Zatražite ponudu za A-frame ili montažnu kuću. Odgovorite na nekoliko pitanja o modelu, dimenzijama, paketu i lokaciji. Telefon 060 366 5275.',
-    canonical: 'kontakt.html', depth: 0, ogImage: 'images/objekti/aframe-minimal.png'
+    title: 'Kontakt i ponuda za montažnu kuću | M Designe Ivanjica',
+    desc: 'Zatražite ponudu za montažnu ili A-frame kuću. Odgovorite na nekoliko pitanja o modelu, kvadraturi, paketu i lokaciji i dobijate okvirnu cenu. Telefon 060 366 5275.',
+    canonical: 'kontakt.html', depth: 0, ogImage: 'images/objekti/aframe-minimal.png',
+    extraHead: [
+      L.crumbsLd([['Početna', 'index.html'], ['Kontakt', 'kontakt.html']]),
+      { '@context': 'https://schema.org', '@type': 'ContactPage',
+        url: L.SITE + '/kontakt.html', name: 'Kontakt, M Designe Ivanjica',
+        mainEntity: { '@id': L.SITE + '/#firma' } }
+    ].map(L.jsonld).join('')
   }) + body + FOOT(0);
 };

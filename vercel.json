@@ -2,5 +2,59 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "site",
   "cleanUrls": false,
-  "trailingSlash": false
+  "trailingSlash": false,
+
+  "redirects": [
+    { "source": "/pocetna", "destination": "/", "permanent": true },
+    { "source": "/usluge", "destination": "/modeli.html", "permanent": true },
+    { "source": "/usluge/a-frame-kuca-tip-a", "destination": "/modeli/a-frame.html", "permanent": true },
+    { "source": "/usluge/a-frame-kuca-tip-b-bocni-zidovi", "destination": "/modeli/a-frame.html", "permanent": true },
+    { "source": "/usluge/a-frame-kuca-tip-c-puni-zidovi", "destination": "/modeli/a-frame.html", "permanent": true },
+    { "source": "/usluge/:put*", "destination": "/modeli.html", "permanent": true },
+    { "source": "/galerija", "destination": "/galerija.html", "permanent": true },
+    { "source": "/galerija/a-frame-kuce", "destination": "/modeli/a-frame.html", "permanent": true },
+    { "source": "/galerija/montazne-kuce", "destination": "/modeli/montazne-kuce.html", "permanent": true },
+    { "source": "/galerija/:put*", "destination": "/galerija.html", "permanent": true },
+    { "source": "/o-nama", "destination": "/o-nama.html", "permanent": true },
+    { "source": "/kontakt", "destination": "/kontakt.html", "permanent": true },
+    { "source": "/cart", "destination": "/", "permanent": true },
+    { "source": "/cenovnik", "destination": "/cenovnik.html", "permanent": true },
+    { "source": "/modeli", "destination": "/modeli.html", "permanent": true },
+    { "source": "/blog", "destination": "/blog.html", "permanent": true }
+  ],
+
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "mdesigneivanjica.vercel.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+    },
+    {
+      "source": "/video/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+    },
+    {
+      "source": "/katalozi/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
 }
