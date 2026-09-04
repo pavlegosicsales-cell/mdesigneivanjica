@@ -303,7 +303,7 @@ ${tabela}
 ${doplate}
   <section class="cta-full">
     <p class="eyebrow">Sledeći korak</p>
-    <h2 data-split>Niste sigurni koji model?</h2>
+    <h2 data-split>Niste sigurni || koji model?</h2>
     <p>Pošaljite lokaciju, željenu kvadraturu, broj korisnika i okvirni budžet. Predložićemo model i strukturu ponude.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="../kontakt.html?kategorija=${kat.slug}">Pošalji upit ${ARROW}</a>
