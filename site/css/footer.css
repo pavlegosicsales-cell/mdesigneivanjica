@@ -8,6 +8,8 @@
   --cab-inset: 60px;         /* bocni razmak kuce */
   --cab-ratio: 1.4798728814;  /* odnos stranica nove slike (1397x944) */
   --cab-cap: 1040px;          /* max sirina kuce */
+  --cab-x: 3.5%;                /* fino pomeranje udesno: okvir slike jeste
+                                 centriran, ali masa piksela vuce ulevo */
   /* footer mora biti visok bar koliko i kuca; mali bafer da vrh kuce dodirne gornju traku */
   min-height: calc(min(calc(100vw - var(--cab-inset) * 2), var(--cab-cap)) / var(--cab-ratio) + 50px);
   display: flex;
@@ -143,7 +145,7 @@
   position: absolute;
   bottom: 0;                        /* njihova vrednost */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + var(--cab-x)));
   width: min(calc(100% - var(--cab-inset) * 2), var(--cab-cap));
   aspect-ratio: var(--cab-ratio);
   height: auto;
@@ -222,5 +224,5 @@
      normalnom toku daju dve kuce jednu ispod druge */
   .fcabin--dim { display: none; }
   .fcabin--bright { opacity: 1; filter: brightness(1.06) saturate(1.85); }
-  .fcabin img { object-position: bottom center; }
+  .fcabin img { object-position: bottom 54%; }
 }
