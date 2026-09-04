@@ -338,9 +338,18 @@
   .cell__img.cell__img--ilu { height: 220px; }
   .pstep__img.pstep__img--ilu { height: 340px; }
 }
+/* Telefon: okvir prati odnos same slike, pa uspravne ilustracije
+   (noseca konstrukcija, grede i stubovi) nisu vise sitne u niskom okviru. */
 @media (max-width: 809.98px) {
-  .cell__img.cell__img--ilu { height: 200px; }
-  .pstep__img.pstep__img--ilu { height: 280px; }
+  .cell__img.cell__img--ilu, .pstep__img.pstep__img--ilu { height: auto; }
+  .cell__img.cell__img--ilu img, .pstep__img.pstep__img--ilu img {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    padding: 14px;
+  }
 }
 .pstep p:last-child { font-size: 18px; font-weight: 400; line-height: 1.6em; color: var(--body-ink); }
 
@@ -432,24 +441,38 @@ body.is-leaving main, body.is-leaving .site-footer { transform: translateY(-40px
 /* slika levo, preko cele visine mreze */
 .pkcell--foto {
   flex: 1 1 42%;
-  display: flex; flex-direction: column; justify-content: flex-end;
+  display: flex; flex-direction: column;
   position: relative;
   padding: 0;
   border-left: 0; border-bottom: 0;
   min-height: 320px;
-  background: var(--ink);
+  /* podloga je boja ivice same slike, pa se render i celija stapaju;
+     fotografije popunjavaju celiju, izolovani renderi se uklapaju celi */
+  background: var(--pk-bg, #f5efe3);
 }
-.pkcell--foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Renderi su siroki 3:2, a celija je visoka i uska, pa bi cover odsekao
+   veci deo kuce. Slika se zato uklapa cela u prostor koji joj ostane. */
+.pkcell--foto img {
+  position: static;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%; height: 100%;
+  object-fit: var(--pk-fit, contain);
+  object-position: center;
+}
 .pkcell--foto .pkcell__preko {
   position: relative; z-index: 2;
-  margin-top: auto;
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 28px 30px 30px;
-  background: linear-gradient(180deg, rgba(18,18,18,0) 0%, rgba(18,18,18,.88) 65%);
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 26px 30px 28px;
 }
-.pkcell--foto h3 { color: var(--cream); margin: 0; }
-.pkcell--foto p { color: rgba(250,246,237,.72); }
-.pkcell--foto .eyebrow { color: var(--peach); }
+/* kad je podloga slike tamna, tekst u zaglavlju ide u svetlom */
+.pkcell--tamna h3 { color: var(--cream) !important; }
+.pkcell--tamna p { color: rgba(250,246,237,.74) !important; }
+.pkcell--tamna .eyebrow { color: var(--peach) !important; }
+
+.pkcell--foto h3 { color: var(--ink); margin: 0; }
+.pkcell--foto p { color: var(--body-ink); }
+.pkcell--foto .eyebrow { color: var(--accent); }
 
 /* iznos u celiji paketa */
 .pkcell__v {

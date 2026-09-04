@@ -111,13 +111,13 @@ function categoryPage(kat, idx) {
     </div>
 
     <div class="pkgrid">
-      <div class="pkcell pkcell--foto ap">
-        <img src="../${kat.slika}" alt="${esc(kat.naziv)}" loading="lazy" width="1200" height="900">
+      <div class="pkcell pkcell--foto${kat.slikaTamna ? ' pkcell--tamna' : ''} ap" style="--pk-bg:${kat.slikaBg || '#f5efe3'};--pk-fit:${kat.slikaFit || 'contain'}">
         <div class="pkcell__preko">
           <p class="eyebrow">${esc(kat.naziv.toUpperCase())}</p>
           <h3 class="t-h4">${modeli.length ? modeli.length + ' modela u kolekciji' : 'Po projektu'}</h3>
           <p>${esc(kat.podnaslov)}</p>
         </div>
+        <img src="../${kat.slika}" alt="${esc(kat.naziv)}" loading="lazy" width="1200" height="900">
       </div>
 
       <div class="pkcol">

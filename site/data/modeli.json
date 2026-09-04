@@ -161,7 +161,10 @@
           "k": "Posebni formati",
           "v": "Pločice preko 60 × 120 cm, epoksidna fuga i ukrasne lajsne idu po ponudi."
         }
-      ]
+      ],
+      "slikaBg": "rgb(255, 250, 247)",
+      "slikaFit": "contain",
+      "slikaTamna": false
     },
     {
       "slug": "montazne-kuce",
@@ -194,7 +197,10 @@
           "obuhvat": "Najviši nivo izolacije, obloga, stolarije i opreme iz kataloga, sa dizajnerskim izborom materijala prema projektu."
         }
       ],
-      "paketiNapomena": "Crep je osnovna pokrivka za dvovodne i četvorovodne modele. Trapezni ili falcovani lim, tegola i drugi sistemi su izmena ili doplata. Terase sa rendera nisu deo bruto površine i ugovaraju se posebno."
+      "paketiNapomena": "Crep je osnovna pokrivka za dvovodne i četvorovodne modele. Trapezni ili falcovani lim, tegola i drugi sistemi su izmena ili doplata. Terase sa rendera nisu deo bruto površine i ugovaraju se posebno.",
+      "slikaBg": "rgb(254, 254, 254)",
+      "slikaFit": "contain",
+      "slikaTamna": false
     },
     {
       "slug": "bungalovi",
@@ -219,7 +225,10 @@
       ],
       "paketiNapomena": "Doplate: temelj, terasa, pergola, jača izolacija, premium stolarija, nameštaj i wellness oprema.",
       "podloga": "Temeljna ploča, trakasti temelj ili projektovano oslanjanje, prema zemljištu i dozvolama.",
-      "rok": "Proizvodnja i montaža okvirno 30 do 90 radnih dana, prema paketu i broju jedinica."
+      "rok": "Proizvodnja i montaža okvirno 30 do 90 radnih dana, prema paketu i broju jedinica.",
+      "slikaBg": "rgb(90, 95, 84)",
+      "slikaFit": "cover",
+      "slikaTamna": true
     },
     {
       "slug": "letnjikovci",
@@ -249,7 +258,10 @@
       ],
       "paketiNapomena": "Kataloške cene su za osnovni paket. Standard i premium se obračunavaju prema izabranoj opremi i obradi.",
       "podloga": "Armiranobetonska ploča, pojedinačne stope ili projektovana podna konstrukcija. Metalni nosači odvajaju stubove od podloge.",
-      "rok": "Proizvodnja 7 do 25 radnih dana, montaža 1 do 5 dana, zavisno od modela."
+      "rok": "Proizvodnja 7 do 25 radnih dana, montaža 1 do 5 dana, zavisno od modela.",
+      "slikaBg": "rgb(254, 254, 254)",
+      "slikaFit": "contain",
+      "slikaTamna": false
     },
     {
       "slug": "igralista",
@@ -279,7 +291,10 @@
       ],
       "paketiNapomena": "Bezbednosna zona, visina slobodnog pada, ankerisanje i podloga potvrđuju se tehničkim listom pre izrade. Za javnu i komercijalnu upotrebu projekat, materijali i podloga usklađuju se sa zahtevima na mestu ugradnje.",
       "podloga": "Ankerisanje i amortizujuća podloga prema opremi, visini pada i nameni prostora.",
-      "rok": "Privatna igrališta 10 do 30 dana. Komercijalna prema projektu, opremi i proverama."
+      "rok": "Privatna igrališta 10 do 30 dana. Komercijalna prema projektu, opremi i proverama.",
+      "slikaBg": "rgb(72, 112, 75)",
+      "slikaFit": "contain",
+      "slikaTamna": true
     },
     {
       "slug": "resort",
@@ -294,7 +309,10 @@
           "paket": "Po projektu",
           "obuhvat": "Miks modela, faze realizacije i nivo opreme definišu se prema parceli, ciljnoj grupi i planu finansiranja. Ponuda se radi za ceo kompleks, ne po jedinici."
         }
-      ]
+      ],
+      "slikaBg": "rgb(255, 250, 249)",
+      "slikaFit": "contain",
+      "slikaTamna": false
     }
   ],
   "modeli": [
