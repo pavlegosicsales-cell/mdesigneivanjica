@@ -283,6 +283,23 @@ const modelPage = require('./modelpage.js')(DATA, L, FOOT, NOTE);
    Pri upisu se svaka slika u src, poster i preload zamenjuje WebP verzijom
    kad ona postoji na disku. Original ostaje za og:image, jer neke aplikacije
    za deljenje linkova jos ne prikazuju WebP. WebP se pravi sa tools/webp.js. */
+const crypto = require('crypto');
+
+/* Otisak sadrzaja uz svaku sliku. Slike se kesiraju 30 dana, a imena fajlova
+   se ne menjaju, pa bi posetilac koji je vec bio na sajtu i posle zamene
+   slike jos danima gledao staru verziju. */
+const otisciSlika = {};
+function otisakSlike(rel) {
+  const cist = rel.replace(/^(\.\.\/)+/, '').split('?')[0];
+  if (!(cist in otisciSlika)) {
+    try {
+      const buf = fs.readFileSync(path.join(ROOT, cist));
+      otisciSlika[cist] = crypto.createHash('md5').update(buf).digest('hex').slice(0, 8);
+    } catch (e) { otisciSlika[cist] = ''; }
+  }
+  return otisciSlika[cist] ? '?v=' + otisciSlika[cist] : '';
+}
+
 const imaWebp = (rel) => {
   const w = rel.replace(/\.(png|jpg|jpeg)$/i, '.webp');
   if (w === rel) return null;
@@ -293,9 +310,11 @@ const imaWebp = (rel) => {
 function uWebp(html) {
   return html
     .replace(/(\s(?:src|poster)=")([^"]+\.(?:png|jpg|jpeg))(")/gi,
-      (m, a, url, b) => a + (imaWebp(url) || url) + b)
+      (m, a, url, b) => { const u = imaWebp(url) || url; return a + u + otisakSlike(u) + b; })
+    .replace(/(\s(?:src|poster)=")([^"]+\.(?:webp|mp4))(")/gi,
+      (m, a, url, b) => a + url + otisakSlike(url) + b)
     .replace(/(<link rel="preload" as="image" href=")([^"]+)(")/gi,
-      (m, a, url, b) => a + (imaWebp(url) || url) + b)
+      (m, a, url, b) => { const u = imaWebp(url) || url; return a + u + otisakSlike(u) + b; })
     /* dekodiranje van glavne niti za sve slike koje se ucitavaju lenjo */
     .replace(/<img (?![^>]*decoding=)([^>]*loading="lazy")/gi, '<img decoding="async" $1');
 }
