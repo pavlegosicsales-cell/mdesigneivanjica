@@ -117,12 +117,15 @@ module.exports = function (DATA, L, FOOT) {
       SAVET
     ],
     'Letnjikovci i pergole': [
-      ['Osnovni paket', 'Osnovni paket', 'Standard', 'Konstrukcija, krovni sklop i obrada drveta. Jedini nivo iz kataloga.', true],
+      ['Osnovni paket', 'Osnovni', 'Kataloška cena', 'Noseća konstrukcija, standardna zaštita drveta, osnovni elementi i montaža.', true],
+      ['Standard', 'Standard', 'Više opreme', 'Dodatna oprema, kvalitetnija obrada i funkcionalni elementi prema modelu.'],
+      ['Premium i Custom', 'Premium i Custom', 'Po meri', 'Posebne boje, rasveta, pod, dodatni moduli i individualni detalji.'],
       SAVET
     ],
     'Dečja igrališta': [
-      ['Osnovni paket', 'Osnovni paket', 'Tipski model', 'Tipsko igralište iz kataloga, sa montažom.', true],
-      ['Po projektu', 'Po projektu', 'Prema prostoru', 'Igralište krojeno prema prostoru i broju dece.'],
+      ['Osnovni paket', 'Osnovni', 'Kataloška cena', 'Noseća konstrukcija, standardna zaštita, osnovni elementi i montaža.', true],
+      ['Standard', 'Standard', 'Više opreme', 'Dodatna oprema, kvalitetnija obrada i funkcionalni elementi prema modelu.'],
+      ['Premium i Custom', 'Premium i Custom', 'Po meri', 'Posebne boje, rasveta, pod, dodatni moduli i individualni detalji.'],
       SAVET
     ],
     'Resort i investicije': [

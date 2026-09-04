@@ -406,7 +406,9 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe5pSKMFia4J0_SxgmI3F
     if (!paketLabel || paketLabel === 'treba mi savet') return sorted[0];
     var needle = paketLabel.toLowerCase();
     var matches = sorted.filter(function (c) { return c[0].toLowerCase().indexOf(needle) !== -1; });
-    return matches.length ? matches[0] : sorted[0];
+    /* Kad katalog za taj nivo nema cenu (Standard i Premium kod letnjikovaca
+       i igralista), bolje je reci Na upit nego prikazati cenu osnovnog paketa. */
+    return matches.length ? matches[0] : null;
   }
 
   function estimatePrice_() {

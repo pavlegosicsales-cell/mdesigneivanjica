@@ -135,3 +135,43 @@ site/
   taj blok u `vercel.json` može da ostane, on ne dira pravi domen.
 - **Keširanje.** Slike i video 30 dana, CSS i JS jedan dan uz
   `stale-while-revalidate`.
+
+## Slike modela i sadržaj iz kataloga (4. septembar 2026)
+
+- **`images/modeli/`** sadrži po jednu sliku za svaki od 40 modela, izvučenu iz
+  PDF kataloga 2026, plus 8 kataloških osnova prizemlja za montažne kuće
+  (`<slug>-osnova`). Svaka slika postoji kao `.webp` (prikaz) i `.jpg`
+  (og:image i deljenje linkova). Putanja se upisuje u `data/modeli.json`, polja
+  `slika` i `osnova`.
+- **`images/galerija/`** su fotografije sa terena, **`images/sekcije/`** su
+  ilustracije za sekcije na početnoj i strani O nama. Sekcijske slike imaju
+  providnu pozadinu, zato se čuvaju kao PNG plus WebP sa alfa kanalom. Kada se
+  konvertuju, mora `im.convert('RGBA')`, jer `RGB` gazi providnost bojom palete.
+- **`data/modeli.json`, po kategoriji**: `paketiObuhvat` (šta koji paket
+  obuhvata), `paketiNapomena`, `paketiTabela` (samo A-frame, uporedna tabela),
+  `limiti` (limiti završnih materijala), `rok` i `podloga` (letnjikovci,
+  bungalovi, igrališta). U korenu: `transport` i `temeljPodaci`.
+  Sve preuzeto doslovno iz kataloga 2026.
+- **`cenovnikpage.js`** i **`galerijapage.js`** su zasebni moduli, kao
+  `modelpage.js`. `pages.js` ih samo poziva.
+
+## Mobilna verzija
+
+Prelomna tačka je 810px. Na telefonu:
+
+- hero ne skraba video, video se uopšte ne preuzima, ostaje poster slika,
+  tekst je centriran (`js/main.js`, promenljiva `telefon`)
+- kartice kategorija se prevlače prstom (`overflow-x:auto` uz `scroll-snap`),
+  bez pina od 290vh. Traka mora da ima `width:100%`, inače nema šta da se
+  skroluje i vidi se samo prva kartica.
+- traka sa logotipom ostaje svetla i nad tamnim sekcijama, dugme menija je
+  tekst `[ MENI ]`, zatvoren meni je sklonjen preko `visibility` jer je
+  njegova ivica ostavljala liniju ispod trake
+- filteri u galeriji su jedna traka koja se prevlači
+- konfigurator ima manje unutrašnje margine, opcije su 317px umesto 245px
+
+## Keširanje
+
+CSS i JS se učitavaju sa otiskom sadržaja u adresi (`?v=hash`, funkcija `v()` u
+`layout.js`). Bez toga posetilac koji je već bio na sajtu vuče staru verziju iz
+keša do jednog dana, pošto `vercel.json` postavlja `max-age=86400`.
